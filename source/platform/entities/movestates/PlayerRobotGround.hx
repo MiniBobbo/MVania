@@ -68,7 +68,7 @@ class PlayerRobotGround extends FSMModule
 		}
 		
 		if (i.isButtonJustPressed('attack')) {
-			shoot();
+			player.shoot2();
 		}
 
 		

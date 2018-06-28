@@ -83,7 +83,6 @@ class Attack extends FlxSprite
 	public function initAttack(p:FlxPoint, v:FlxPoint, lifespan:Float, anim:String) {
 		ID = FlxG.random.int();
 		visible = true;
-		changeHitBoxSize(anim);
 		
 		reset(p.x-width/2, p.y - height/2);
 		//trace('Attack velocity ' + v);
@@ -103,9 +102,7 @@ class Attack extends FlxSprite
 		//TODO:Add the particle effect for attacks here.
 	}
 	
-	private function changeHitBoxSize(anim:String) {
-		// Override this to change the hitbox size and location based on the animation.
-	}
+
 	
 	/**
 	 * Called by an enttiy when hit by an attack.  Override to make the attack disappear or something.

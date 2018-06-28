@@ -2,6 +2,7 @@ package platform.entities;
 import flixel.math.FlxPoint;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
+import platform.entities.Attack.AttackTypes;
 import platform.entities.movestates.PlayerBallAir;
 import platform.entities.movestates.PlayerBallGround;
 import platform.entities.movestates.PlayerPop;
@@ -56,6 +57,8 @@ class Player extends Entity
 	// 2 - fire
 	public  var attackType:Int = 0;
 	
+	public var currentAttackType:AttackTypes;
+	
 	//Boost variables
 public var currentBoostCount(default, null) :Int = 0;
 	var maxBoostCount:Int = 0;
@@ -67,6 +70,7 @@ public var currentBoostCount(default, null) :Int = 0;
 		super();
 		changeForm(H.playerDef.playerForm);
 		hp = maxHP;
+		currentAttackType = AttackTypes.SHOT;
 	}
 
 	public function changeForm(newForm:String)
@@ -171,7 +175,18 @@ public var currentBoostCount(default, null) :Int = 0;
 	 * Sets the attributes of this weapon, for example, the energy cost, damage, 
 	 */
 	private function setWeaponAttributes() {
-		
+		switch (currentAttackType) 
+		{
+			case AttackTypes.ELECTRIC:
+				ATTACK_DELAY = .1;
+				shotEnergyCost = 1;
+			case AttackTypes.FIRE:
+				ATTACK_DELAY = .15;
+				shotEnergyCost = 2;
+			default:
+				ATTACK_DELAY = .2;
+				shotEnergyCost = 2;
+		}
 	}
 
 	private function weaponUp() {
@@ -232,6 +247,37 @@ public var currentBoostCount(default, null) :Int = 0;
 
 	}
 
+	private function getAttackDelay(type:AttackTypes):Float {
+		switch (type) 
+		{
+			default:
+				return .15;
+				
+		}
+	}
+	
+	public function shoot2() {
+		var attackType = AttackTypes.FIRE;
+		if (attackDelay > 0 || energy < shotEnergyCost)
+			return;
+		attackDelay = getAttackDelay(attackType);
+		changeEnergy(-shotEnergyCost);
+		var a = H.ps.getUnivAttack();
+		AttackFactory.configAttack(a, attackType );
+		var direction = FlxPoint.get( -500, 0);
+		var position = FlxPoint.get().copyFrom(getMidpoint());
+		position.y = y + height - attackOffset.y;
+		if (flipX)
+		{
+			position.x += attackOffset.x;
+			direction.x *= -1;
+		}
+		else
+			position.x -= attackOffset.x;		
+			a.newInitAttack(position, direction, 4, AttackTypes.SHOT);
+
+	}
+	
 	public function shoot()
 	{
 		if (attackDelay > 0 || energy < shotEnergyCost)

@@ -1,5 +1,8 @@
 package platform.entities.attacks;
 
+import flixel.FlxG;
+import flixel.math.FlxPoint;
+import flixel.util.FlxTimer;
 import platform.entities.Attack;
 
 /**
@@ -8,9 +11,12 @@ import platform.entities.Attack;
  */
 class UnivAttack extends Attack 
 {
-	private var onUpdate:Attack->Float->Void;
-	private var onInit:Attack->Void;
-	private var onComplete:Attack->Void;
+	public var onUpdate:UnivAttack->Float->Void;
+	public var onInit:UnivAttack->Void;
+	public var onComplete:UnivAttack->Void;
+	
+	public var fireAnim:String;
+	public var endAnim:String;
 	
 	public function new(lifespan:Float=3) 
 	{
@@ -27,4 +33,59 @@ class UnivAttack extends Attack
 		 
 	}
 	
+	public function setHitboxSize(type:AttackTypes) {
+		switch (type) 
+		{
+			default:
+				setSize(10, 10);
+		}
+	}
+	/**
+	 * Resets an attacks parameters.  This should be called every time the attack is used
+	 * @param	p the point this attack should appear.
+	 * @param	v Velocity that this attack should travel.
+	 * @param	lifespan Lifespan of the attack.
+	 * @param 	The type of attack
+	 */
+	public function newInitAttack(p:FlxPoint, v:FlxPoint, lifespan:Float, type:AttackTypes) {
+		ID = FlxG.random.int();
+		visible = true;
+		setHitboxSize(type);
+		centerOffsets();
+		reset(p.x-width/2, p.y - height/2);
+		//trace('Attack velocity ' + v);
+		maxVelocity.set(1000, 1000);
+		velocity.copyFrom(v);
+		this.lifespan = lifespan;
+		if(onInit != null)
+			onInit(this);
+		else {
+			animation.play(fireAnim);
+		}
+
+	}	
+	public function setUpdateFunction(f:UnivAttack->Float->Void) {
+		onUpdate = f;
+		
+	}
+	public function setInitFunction(f:UnivAttack->Void) {
+		onInit = f;
+	}
+
+	public function setCompleteFunction(f:UnivAttack->Void) {
+		onComplete = f;
+	}
+	override public function hitMap() 
+	{
+		if (!alive)
+			return;
+		alive = false;
+		if (onComplete == null) {
+			animation.play(endAnim);
+			new FlxTimer().start(1, function(_) {exists = false; });
+
+		} else {
+			onComplete(this);
+		}
+	}
 }

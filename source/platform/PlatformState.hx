@@ -24,6 +24,7 @@ import platform.entities.Player;
 import platform.entities.Replicator;
 import platform.entities.Zone;
 import platform.entities.attacks.PlayerShot;
+import platform.entities.attacks.UnivAttack;
 import platform.entities.gameentites.Enemy;
 import platform.entities.interact.ReplicatorZone;
 import platform.entities.interact.TerminalZone;
@@ -69,6 +70,7 @@ class PlatformState extends FlxState
 	var enemies:FlxTypedGroup<Enemy>;
 	public var playerAttacks:FlxTypedGroup<PlayerShot>;
 	var enemyAttacks:FlxTypedGroup<Attack>;
+	var univAttacks:FlxTypedGroup<UnivAttack>;
 	var sprites:FlxSpriteGroup;
 	
 	var timeInLevel:Float = 0;
@@ -96,6 +98,7 @@ class PlatformState extends FlxState
 		zones = new FlxTypedGroup<Zone>();
 		playerAttacks= new FlxTypedGroup<PlayerShot>();
 		enemyAttacks = new FlxTypedGroup<Attack>();
+		univAttacks = new FlxTypedGroup<UnivAttack>();
 		hud = new HUD();
 		farbg = new FlxSpriteGroup();
 		hud.scrollFactor.set();
@@ -139,6 +142,7 @@ class PlatformState extends FlxState
 		add(zones);
 		add(enemyAttacks);
 		add(playerAttacks);
+		add(univAttacks);
 		add(emitter);
 		if (fg != null)
 			add(fg);
@@ -204,7 +208,9 @@ class PlatformState extends FlxState
 		
 		
 		FlxG.collide(playerAttacks, collision, attackHitsMap);
+		FlxG.collide(univAttacks, collision, attackHitsMap);
 		FlxG.overlap(playerAttacks, enemies, attackHits);
+		FlxG.overlap(univAttacks, enemies, attackHits);
 		FlxG.overlap(player, enemies, playerOverlapEntity);
 		
 		//Check if the player used something
@@ -379,6 +385,16 @@ class PlatformState extends FlxState
 				new FlxTimer().start(.5, function(_) {   H.ps.resetState(); });
 		}});
 	}
+	
+	public function getUnivAttack():UnivAttack {
+		var a = univAttacks.getFirstAvailable();
+		if (a == null) {
+			a = new UnivAttack();
+			univAttacks.add(a);
+		}
+		return a;
+	}
+	
 	
 	public function getPlayerAttack():PlayerShot {
 		var a = playerAttacks.getFirstAvailable();

@@ -47,7 +47,7 @@ class PlayerShot extends Attack
 		}
 	}
 	
-	override function changeHitBoxSize(anim:String) 
+	function changeHitBoxSize(anim:String) 
 	{
 		switch (anim) 
 		{
