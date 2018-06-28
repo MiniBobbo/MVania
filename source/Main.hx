@@ -30,11 +30,11 @@ class Main extends Sprite
 		InputHelper.addButton('weaponDown');
 		InputHelper.assignKeyToButton('L', 'jump');
 		InputHelper.assignKeyToButton('K', 'attack');
-		InputHelper.assignKeyToButton('I', 'use');
+		InputHelper.assignKeyToButton('W', 'use');
 		InputHelper.assignKeyToButton('O', 'boost');
 		InputHelper.assignKeyToButton('E', 'weaponUp');
 		InputHelper.assignKeyToButton('Q', 'weaponDown');
-		H.currentLevel = '11';
+		H.currentLevel = '12';
 		H.previousLevel = 'start';
 		
 		//Clear the save for testing.  This should be changed to LoadSave instead.

@@ -11,6 +11,8 @@ import platform.entities.enemies.Turret;
 import platform.entities.enemies.TurretBase;
 import platform.entities.gameentites.Enemy;
 import platform.entities.things.Door;
+import platform.entities.things.Panel;
+import platform.entities.things.Terminal;
 import tmxtools.TmxRect;
 
 /**
@@ -60,6 +62,10 @@ class EnemyFactory
 				e = new BoostUpgrade(map);
 				H.rectToTile(rect);
 				e.reset(rect.r.x, rect.r.y);
+			case 'terminal':
+				e = new Terminal(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
 			case 'roborat':
 				e = new RoboRat(map);
 				H.rectToTile(rect);
@@ -84,9 +90,19 @@ class EnemyFactory
 					e.hp = 0;
 				}
 			case 'door':
-				e = new Door(map);
+				var code = 0;
+				if (rect.properties.exists('code'))
+					code = Std.parseInt(rect.properties.get('code'));
+				e = new Door(map, code);
 				H.rectToTile(rect);
 				e.reset(rect.r.x+2, rect.r.y-64);
+			case 'panel':
+				var code = 0;
+				if (rect.properties.exists('code'))
+					code = Std.parseInt(rect.properties.get('code'));
+				e = new Panel(map, code);
+				H.rectToTile(rect);
+				e.reset(rect.r.x+2, rect.r.y);
 				
 				
 			default:

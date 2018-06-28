@@ -45,11 +45,15 @@ class Door extends Enemy
 	
 	public function lockDoor() {
 		locked = true;
+		alive = true;
 		alpha = 1;
+		hp = -1;
 	}
 	
 	private function unlockDoor() {
 		locked = false;
+		alive = false;
 		alpha = .3;
+		hp = 0;
 	}
 }

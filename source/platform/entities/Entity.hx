@@ -2,6 +2,7 @@ package platform.entities;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.math.FlxPoint;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 import flixel.tile.FlxTilemap;
 import flixel.tweens.FlxTween;
@@ -28,6 +29,10 @@ class Entity extends FlxSprite
 	public var collideMap:Bool = true;
 	
 	public var fsm:FSM;
+	
+	public var tempGravity(default, null) :Float;
+	public var permGravity(default, null) :FlxPoint;
+	public var gravityHold:Float;
 	
 	//What is the ID of the last hit on this entity?  Basically allows an entity to not be hit by the same attack multiple times.  
 	//This isn't really needed if entities have an invincibility like with a flash or something.  It was trying to solve a problem that
@@ -57,6 +62,9 @@ class Entity extends FlxSprite
 	
 	override public function update(elapsed:Float):Void 
 	{
+		//TODO Be smarter about temp gravity.  Maybe something event based?
+		
+		
 		if (iTime > 0)
 		 iTime -= elapsed;
 		if(collideMap)
@@ -148,5 +156,9 @@ class Entity extends FlxSprite
 		if (iTime > 0)
 			return true;
 		return false;
+	}
+	
+	public function applyTempGravity() {
+		
 	}
 }

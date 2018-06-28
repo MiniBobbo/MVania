@@ -254,6 +254,8 @@ public var currentBoostCount(default, null) :Int = 0;
 			
 		else if (attackType == 1)
 			a.initAttack(position, direction, 10, 'fireshot');
+		else if (attackType == 2)
+			a.initAttack(position, direction, 10, 'elecshot');
 		direction.put();
 		position.put();
 		a.flipX = flipX;

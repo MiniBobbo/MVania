@@ -31,7 +31,8 @@ class BGFactory
 			case '6':
 				var bgs = new FlxBackdrop('assets/images/outsidebg.png', .3, 0);
 				state.add(bgs);
-				
+			case '1':
+				var bgs = new FlxBackdrop('assets/images/outsidebg.png', .3, 0);
 			default:
 				
 		}

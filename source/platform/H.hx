@@ -110,7 +110,7 @@ class H
 	}
 	
 	public static function signalAll(signal:String, ?data:Dynamic) {
-		H.ps.entities.forEachAlive(function(e:Entity) { e.signal(signal); } );
+		H.ps.entities.forEachAlive(function(e:Entity) { e.signal(signal, data); } );
 	}
 	
 	public static function getFrames():FlxFramesCollection {

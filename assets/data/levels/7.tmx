@@ -69,7 +69,7 @@
   <object id="36" name="message" type="Testing turret enemy" x="34.6667" y="324.667" width="216.667" height="126"/>
   <object id="37" name="enemy" type="turret" x="361.5" y="270" width="13" height="12.5">
    <properties>
-    <property name="rate" value=".5"/>
+    <property name="rate" value="1"/>
     <property name="up" value=""/>
    </properties>
   </object>

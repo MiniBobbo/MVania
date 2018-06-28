@@ -8,8 +8,10 @@ import flixel.system.FlxAssets.FlxGraphicAsset;
 import flixel.util.FlxColor;
 
 enum AttackTypes {
-	TEST;
-	PLAYER_SHOT;
+	SHOT;
+	FIRE;
+	ELECTRIC;
+	
 }
 
 /**
@@ -31,17 +33,29 @@ class Attack extends FlxSprite
 	
 	public var partColor:FlxColor = FlxColor.BLUE;
 	
+
+	
+	
 	public function new(lifespan:Float = 3 ) 
 	{
 		super();
 		
 		//Add animations here.
-
+		frames = H.getFrames();
+		animation.addByPrefix('playershot', 'Attacks_shot_', 18, false);
+		animation.addByPrefix('end', 'Attacks_PlayerShotEnd_', 18, false);
+		animation.addByPrefix('shot', 'Attacks_shot_', 18, false);
+		animation.addByPrefix('fireshot', 'Attacks_fire_', 18, false);
+		animation.addByPrefix('elecshot', 'Attacks_electricshot_', 18);
+		animation.addByPrefix('fireshotend', 'Attacks_fireend_', 18, false);
+		animation.addByPrefix('elecshotend', 'Attacks_electricend_', 18, false);
+		
+		exists = false;
+		alive = false;
 		
 		attackVelocity = new FlxPoint();
 		this.lifespan = lifespan;
 		
-		//this.velocity.set(velocity.x, velocity.y);
 	}
 	
 	override public function update(elapsed:Float):Void 
@@ -55,6 +69,7 @@ class Attack extends FlxSprite
 		if (lifespan <= 0) {
 			this.kill();
 		}
+
 		
 	}
 	

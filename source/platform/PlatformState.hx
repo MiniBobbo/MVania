@@ -26,6 +26,8 @@ import platform.entities.Zone;
 import platform.entities.attacks.PlayerShot;
 import platform.entities.gameentites.Enemy;
 import platform.entities.interact.ReplicatorZone;
+import platform.entities.interact.TerminalZone;
+import platform.entities.zones.AntigravZone;
 import platform.entities.zones.DeathZone;
 import platform.entities.zones.HelpMessageZone;
 import platform.entities.zones.SignalZone;
@@ -281,6 +283,15 @@ class PlatformState extends FlxState
 					//var s = type.split('_');
 					//var t = new TravelZone(r.r.x, r.r.y, r.r.width, r.r.height, s[0], s[1]);
 					//zones.add(t);
+				case 'terminal' :
+					H.rectToTile(r);
+					var terminalZone = new TerminalZone(r.r.x, r.r.y, 32, 32);
+					if (r.properties.exists('code'))
+						terminalZone.setCode(Std.parseInt(r.properties.get('code')));
+					usable.push(terminalZone);
+					var enemy = EnemyFactory.createEnemy('terminal', r, collision);
+					nocollide.add(enemy);
+
 				case 'replicator':
 					r.r.x -= 32;
 					r.r.y -= 32;
@@ -301,13 +312,14 @@ class PlatformState extends FlxState
 					rz.ID = id;
 					usable.push(rz);
 					
-					//trace('Added replicator ' + rep.toString());
-					//var d = EnemyFactory.createEnemy('door', r, collision);
-					//entities.add(d);
-					//enemies.add(d);
-				//case 'signal':
-					//var s = new SignalZone(r.r.x, r.r.y, r.r.width, r.r.height, r.properties.get('type'));
-					//zones.add(s);
+				case 'antigrav':
+					var height = Std.parseInt(r.properties.get('type'));
+					H.rectToTile(r);
+					r.r.y -= height * 32;
+					r.r.height = height * 32;
+					var agz = new AntigravZone(r.r.x, r.r.y, r.r.width, r.r.height);
+					zones.add(agz);
+					
 				case 'sprite':
 					var splitrects = H.rectToRects(r);
 					for (i in splitrects) {
@@ -398,7 +410,7 @@ class PlatformState extends FlxState
 	
 	function use():Void 
 	{
-		player.signal('stun', FlxPoint.weak(-200,-200));
+		//player.signal('stun', FlxPoint.weak(-200,-200));
 		
 		//if (InputHelper.isButtonPressed('up') && player.playerForm != 'BALL') {
 			//if (replicatedObject != null) {
@@ -420,12 +432,13 @@ class PlatformState extends FlxState
 			//replicatedObject = null;
 		//}
 		//
-		//for (z in usable) {
-			//if (z.overlaps(player)) {
-				//z.interact();
-				//break;
-			//}
-		//}
+		for (z in usable) {
+			if (z.overlaps(player)) {
+				trace('Found something to use');
+				z.interact();
+				break;
+			}
+		}
 	}
 	
 	/**

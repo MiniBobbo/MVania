@@ -86,7 +86,7 @@ class HUD extends FlxSpriteGroup
 	
 	
 	private function createBoost() {
-		var booststart = healthBar.barWidth + 100;
+		var booststart = healthBar.barWidth + 120;
 		boost = createSprite();
 		boost.animation.addByPrefix('boost', 'icons_boost_',6);
 		boost.animation.play('boost');

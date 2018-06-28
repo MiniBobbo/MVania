@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="32" tileheight="32" nextobjectid="35">
+<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="32" tileheight="32" nextobjectid="40">
  <tileset firstgid="1" name="32blocks" tilewidth="32" tileheight="32" tilecount="10" columns="10">
   <image source="32blocks.png" width="320" height="32"/>
  </tileset>
@@ -68,5 +68,10 @@
   <object id="32" name="d" type="start" x="43.3333" y="203.333" width="12.6667" height="13.3333"/>
   <object id="33" name="message" type="Testing fire attack pickup" x="28" y="128" width="109.333" height="143.333"/>
   <object id="34" name="enemy" type="fire" x="396" y="392" width="15" height="13"/>
+  <object id="35" name="enemy" type="plantblocker" x="592.5" y="429.5" width="15" height="13"/>
+  <object id="36" name="enemy" type="plantblocker" x="597.5" y="354.5" width="15" height="13"/>
+  <object id="37" name="enemy" type="plantblocker" x="599.5" y="403.5" width="15" height="13"/>
+  <object id="38" name="enemy" type="plantblocker" x="597.5" y="378.5" width="15" height="13"/>
+  <object id="39" name="message" type="These enemies can only be killed by fire." x="313" y="326" width="227" height="123"/>
  </objectgroup>
 </map>
