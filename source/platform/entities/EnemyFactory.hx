@@ -1,0 +1,73 @@
+package platform.entities;
+import flixel.FlxG;
+import flixel.tile.FlxTilemap;
+import platform.H;
+import platform.entities.enemies.Rat;
+import platform.entities.enemies.RoboRat;
+import platform.entities.enemies.Turret;
+import platform.entities.enemies.TurretBase;
+import platform.entities.gameentites.Enemy;
+import tmxtools.TmxRect;
+
+/**
+ * ...
+ * @author Dave
+ */
+class EnemyFactory 
+{
+
+	/**
+	 * Creates an enemy and places it in the correct location and then returns it.
+	 * @param	type	The type to create
+	 * @param	rect	The rectangle to create it in.  really, just lines up the bottom
+	 * @return	The new enemy.  Be sure to add it to the game.
+	 */
+	public static function createEnemy(type:String, rect:TmxRect, map:FlxTilemap):Enemy {
+		var e:Enemy = null;
+		switch (type) 
+		{
+			//Create the specific enemies here.
+			case 'rat':
+				e = new Rat(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+			case 'turret':
+				var base = createEnemy('turretbase', rect, map);
+				if (rect.properties.exists('up'))
+					base.flipY = true;
+					
+				H.ps.nocollide.add(base);
+				e = new Turret(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+				if (rect.properties.exists('rate'))
+					cast(e, Turret).FIRE_DELAY = Std.parseFloat(rect.properties.get('rate'));
+				
+			case 'turretbase':
+				e = new TurretBase(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+			case 'roborat':
+				e = new RoboRat(map);
+				H.rectToTile(rect);
+				cast(e, RoboRat).setFinishPosition(rect.r.x, Std.parseFloat(rect.properties.get('finish') ));
+				e.reset(rect.r.x, rect.r.y);
+			case 'fire':
+				e = new FireAttack(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+			default:
+				e = new Enemy(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+				
+		}
+		if (rect.properties.exists('facing'))
+			e.flipX = true;
+		
+		return e;
+	}
+	
+	
+	
+}
