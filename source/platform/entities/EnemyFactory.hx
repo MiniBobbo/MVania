@@ -10,6 +10,7 @@ import platform.entities.enemies.RoboRat;
 import platform.entities.enemies.Turret;
 import platform.entities.enemies.TurretBase;
 import platform.entities.gameentites.Enemy;
+import platform.entities.things.Door;
 import tmxtools.TmxRect;
 
 /**
@@ -73,6 +74,21 @@ class EnemyFactory
 					e.visible = false;
 					e.hp = 0;
 				}
+			case 'lightning':
+				e = new LightningAttack(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+				if (H.playerDef.attacks[2]){
+					e.exists = false;
+					e.visible = false;
+					e.hp = 0;
+				}
+			case 'door':
+				e = new Door(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x+2, rect.r.y-64);
+				
+				
 			default:
 				e = new Enemy(map);
 				H.rectToTile(rect);

@@ -16,6 +16,7 @@ typedef PlayerDef =
 	var checkpoint:String;
 	var attacks:Array<Bool>;
 	var attackSelected:Int;
+	var flags:Array<Bool>;
 	
 	
 }

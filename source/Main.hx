@@ -48,7 +48,8 @@ class Main extends Sprite
 			boostUpgrade:false,
 			checkpoint:'8',
 			attacks:[true, false, false],
-			attackSelected:0
+			attackSelected:0,
+			flags:[]
 			
 		};
 		H.clearSave();
