@@ -26,9 +26,12 @@ class PlayerRobotGround extends FSMModule
 	{
 		super(e);
 		//jump = FlxG.sound.load('assets/sounds/jump2.ogg');
-		FlxG.watch.add(this, 'shootAnim');
-		FlxG.watch.add(this, 'lastShootAnim');
 		player = cast e;
+	}
+	
+	override public function changeTo() 
+	{
+		player.resetBoost();
 	}
 	
 	override public function update(dt:Float) 
@@ -59,6 +62,9 @@ class PlayerRobotGround extends FSMModule
 			parent.velocity.y = 0;
 			//jump.play();
 			parent.fsm.changeState('air');
+		} else if (i.isButtonJustPressed('boost')) {
+			parent.signal('boost');
+			return;
 		}
 		
 		if (i.isButtonJustPressed('attack')) {

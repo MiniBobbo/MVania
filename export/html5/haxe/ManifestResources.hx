@@ -55,7 +55,7 @@ import sys.FileSystem;
 		
 		var data, manifest, library;
 		
-		data = '{"name":null,"assets":"aoy4:pathy34:assets%2Fdata%2Fdata-goes-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR0y30:assets%2Fdata%2Flevels%2F1.tmxR2i3451R3R4R5R7R6tgoR0y30:assets%2Fdata%2Flevels%2F2.tmxR2i7650R3R4R5R8R6tgoR0y30:assets%2Fdata%2Flevels%2F3.tmxR2i3811R3R4R5R9R6tgoR0y37:assets%2Fdata%2Flevels%2F32blocks.pngR2i1846R3y5:IMAGER5R10R6tgoR0y30:assets%2Fdata%2Flevels%2F4.tmxR2i3642R3R4R5R12R6tgoR0y30:assets%2Fdata%2Flevels%2F5.tmxR2i3817R3R4R5R13R6tgoR0y42:assets%2Fdata%2Flevels%2FCombinedTiles.pngR2i7873R3R11R5R14R6tgoR0y40:assets%2Fdata%2Flevels%2FshipTileset.pngR2i4909R3R11R5R15R6tgoR0y40:assets%2Fdata%2Flevels%2Fshiptileset.tsxR2i201R3R4R5R16R6tgoR0y27:assets%2Fdata%2Ftemple2.tmxR2i81251R3R4R5R17R6tgoR0y33:assets%2Fdata%2Ftemplemgsheet.pngR2i21804R3R11R5R18R6tgoR0y27:assets%2Fimages%2Fmain.jsonR2i15407R3R4R5R19R6tgoR0y26:assets%2Fimages%2Fmain.pngR2i7630R3R11R5R20R6tgoR0y26:assets%2Fimages%2Fpods.pngR2i271R3R11R5R21R6tgoR0y33:assets%2Fimages%2FSanityBar_0.pngR2i184R3R11R5R22R6tgoR0y33:assets%2Fimages%2FSanityBar_1.pngR2i135R3R11R5R23R6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R4R5R24R6tgoR0y36:assets%2Fsounds%2Fsounds-go-here.txtR2zR3R4R5R25R6tgoR2i2114R3y5:MUSICR5y26:flixel%2Fsounds%2Fbeep.mp3y9:pathGroupaR27y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R26R5y28:flixel%2Fsounds%2Fflixel.mp3R28aR30y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i5794R3y5:SOUNDR5R29R28aR27R29hgoR2i33629R3R32R5R31R28aR30R31hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R33R34y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i519R3R11R5R39R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i3280R3R11R5R40R6tgh","rootPath":null,"version":2,"libraryArgs":[],"libraryType":null}';
+		data = '{"name":null,"assets":"aoy4:pathy34:assets%2Fdata%2Fdata-goes-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR0y30:assets%2Fdata%2Flevels%2F1.tmxR2i3470R3R4R5R7R6tgoR0y30:assets%2Fdata%2Flevels%2F2.tmxR2i8221R3R4R5R8R6tgoR0y30:assets%2Fdata%2Flevels%2F3.tmxR2i3663R3R4R5R9R6tgoR0y37:assets%2Fdata%2Flevels%2F32blocks.pngR2i1846R3y5:IMAGER5R10R6tgoR0y30:assets%2Fdata%2Flevels%2F4.tmxR2i3681R3R4R5R12R6tgoR0y30:assets%2Fdata%2Flevels%2F5.tmxR2i3833R3R4R5R13R6tgoR0y30:assets%2Fdata%2Flevels%2F6.tmxR2i5177R3R4R5R14R6tgoR0y30:assets%2Fdata%2Flevels%2F7.tmxR2i3718R3R4R5R15R6tgoR0y30:assets%2Fdata%2Flevels%2F8.tmxR2i3591R3R4R5R16R6tgoR0y30:assets%2Fdata%2Flevels%2F9.tmxR2i3570R3R4R5R17R6tgoR0y42:assets%2Fdata%2Flevels%2FCombinedTiles.pngR2i7873R3R11R5R18R6tgoR0y40:assets%2Fdata%2Flevels%2FshipTileset.pngR2i8760R3R11R5R19R6tgoR0y40:assets%2Fdata%2Flevels%2Fshiptileset.tsxR2i201R3R4R5R20R6tgoR0y27:assets%2Fdata%2Ftemple2.tmxR2i81251R3R4R5R21R6tgoR0y33:assets%2Fdata%2Ftemplemgsheet.pngR2i21804R3R11R5R22R6tgoR0y27:assets%2Fimages%2Fmain.jsonR2i39708R3R4R5R23R6tgoR0y26:assets%2Fimages%2Fmain.pngR2i16069R3R11R5R24R6tgoR0y31:assets%2Fimages%2Foutsidebg.pngR2i3631R3R11R5R25R6tgoR0y26:assets%2Fimages%2Fpods.pngR2i271R3R11R5R26R6tgoR0y33:assets%2Fimages%2FSanityBar_0.pngR2i184R3R11R5R27R6tgoR0y33:assets%2Fimages%2FSanityBar_1.pngR2i135R3R11R5R28R6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R4R5R29R6tgoR0y36:assets%2Fsounds%2Fsounds-go-here.txtR2zR3R4R5R30R6tgoR2i2114R3y5:MUSICR5y26:flixel%2Fsounds%2Fbeep.mp3y9:pathGroupaR32y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R31R5y28:flixel%2Fsounds%2Fflixel.mp3R33aR35y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i5794R3y5:SOUNDR5R34R33aR32R34hgoR2i33629R3R37R5R36R33aR35R36hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R38R39y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i519R3R11R5R44R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i3280R3R11R5R45R6tgh","rootPath":null,"version":2,"libraryArgs":[],"libraryType":null}';
 		manifest = AssetManifest.parse (data, rootPath);
 		library = AssetLibrary.fromManifest (manifest);
 		Assets.registerLibrary ("default", library);
@@ -82,6 +82,10 @@ import sys.FileSystem;
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_32blocks_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_4_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_5_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_6_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_7_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_8_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_9_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_combinedtiles_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_shiptileset_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_shiptileset_tsx extends null { }
@@ -89,6 +93,7 @@ import sys.FileSystem;
 @:keep @:bind #if display private #end class __ASSET__assets_data_templemgsheet_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_main_json extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_main_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_outsidebg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_pods_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_sanitybar_0_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_sanitybar_1_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -114,6 +119,10 @@ import sys.FileSystem;
 @:keep @:image("assets/data/levels/32blocks.png") #if display private #end class __ASSET__assets_data_levels_32blocks_png extends lime.graphics.Image {}
 @:keep @:file("assets/data/levels/4.tmx") #if display private #end class __ASSET__assets_data_levels_4_tmx extends haxe.io.Bytes {}
 @:keep @:file("assets/data/levels/5.tmx") #if display private #end class __ASSET__assets_data_levels_5_tmx extends haxe.io.Bytes {}
+@:keep @:file("assets/data/levels/6.tmx") #if display private #end class __ASSET__assets_data_levels_6_tmx extends haxe.io.Bytes {}
+@:keep @:file("assets/data/levels/7.tmx") #if display private #end class __ASSET__assets_data_levels_7_tmx extends haxe.io.Bytes {}
+@:keep @:file("assets/data/levels/8.tmx") #if display private #end class __ASSET__assets_data_levels_8_tmx extends haxe.io.Bytes {}
+@:keep @:file("assets/data/levels/9.tmx") #if display private #end class __ASSET__assets_data_levels_9_tmx extends haxe.io.Bytes {}
 @:keep @:image("assets/data/levels/CombinedTiles.png") #if display private #end class __ASSET__assets_data_levels_combinedtiles_png extends lime.graphics.Image {}
 @:keep @:image("assets/data/levels/shipTileset.png") #if display private #end class __ASSET__assets_data_levels_shiptileset_png extends lime.graphics.Image {}
 @:keep @:file("assets/data/levels/shiptileset.tsx") #if display private #end class __ASSET__assets_data_levels_shiptileset_tsx extends haxe.io.Bytes {}
@@ -121,6 +130,7 @@ import sys.FileSystem;
 @:keep @:image("assets/data/templemgsheet.png") #if display private #end class __ASSET__assets_data_templemgsheet_png extends lime.graphics.Image {}
 @:keep @:file("assets/images/main.json") #if display private #end class __ASSET__assets_images_main_json extends haxe.io.Bytes {}
 @:keep @:image("assets/images/main.png") #if display private #end class __ASSET__assets_images_main_png extends lime.graphics.Image {}
+@:keep @:image("assets/images/outsidebg.png") #if display private #end class __ASSET__assets_images_outsidebg_png extends lime.graphics.Image {}
 @:keep @:image("assets/images/pods.png") #if display private #end class __ASSET__assets_images_pods_png extends lime.graphics.Image {}
 @:keep @:image("assets/images/SanityBar_0.png") #if display private #end class __ASSET__assets_images_sanitybar_0_png extends lime.graphics.Image {}
 @:keep @:image("assets/images/SanityBar_1.png") #if display private #end class __ASSET__assets_images_sanitybar_1_png extends lime.graphics.Image {}

@@ -1,7 +1,9 @@
 package;
 import flixel.FlxSprite;
+import flixel.addons.text.FlxTextField;
 import flixel.group.FlxGroup;
 import flixel.group.FlxSpriteGroup;
+import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import platform.H;
 import platform.entities.Bar;
@@ -13,8 +15,11 @@ import platform.entities.Bar;
 class HUD extends FlxSpriteGroup
 {
 	var selectedBox:FlxSprite;
+	var boostCount:FlxText;
+	var boost:FlxSprite;
 	var healthBar:Bar;
 	var energyBar:Bar;
+	var BOOST_LOCATION:Float;
 
 	var weaponStart:Int;
 	public function new() {
@@ -31,6 +36,7 @@ class HUD extends FlxSpriteGroup
 		add(healthBar);
 		add(energyBar);
 		createWeaponBoxes();
+		createBoost();
 	}
 	
 	public function createWeaponBoxes() {
@@ -76,6 +82,29 @@ class HUD extends FlxSpriteGroup
 		selectedBox.x = weaponStart + (34 * selection);
 		
 		
+	}
+	
+	
+	private function createBoost() {
+		var booststart = healthBar.barWidth + 100;
+		boost = createSprite();
+		boost.animation.addByPrefix('boost', 'icons_boost_',6);
+		boost.animation.play('boost');
+		boost.reset(booststart, 0);
+		boostCount = new FlxText(booststart - 3, 16, 0, '');
+		boostCount.setFormat(null, 10, FlxColor.WHITE, null, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
+		
+		if (!H.playerDef.boost) { 
+			boost.visible = false;
+			boostCount.visible = false;
+		}
+		
+		add(boost);
+		add(boostCount);
+	}
+	
+	public function setBoostCount(count:Int) {
+		boostCount.text = count + '';
 	}
 	
 }

@@ -25,14 +25,16 @@ class Main extends Sprite
 		InputHelper.addButton('jump');
 		InputHelper.addButton('attack');
 		InputHelper.addButton('use');
+		InputHelper.addButton('boost');
 		InputHelper.addButton('weaponUp');
 		InputHelper.addButton('weaponDown');
 		InputHelper.assignKeyToButton('L', 'jump');
 		InputHelper.assignKeyToButton('K', 'attack');
 		InputHelper.assignKeyToButton('I', 'use');
+		InputHelper.assignKeyToButton('O', 'boost');
 		InputHelper.assignKeyToButton('E', 'weaponUp');
 		InputHelper.assignKeyToButton('Q', 'weaponDown');
-		H.currentLevel = '9';
+		H.currentLevel = '11';
 		H.previousLevel = 'start';
 		
 		//Clear the save for testing.  This should be changed to LoadSave instead.
@@ -42,7 +44,8 @@ class Main extends Sprite
 			playerMaxHealth:10,
 			playerForm:'ROBOT',
 			upgradesCollected:new StringMap<Bool>(),
-			flags:	new StringMap<Bool>(),
+			boost:false,
+			boostUpgrade:false,
 			checkpoint:'8',
 			attacks:[true, false, false],
 			attackSelected:0

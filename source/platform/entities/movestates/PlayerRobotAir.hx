@@ -69,6 +69,9 @@ class PlayerRobotAir extends FSMModule
 			//FlxG.sound.play('assets/sounds/land.ogg');
 			parent.fsm.changeState('ground');
 			return;
+		}  else if (i.isButtonJustPressed('boost')) {
+			parent.signal('boost');			
+			return;
 		}
 		
 		if (i.isButtonPressed('left')) 

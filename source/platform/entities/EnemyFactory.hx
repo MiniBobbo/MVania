@@ -1,7 +1,10 @@
 package platform.entities;
 import flixel.FlxG;
 import flixel.tile.FlxTilemap;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 import platform.H;
+import platform.entities.enemies.PlantBlocker;
 import platform.entities.enemies.Rat;
 import platform.entities.enemies.RoboRat;
 import platform.entities.enemies.Turret;
@@ -47,6 +50,15 @@ class EnemyFactory
 				e = new TurretBase(map);
 				H.rectToTile(rect);
 				e.reset(rect.r.x, rect.r.y);
+			case 'plantblocker':
+				e = new PlantBlocker(map);
+				//H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+				FlxTween.tween(e, {y:rect.r.y+8}, FlxG.random.float(.8, 1.2), {ease:FlxEase.quadInOut, type:FlxTween.PINGPONG});
+			case 'boost':
+				e = new BoostUpgrade(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
 			case 'roborat':
 				e = new RoboRat(map);
 				H.rectToTile(rect);
@@ -56,6 +68,11 @@ class EnemyFactory
 				e = new FireAttack(map);
 				H.rectToTile(rect);
 				e.reset(rect.r.x, rect.r.y);
+				if (H.playerDef.attacks[1]){
+					e.exists = false;
+					e.visible = false;
+					e.hp = 0;
+				}
 			default:
 				e = new Enemy(map);
 				H.rectToTile(rect);

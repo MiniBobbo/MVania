@@ -6,6 +6,7 @@ import platform.entities.movestates.PlayerBallAir;
 import platform.entities.movestates.PlayerBallGround;
 import platform.entities.movestates.PlayerPop;
 import platform.entities.movestates.PlayerRobotAir;
+import platform.entities.movestates.PlayerRobotBoost;
 import platform.entities.movestates.PlayerRobotGround;
 import flixel.FlxG;
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -15,6 +16,7 @@ import fsm.FSM;
 import inputhelper.InputHelper;
 import platform.H;
 import platform.entities.movestates.PlayerRobotPowerUp;
+import platform.entities.movestates.PlayerRobotStun;
 
 enum PlayerForm
 {
@@ -40,6 +42,8 @@ class Player extends Entity
 	public var energyChargeRate:Float = 5;
 	private var shotEnergyCost:Float = 2;
 	
+	
+	
 	var attackStatus:String = '';
 	public var attackDelay(default, null):Float = 0;
 	var ATTACK_DELAY:Float = .1;
@@ -50,8 +54,12 @@ class Player extends Entity
 	// 0 - normal
 	// 1 - electric
 	// 2 - fire
-	var attackType:Int = 0;
-
+	public  var attackType:Int = 0;
+	
+	//Boost variables
+public var currentBoostCount(default, null) :Int = 0;
+	var maxBoostCount:Int = 0;
+	
 	public var playerForm(default, null):String;
 
 	public function new(m:FlxTilemap)
@@ -79,12 +87,14 @@ class Player extends Entity
 				attackOffset = new FlxPoint(10,17);
 				frames = FlxAtlasFrames.fromTexturePackerJson('assets/images/main.png', 'assets/images/main.json');
 				animation.addByPrefix('jumpup', 'robot_jumpup', 6, false);
+				animation.addByPrefix('stun', 'robot_jumpup', 6, false);
 				animation.addByPrefix('jumpshot', 'robot_jumpshot', 12, false);
 				animation.addByPrefix('jumpdown', 'robot_jumpdown', 6, false);
 				animation.addByPrefix('idle', 'robot_idle_');
 				animation.addByPrefix('powerup', 'robot_powerup_', 12, false);
 				animation.addByPrefix('idleshoot', 'robot_idleshoot_');
 				animation.addByPrefix('run', 'robot_running_', 12);
+				animation.addByPrefix('boost', 'robot_boost_', 30, false);
 				animation.addByPrefix('runshoot', 'robot_runningshoot_', 12);
 				animation.play('run');
 				centerOffsets();
@@ -96,6 +106,8 @@ class Player extends Entity
 				fsm.addtoMap('air', new PlayerRobotAir(this));
 				fsm.addtoMap('pop', new PlayerPop(this));
 				fsm.addtoMap('powerup', new PlayerRobotPowerUp(this));
+				fsm.addtoMap('stun', new PlayerRobotStun(this));
+				fsm.addtoMap('boost', new PlayerRobotBoost(this));
 				fsm.changeState('ground');
 				trace('After changestate ' + toString() );
 
@@ -113,6 +125,7 @@ class Player extends Entity
 				drag.set(700, 0);
 				fsm.addtoMap('ground', new PlayerBallGround(this));
 				fsm.addtoMap('air', new PlayerBallAir(this));
+				fsm.addtoMap('stun', new PlayerBallAir(this));
 				fsm.changeState('ground');
 
 			default:
@@ -202,6 +215,17 @@ class Player extends Entity
 				H.playerDef.attacks[2] = true;
 				attackType = 2;
 				H.ps.hud.createWeaponBoxes();
+			case 'stun':
+				if (data == null || !Std.is(data, FlxPoint))
+					return;
+				fsm.changeState('stun');
+				velocity.copyFrom(cast(data, FlxPoint));
+			case 'boost':
+				if (currentBoostCount > 0) {
+					currentBoostCount--;
+					fsm.changeState('boost');
+				}
+				
 			default:
 
 		}
@@ -279,4 +303,14 @@ class Player extends Entity
 		fsm.changeState('pop');
 
 	}
+	
+	public function resetBoost() {
+		currentBoostCount = maxBoostCount;
+	}
+	
+	public function setBoostCount(count:Int) {
+		maxBoostCount = count;
+	}
+	
+	
 }

@@ -90,7 +90,7 @@ class Rat extends Enemy
 	
 	override public function overlapEntity(entity:Entity, ?data:Dynamic) 
 	{
-		if (alive)
-			entity.takeDamage(1);
+		//if (alive)
+			//entity.takeDamage(1);
 	}
 }

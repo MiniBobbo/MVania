@@ -11,7 +11,8 @@ typedef PlayerDef =
 	var playerMaxHealth:Float;
 	var playerForm:String;
 	var upgradesCollected:StringMap<Bool>;
-	var flags:StringMap<Bool>;
+	var boost:Bool;
+	var boostUpgrade:Bool;
 	var checkpoint:String;
 	var attacks:Array<Bool>;
 	var attackSelected:Int;

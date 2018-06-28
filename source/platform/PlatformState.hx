@@ -158,9 +158,15 @@ class PlatformState extends FlxState
 		player = new Player(collision);
 		player.maxHP = H.playerDef.playerMaxHealth;
 		player.hp = H.playerDef.playerHealth;
+		player.attackType = H.playerDef.attackSelected;
 		entities.add(player);
 		player.setBottom(r.r.bottom);
 		player.x = r.r.x;
+		
+		if (H.playerDef.boost) {
+		player.setBoostCount(1);
+			
+		}
 			
 		} catch (err:Dynamic)
 		{
@@ -203,6 +209,8 @@ class PlatformState extends FlxState
 		if (InputHelper.isButtonJustPressed('use')) {
 			use();
 		}
+		
+		hud.setBoostCount(player.currentBoostCount);
 	}
 	
 	public function attackHits(a:Attack, e:Entity) {
@@ -229,7 +237,8 @@ class PlatformState extends FlxState
 	
 	public function EntityOverlapZone(e:Entity, z:Zone) {
 		//trace(e.toString() + ' overlaps ' +  z.toString());
-		z.overlapEntity(e);
+		if(z.alive)
+			z.overlapEntity(e);
 	}
 	
 
@@ -389,32 +398,34 @@ class PlatformState extends FlxState
 	
 	function use():Void 
 	{
-		if (InputHelper.isButtonPressed('up') && player.playerForm != 'BALL') {
-			if (replicatedObject != null) {
-				sprites.remove(replicatedObject);
-				replicatedObject.disentigrate();
-			}
-				
-			replicatedObject = new ReplicatedObject(player.x, player.y, player.playerForm);
-			sprites.add(replicatedObject);
-			player.popOut();
-			return;
-		}
+		player.signal('stun', FlxPoint.weak(-200,-200));
 		
-		if (replicatedObject != null && replicatedObject.overlaps(player)) {
-			//TODO: Use the replicated object.
-			player.changeForm(replicatedObject.form);
-			player.fsm.changeState('powerup');
-			replicatedObject.kill();
-			replicatedObject = null;
-		}
-		
-		for (z in usable) {
-			if (z.overlaps(player)) {
-				z.interact();
-				break;
-			}
-		}
+		//if (InputHelper.isButtonPressed('up') && player.playerForm != 'BALL') {
+			//if (replicatedObject != null) {
+				//sprites.remove(replicatedObject);
+				//replicatedObject.disentigrate();
+			//}
+				//
+			//replicatedObject = new ReplicatedObject(player.x, player.y, player.playerForm);
+			//sprites.add(replicatedObject);
+			//player.popOut();
+			//return;
+		//}
+		//
+		//if (replicatedObject != null && replicatedObject.overlaps(player)) {
+			////TODO: Use the replicated object.
+			//player.changeForm(replicatedObject.form);
+			//player.fsm.changeState('powerup');
+			//replicatedObject.kill();
+			//replicatedObject = null;
+		//}
+		//
+		//for (z in usable) {
+			//if (z.overlaps(player)) {
+				//z.interact();
+				//break;
+			//}
+		//}
 	}
 	
 	/**
