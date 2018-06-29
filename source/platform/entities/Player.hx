@@ -153,12 +153,14 @@ public var currentBoostCount(default, null) :Int = 0;
 			weaponUp();
 			H.ps.hud.selectWeapon(attackType);
 			H.playerDef.attackSelected = attackType;
+			currentAttackType = weaponIntToEnum(attackType);
 			setWeaponAttributes();
 		}
 		if (InputHelper.isButtonJustPressed('weapondown' )) {
 			weaponDown();
 			H.ps.hud.selectWeapon(attackType);
 			H.playerDef.attackSelected = attackType;
+			currentAttackType = weaponIntToEnum(attackType);
 			setWeaponAttributes();
 		}
 		
@@ -255,14 +257,16 @@ public var currentBoostCount(default, null) :Int = 0;
 				
 		}
 	}
+
 	
-	public function shoot2() {
-		var attackType = AttackTypes.FIRE;
+	public function shoot(attackType:AttackTypes)
+	{
+		//var attackType = AttackTypes.FIRE;
 		if (attackDelay > 0 || energy < shotEnergyCost)
 			return;
 		attackDelay = getAttackDelay(attackType);
 		changeEnergy(-shotEnergyCost);
-		var a = H.ps.getUnivAttack();
+		var a = H.ps.getPlayerAttack();
 		AttackFactory.configAttack(a, attackType );
 		var direction = FlxPoint.get( -500, 0);
 		var position = FlxPoint.get().copyFrom(getMidpoint());
@@ -274,37 +278,7 @@ public var currentBoostCount(default, null) :Int = 0;
 		}
 		else
 			position.x -= attackOffset.x;		
-			a.newInitAttack(position, direction, 4, AttackTypes.SHOT);
-
-	}
-	
-	public function shoot()
-	{
-		if (attackDelay > 0 || energy < shotEnergyCost)
-			return;
-		attackDelay = ATTACK_DELAY;
-		changeEnergy(-shotEnergyCost);
-		var a = H.ps.getPlayerAttack();
-		var direction = FlxPoint.get( -500, 0);
-		var position = FlxPoint.get().copyFrom(getMidpoint());
-		position.y = y + height - attackOffset.y;
-		if (flipX)
-		{
-			position.x += attackOffset.x;
-			direction.x *= -1;
-		}
-		else
-			position.x -= attackOffset.x;
-		if (attackType == 0)
-			a.initAttack(position, direction, 10, 'playershot');
-			
-		else if (attackType == 1)
-			a.initAttack(position, direction, 10, 'fireshot');
-		else if (attackType == 2)
-			a.initAttack(position, direction, 10, 'elecshot');
-		direction.put();
-		position.put();
-		a.flipX = flipX;
+			a.newInitAttack(position, direction, 4, attackType);
 
 	}
 
@@ -360,5 +334,21 @@ public var currentBoostCount(default, null) :Int = 0;
 		maxBoostCount = count;
 	}
 	
-	
+	private function weaponIntToEnum(attackInt:Int):AttackTypes {
+		var attackEnum:AttackTypes;
+		switch (attackInt) 
+		{
+			case 0:
+				attackEnum = AttackTypes.SHOT;
+			case 1:
+				attackEnum = AttackTypes.FIRE;
+			case 2:
+				attackEnum = AttackTypes.ELECTRIC;
+				
+			default:
+				attackEnum = AttackTypes.SHOT;
+		}
+		
+		return attackEnum;
+	}
 }

@@ -68,7 +68,7 @@ class PlayerRobotGround extends FSMModule
 		}
 		
 		if (i.isButtonJustPressed('attack')) {
-			player.shoot2();
+			player.shoot(player.currentAttackType);
 		}
 
 		
@@ -79,7 +79,7 @@ class PlayerRobotGround extends FSMModule
 	
 	private function shoot() {
 		try{
-		player.shoot();
+		player.shoot(player.currentAttackType);
 			
 		} catch (err:Dynamic)
 		{

@@ -1,5 +1,7 @@
 package platform;
+import flixel.FlxG;
 import flixel.math.FlxPoint;
+import lime.text.unifill.Exception.InvalidCodeUnitSequence;
 import platform.entities.Attack;
 import platform.entities.attacks.UnivAttack;
 
@@ -10,7 +12,7 @@ import platform.entities.attacks.UnivAttack;
 class AttackFactory 
 {
 	static var FIRE_UPWARDS_VELOCITY:Float = 150;
-	static var ELECTRIC_SPREAD:Float = 30;
+	static var ELECTRIC_SPREAD:Float = 40;
 	
 	
 	public static function configAttack(a:UnivAttack, type:AttackTypes) {
@@ -35,7 +37,16 @@ class AttackFactory
 					a.acceleration.set(0,H.GRAVITY/3);
 					
 				} );
-				
+			case AttackTypes.ELECTRIC:
+				a.acceleration.set();
+				a.fireAnim = 'elecshot';
+				a.endAnim = 'elecshotend';
+				//a.setUpdateFunction(AngleTowardsVelocity);
+				a.setInitFunction(function(a:UnivAttack) {
+					a.animation.play(a.fireAnim);
+					a.velocity.y += FlxG.random.float(-ELECTRIC_SPREAD, ELECTRIC_SPREAD);
+					
+				});
 				a.setCompleteFunction(stopMoving);
 			default:
 				

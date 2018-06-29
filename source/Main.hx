@@ -47,7 +47,7 @@ class Main extends Sprite
 			boost:false,
 			boostUpgrade:false,
 			checkpoint:'8',
-			attacks:[true, false, false],
+			attacks:[true, true, true],
 			attackSelected:0,
 			flags:[]
 			

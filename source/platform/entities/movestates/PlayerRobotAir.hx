@@ -90,7 +90,7 @@ class PlayerRobotAir extends FSMModule
 		
 		
 		if (i.isButtonJustPressed('attack')) {
-			player.shoot();
+			player.shoot(player.currentAttackType);
 		}
 		//Animation section
 		if (player.attackDelay >= 0)

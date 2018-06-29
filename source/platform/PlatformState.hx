@@ -68,8 +68,8 @@ class PlatformState extends FlxState
 	public var replicatedObject:ReplicatedObject;
 	
 	var enemies:FlxTypedGroup<Enemy>;
-	public var playerAttacks:FlxTypedGroup<PlayerShot>;
-	var enemyAttacks:FlxTypedGroup<Attack>;
+	public var playerAttacks:FlxTypedGroup<UnivAttack>;
+	var enemyAttacks:FlxTypedGroup<UnivAttack>;
 	var univAttacks:FlxTypedGroup<UnivAttack>;
 	var sprites:FlxSpriteGroup;
 	
@@ -96,9 +96,9 @@ class PlatformState extends FlxState
 		enemies = new FlxTypedGroup<Enemy>();
 		sprites = new FlxSpriteGroup();
 		zones = new FlxTypedGroup<Zone>();
-		playerAttacks= new FlxTypedGroup<PlayerShot>();
-		enemyAttacks = new FlxTypedGroup<Attack>();
-		univAttacks = new FlxTypedGroup<UnivAttack>();
+		playerAttacks= new FlxTypedGroup<UnivAttack>();
+		enemyAttacks = new FlxTypedGroup<UnivAttack>();
+		//univAttacks = new FlxTypedGroup<UnivAttack>();
 		hud = new HUD();
 		farbg = new FlxSpriteGroup();
 		hud.scrollFactor.set();
@@ -117,7 +117,7 @@ class PlatformState extends FlxState
 		
 		//Create player attacks
 		for (i in 0...10) {
-			playerAttacks.add(new PlayerShot(10));
+			playerAttacks.add(new UnivAttack(10));
 		}
 		
 		placeZones();
@@ -142,7 +142,7 @@ class PlatformState extends FlxState
 		add(zones);
 		add(enemyAttacks);
 		add(playerAttacks);
-		add(univAttacks);
+		//add(univAttacks);
 		add(emitter);
 		if (fg != null)
 			add(fg);
@@ -396,19 +396,19 @@ class PlatformState extends FlxState
 	}
 	
 	
-	public function getPlayerAttack():PlayerShot {
+	public function getPlayerAttack():UnivAttack {
 		var a = playerAttacks.getFirstAvailable();
 		if (a == null) {
-			a = new PlayerShot();
+			a = new UnivAttack();
 			playerAttacks.add(a);
 		}
 		return a;
 	}
 	
-	public function getEnemyAttack():Attack {
+	public function getEnemyAttack():UnivAttack {
 		var a = enemyAttacks.getFirstAvailable();
 		if (a == null) {
-			a = new PlayerShot();
+			a = new UnivAttack();
 			enemyAttacks.add(a);
 		}
 		return a;
