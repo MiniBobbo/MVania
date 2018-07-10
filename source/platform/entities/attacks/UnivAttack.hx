@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.math.FlxPoint;
 import flixel.util.FlxTimer;
 import platform.entities.Attack;
+import platform.entities.Entity;
 
 /**
  * ...
@@ -14,6 +15,8 @@ class UnivAttack extends Attack
 	public var onUpdate:UnivAttack->Float->Void;
 	public var onInit:UnivAttack->Void;
 	public var onComplete:UnivAttack->Void;
+	public var onHitMap:UnivAttack->Void;
+	public var onHit:UnivAttack->Void;
 	
 	public var fireAnim:String;
 	public var endAnim:String;
@@ -21,6 +24,31 @@ class UnivAttack extends Attack
 	public function new(lifespan:Float=3) 
 	{
 		super(lifespan);
+		onHitMap = function(a:UnivAttack) {
+			if (!alive)
+				return;
+			alive = false;
+			if (onComplete == null) {
+				animation.play(endAnim);
+				new FlxTimer().start(1, function(_) {exists = false; });
+
+			} else {
+				onComplete(this);
+			}
+		}; 
+		
+		onHit = function(a:UnivAttack) {
+			if (!alive)
+				return;
+			alive = false;
+			if (onComplete == null) {
+				animation.play(endAnim);
+				new FlxTimer().start(1, function(_) {exists = false; });
+
+			} else {
+				onComplete(this);
+			}
+		}; 
 		
 	}
 	
@@ -87,5 +115,11 @@ class UnivAttack extends Attack
 		} else {
 			onComplete(this);
 		}
+	}
+	
+	override public function hitEntity(e:Entity) 
+	{
+		
+		onHit(this);
 	}
 }

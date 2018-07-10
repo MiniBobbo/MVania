@@ -25,6 +25,7 @@ class AttackFactory
 				a.fireAnim = 'shot';
 				a.endAnim = 'end';
 				a.setUpdateFunction(AngleTowardsVelocity);
+				a.setCompleteFunction(stopMoving);
 			case AttackTypes.FIRE:
 				a.acceleration.set(0, H.GRAVITY);
 				a.velocity.y += -FIRE_UPWARDS_VELOCITY;
@@ -37,6 +38,7 @@ class AttackFactory
 					a.acceleration.set(0,H.GRAVITY/3);
 					
 				} );
+				a.setCompleteFunction(stopMoving);
 			case AttackTypes.ELECTRIC:
 				a.acceleration.set();
 				a.fireAnim = 'elecshot';
@@ -62,6 +64,8 @@ class AttackFactory
 		a.velocity.set();
 		a.acceleration.set();
 	}
+	
+	
 	
 	public static function printTest(a:UnivAttack):Void {
 		trace('Called from a universal attack init');

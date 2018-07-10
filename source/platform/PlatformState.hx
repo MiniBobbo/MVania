@@ -17,6 +17,7 @@ import flixel.util.FlxTimer;
 import inputhelper.InputHelper;
 import platform.entities.Attack;
 import platform.entities.Bar;
+import platform.entities.BossFactory;
 import platform.entities.EnemyFactory;
 import platform.entities.Entity;
 import platform.entities.InteractZone;
@@ -154,12 +155,12 @@ class PlatformState extends FlxState
 		FlxG.camera.setScrollBoundsRect(0, 0, collision.width, collision.height);
 		
 		FlxG.camera.fade(FlxColor.BLACK, .3, true);
-		trace('Finished Create');
+		//trace('Finished Create');
 		
 	}
 
 	private function createPlayer(r:TmxRect) {
-		trace('Loaded player def: ' + H.playerDef);
+		//trace('Loaded player def: ' + H.playerDef);
 		try{ 
 		player = new Player(collision);
 		player.maxHP = H.playerDef.playerMaxHealth;
@@ -180,7 +181,7 @@ class PlatformState extends FlxState
 		}
 		
 		player.health = H.playerDef.playerHealth;
-		trace('After player creation ' + player.toString());
+		//trace('After player creation ' + player.toString());
 		//add(player);
 	}
 	
@@ -195,6 +196,7 @@ class PlatformState extends FlxState
 			helpMessage.alpha -= 1*elapsed;
 		//helpText.visible = false;
 		//FlxG.overlap(player, enemies, playerOverlapEntity);
+
 		FlxG.collide(enemyAttacks, collision, attackHitsMap);
 		FlxG.overlap(enemyAttacks, player, attackHits);
 		//FlxG.overlap(player.attack, enemyAttacks, playerHitsAttack);
@@ -206,11 +208,9 @@ class PlatformState extends FlxState
 		if (replicatedObject != null)
 			FlxG.collide(replicatedObject, collision);
 		
-		
 		FlxG.collide(playerAttacks, collision, attackHitsMap);
 		FlxG.collide(univAttacks, collision, attackHitsMap);
 		FlxG.overlap(playerAttacks, enemies, attackHits);
-		FlxG.overlap(univAttacks, enemies, attackHits);
 		FlxG.overlap(player, enemies, playerOverlapEntity);
 		
 		//Check if the player used something
@@ -276,6 +276,10 @@ class PlatformState extends FlxState
 					var enemy = EnemyFactory.createEnemy(r.properties.get('type'), r, collision);
 					enemies.add(enemy);
 					entities.add(enemy);
+				case 'boss':
+					var b = BossFactory.createBoss(r.properties.get('type'), r, collision);
+					enemies.add(b);
+					entities.add(b);
 				case 'message':
 					var m:HelpMessageZone = new HelpMessageZone(r.r.x, r.r.y, r.r.width, r.r.height, r.properties.get('type'));
 					zones.add(m);

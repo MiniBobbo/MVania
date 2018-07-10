@@ -113,7 +113,7 @@ public var currentBoostCount(default, null) :Int = 0;
 				fsm.addtoMap('stun', new PlayerRobotStun(this));
 				fsm.addtoMap('boost', new PlayerRobotBoost(this));
 				fsm.changeState('ground');
-				trace('After changestate ' + toString() );
+				//trace('After changestate ' + toString() );
 
 			case 'BALL':
 				this.acceleration.y = H.GRAVITY;
