@@ -22,6 +22,8 @@ class AttackFactory
 		{
 			case AttackTypes.SHOT:
 				a.acceleration.set();
+				a.setSize(10, 10);
+				a.centerOffsets();
 				a.fireAnim = 'shot';
 				a.endAnim = 'end';
 				a.setUpdateFunction(AngleTowardsVelocity);

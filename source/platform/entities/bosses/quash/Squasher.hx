@@ -1,4 +1,5 @@
 package platform.entities.bosses.quash;
+import flixel.FlxG;
 import flixel.tile.FlxTile;
 import flixel.tile.FlxTilemap;
 import platform.entities.gameentites.Enemy;
@@ -10,8 +11,8 @@ import platform.entities.gameentites.Enemy;
 class Squasher extends Boss 
 {
 
-	var t1:SquashTurret;
-	var t2:SquashTurret;
+	public var t1(default,null):SquashTurret;
+	public var t2(default,null):SquashTurret;
 
 	public function new(map:FlxTilemap) 
 	{
@@ -20,6 +21,10 @@ class Squasher extends Boss
 		
 		createBody(map);
 		createTurrets(map);
+		fsm.addtoMap('fire', new SquashFireFSM(this));
+		fsm.addtoMap('wait', new SquashWaitFSM(this));
+		fsm.changeState('wait');
+		FlxG.watch.add(this.fsm, 'currentModule', 'Squash mod');
 	}
 	
 	
@@ -35,6 +40,10 @@ class Squasher extends Boss
 		t2.bossOffset.set(256, 64);
 		addPiece(t2);
 		
+	}
+	
+	public function getMidX():Float {
+		return pos.x + 160;
 	}
 	
 	override public function update(elapsed:Float):Void 

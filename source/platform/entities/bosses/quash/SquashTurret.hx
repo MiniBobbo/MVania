@@ -2,6 +2,7 @@ package platform.entities.bosses.quash;
 
 import flixel.math.FlxPoint;
 import flixel.tile.FlxTilemap;
+import platform.entities.Attack.AttackTypes;
 import platform.entities.bosses.Piece;
 
 /**
@@ -38,8 +39,8 @@ class SquashTurret extends Piece
 		//If there is something between the turret and the player, reset and try again next time.
 		//Get the attack
 		var a = H.ps.getEnemyAttack();
+		AttackFactory.configAttack(a, AttackTypes.SHOT);
 		a.strength = 2;
-		animation.play('fire');
 		a.angle = angle;
 		var v = FlxPoint.get(0, -SHOT_SPEED);
 		var loc = FlxPoint.get(0, -16);

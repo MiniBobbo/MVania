@@ -33,7 +33,6 @@ class Piece extends Enemy
 		}
 		
 		this.setPosition(parent.pos.x + bossOffset.x, parent.pos.y + bossOffset.y);
-		trace('Setting position to' + getPosition());
 		
 	}
 	

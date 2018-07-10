@@ -5,5 +5,6 @@ package fsm;
  */
 interface IFSM 
 {
+	public function changeFSM(name:String):Void;
   
 }

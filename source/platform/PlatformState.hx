@@ -26,6 +26,7 @@ import platform.entities.Replicator;
 import platform.entities.Zone;
 import platform.entities.attacks.PlayerShot;
 import platform.entities.attacks.UnivAttack;
+import platform.entities.bosses.Boss;
 import platform.entities.gameentites.Enemy;
 import platform.entities.interact.ReplicatorZone;
 import platform.entities.interact.TerminalZone;
@@ -46,6 +47,8 @@ class PlatformState extends FlxState
 	public var zones:FlxTypedGroup<Zone>;
 	public var nocollide :FlxTypedGroup<Entity>;
 	var rects:Array<TmxRect>;
+	
+	var bosses:Array<Boss>;
 	
 	var helpMessage:FlxText;
 	
@@ -92,6 +95,7 @@ class PlatformState extends FlxState
 		maps = getMap();
 		
 		usable = [];
+		bosses = [];
 		entities = new FlxTypedGroup<Entity>();
 		nocollide = new FlxTypedGroup<Entity>();
 		enemies = new FlxTypedGroup<Enemy>();
@@ -193,14 +197,18 @@ class PlatformState extends FlxState
 		if (timeInLevel > .1 && !travelZonesPlaced)
 			placeTravelZones();
 
-			helpMessage.alpha -= 1*elapsed;
-		//helpText.visible = false;
-		//FlxG.overlap(player, enemies, playerOverlapEntity);
+			helpMessage.alpha -= 1 * elapsed;
+			
+		//Update the boss object.  This doesn't update the children, who will be updated with the enemies.
+		for (b in bosses)
+			b.update(elapsed);
+		
 
 		FlxG.collide(enemyAttacks, collision, attackHitsMap);
 		FlxG.overlap(enemyAttacks, player, attackHits);
 		//FlxG.overlap(player.attack, enemyAttacks, playerHitsAttack);
 		InputHelper.updateKeys(elapsed);
+		
 		super.update(elapsed);
 			FlxG.overlap(entities, zones, EntityOverlapZone);
 		FlxG.collide(player, collision);
@@ -282,7 +290,9 @@ class PlatformState extends FlxState
 						trace('adding boss piece');
 						enemies.add(e);
 						entities.add(e);
+						
 					}
+					bosses.push(b);
 				case 'message':
 					var m:HelpMessageZone = new HelpMessageZone(r.r.x, r.r.y, r.r.width, r.r.height, r.properties.get('type'));
 					zones.add(m);

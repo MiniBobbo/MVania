@@ -18,12 +18,18 @@ class Boss extends FlxTypedGroup<Piece> implements IFSM
 	
 	public var pos:FlxPoint;
 	
+	public var fsm:FSM;
+	
 	public function new() 
 	{
 		super();
 		pos = FlxPoint.get();
+		fsm = new FSM(this);
 	}
 	
+	public function changeFSM(name:String):Void {
+		fsm.changeState(name);
+	}
 	/**
 	 * To defeat the boss the boss HP must be reduced to 0 or below, not the individual pieces.  This function applies to the Boss HP.
 	 * @param	damage		How much damage to apply to the boss HP.
@@ -46,5 +52,11 @@ class Boss extends FlxTypedGroup<Piece> implements IFSM
 	public function addPiece(piece:Piece) {
 		add(piece);
 		piece.setParent(this);
+	}
+	
+	override public function update(elapsed:Float):Void 
+	{
+		if (fsm.currentModule != null)
+			fsm.currentModule.update(elapsed);
 	}
 }

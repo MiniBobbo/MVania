@@ -52,6 +52,9 @@ class Entity extends FlxSprite implements IFSM
 		fsm = new FSM(this);
 	}
 	
+	public function changeFSM(name:String):Void {
+		fsm.changeState(name);
+	}
 	/**
 	 * When two entities overlap, this is passed to each entity.  
 	 * @param	entity  The entity that overlaps with this one.
