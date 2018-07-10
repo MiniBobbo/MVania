@@ -1,6 +1,7 @@
 package platform.entities.movestates;
 
 import fsm.FSMModule;
+import fsm.IFSM;
 import platform.entities.Entity;
 import platform.entities.Player;
 import flixel.FlxG;
@@ -33,7 +34,7 @@ class PlayerRobotAir extends FSMModule
 	
 	var player:Player;
 	
-	public function new(e:Entity) 
+	public function new(e:IFSM) 
 	{
 		super(e);
 		FlxG.watch.add(this, 'jumpElapsed', 'Player Jump Elapsed');
@@ -62,31 +63,31 @@ class PlayerRobotAir extends FSMModule
 		player.velocity.x = 0;
 		player.addEnergyStep(dt);
 		jumpElapsed += dt;
-		if (parent.isTouching(FlxObject.FLOOR)) {
-			//parent.scale.x = 1.2;
-			//parent.scale.y = .8;
-			//FlxTween.tween(parent.scale, {x:1, y:1}, .2);
+		if (player.isTouching(FlxObject.FLOOR)) {
+			//player.scale.x = 1.2;
+			//player.scale.y = .8;
+			//FlxTween.tween(player.scale, {x:1, y:1}, .2);
 			//FlxG.sound.play('assets/sounds/land.ogg');
-			parent.fsm.changeState('ground');
+			player.fsm.changeState('ground');
 			return;
 		}  else if (i.isButtonJustPressed('boost')) {
-			parent.signal('boost');			
+			player.signal('boost');			
 			return;
 		}
 		
 		if (i.isButtonPressed('left')) 
-			parent.velocity.x -= JUMP_SPEED; 
+			player.velocity.x -= JUMP_SPEED; 
 		if (i.isButtonPressed('right')) 
-			parent.velocity.x += JUMP_SPEED; 
-		if (i.isButtonPressed('jump') && !parent.isTouching(FlxObject.CEILING) && jumpElapsed <= JUMP_TIME) {
-			parent.maxVelocity.y = JUMP_STRENGTH;
-			parent.velocity.y = -JUMP_STRENGTH;
+			player.velocity.x += JUMP_SPEED; 
+		if (i.isButtonPressed('jump') && !player.isTouching(FlxObject.CEILING) && jumpElapsed <= JUMP_TIME) {
+			player.maxVelocity.y = JUMP_STRENGTH;
+			player.velocity.y = -JUMP_STRENGTH;
 		} else {
-			parent.maxVelocity.y = JUMP_FALL_STRENGTH;
+			player.maxVelocity.y = JUMP_FALL_STRENGTH;
 			jumpElapsed = JUMP_TIME +1;
 			
 		}
-		var currentVelocity:Float = parent.velocity.y;
+		var currentVelocity:Float = player.velocity.y;
 		
 		
 		if (i.isButtonJustPressed('attack')) {

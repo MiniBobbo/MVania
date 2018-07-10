@@ -8,12 +8,13 @@ import flixel.tile.FlxTilemap;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxSpriteUtil;
 import fsm.FSM;
+import fsm.IFSM;
 
 /**
  * ...
  * @author Dave
  */
-class Entity extends FlxSprite
+class Entity extends FlxSprite implements IFSM
 {
 
 	public var collisionMap(default, null):FlxTilemap;

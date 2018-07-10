@@ -278,8 +278,11 @@ class PlatformState extends FlxState
 					entities.add(enemy);
 				case 'boss':
 					var b = BossFactory.createBoss(r.properties.get('type'), r, collision);
-					enemies.add(b);
-					entities.add(b);
+					for (e in b.members) {
+						trace('adding boss piece');
+						enemies.add(e);
+						entities.add(e);
+					}
 				case 'message':
 					var m:HelpMessageZone = new HelpMessageZone(r.r.x, r.r.y, r.r.width, r.r.height, r.properties.get('type'));
 					zones.add(m);

@@ -8,13 +8,13 @@ import platform.entities.gameentites.Enemy;
  * ...
  * @author Dave
  */
-class Body extends Enemy 
+class Body extends Piece 
 {
 
 	public function new(collisionMap:FlxTilemap) 
 	{
 		super(collisionMap);
-		makeGraphic(6 * 32, 3 * 32, FlxColor.BLUE);
+		makeGraphic(10 * 32, 3 * 32, FlxColor.BLUE);
 		
 	}
 	

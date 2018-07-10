@@ -9,11 +9,11 @@ import platform.entities.Entity;
 class FSM 
 {
 	var stateMap:StringMap<FSMModule>;
-	var entity:Entity;
+	var entity:IFSM;
 	public var currentModule(default, null):FSMModule;
 	public var currentModuleName(default, null):String;
 	
-	public function new(entity:Entity) 
+	public function new(entity:IFSM) 
 	{
 		this.entity = entity;
 		stateMap = new StringMap<FSMModule>();

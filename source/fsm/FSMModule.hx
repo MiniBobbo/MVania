@@ -7,9 +7,9 @@ import platform.entities.Entity;
  */
 class FSMModule 
 {
-	public var parent:Entity;
+	public var parent:IFSM;
 
-	public function new(parent:Entity) 
+	public function new(parent:IFSM) 
 	{
 		this.parent = parent;
 	}

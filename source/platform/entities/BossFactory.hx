@@ -24,7 +24,7 @@ class BossFactory
 			case 'squasher':
 				b = new Squasher(map);
 				H.rectToTile(rect);
-				b.reset(rect.r.x, rect.r.y);
+				b.setPositon(rect.r.x, rect.r.y);
 			default:
 				
 		}

@@ -38,7 +38,7 @@ class PlayerRobotGround extends FSMModule
 	{
 		//trace('Running player ground');
 		
-		parent.velocity.x = 0;
+		player.velocity.x = 0;
 		player.addEnergyStep(dt);
 		//if (i.isButtonJustPressed('attack')) {
 			//entity.changeMoveState(MovementStateEnum.ATTACKING);
@@ -48,22 +48,22 @@ class PlayerRobotGround extends FSMModule
 			//entity.changeMoveState(MovementStateEnum.CROUCHING);
 		
 		if (i.isButtonPressed('left') && !i.isButtonPressed('right')) {
-			parent.velocity.x -= RUN_SPEED; 
+			player.velocity.x -= RUN_SPEED; 
 		}
 		else if (i.isButtonPressed('right') && !i.isButtonPressed('left') ) {
-			parent.velocity.x += RUN_SPEED; 
+			player.velocity.x += RUN_SPEED; 
 		}
 		else {
 			
 		}
 		
-		if (i.isButtonJustPressed('jump') || !parent.isTouching(FlxObject.FLOOR)) {
-			parent.y -= .5;
-			parent.velocity.y = 0;
+		if (i.isButtonJustPressed('jump') || !player.isTouching(FlxObject.FLOOR)) {
+			player.y -= .5;
+			player.velocity.y = 0;
 			//jump.play();
-			parent.fsm.changeState('air');
+			player.fsm.changeState('air');
 		} else if (i.isButtonJustPressed('boost')) {
-			parent.signal('boost');
+			player.signal('boost');
 			return;
 		}
 		
@@ -96,28 +96,28 @@ class PlayerRobotGround extends FSMModule
 			
 		if (i.isButtonPressed('left') && !i.isButtonPressed('right')) {
 			if(shootAnim)
-				parent.animation.play('runshoot');
+				player.animation.play('runshoot');
 			else {
-				parent.animation.play('run');
+				player.animation.play('run');
 			}
 			
 		}
 		else if (i.isButtonPressed('right') && !i.isButtonPressed('left') ) {
 			if(shootAnim)
-				parent.animation.play('runshoot');
+				player.animation.play('runshoot');
 			else {
-				parent.animation.play('run');
+				player.animation.play('run');
 			}
 		}
 		else {
 			if(!shootAnim)
-				parent.animation.play('idle');
+				player.animation.play('idle');
 			else
-				parent.animation.play('idleshoot');
+				player.animation.play('idleshoot');
 		}
 		
-		if (i.isButtonJustPressed('jump') || !parent.isTouching(FlxObject.FLOOR)) {
-			parent.animation.play('jumpup');
+		if (i.isButtonJustPressed('jump') || !player.isTouching(FlxObject.FLOOR)) {
+			player.animation.play('jumpup');
 		}
 		
 		

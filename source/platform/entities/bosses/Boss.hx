@@ -1,18 +1,27 @@
 package platform.entities.bosses;
 
+import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxSpriteGroup;
+import flixel.math.FlxPoint;
+import fsm.FSM;
+import fsm.IFSM;
+import platform.entities.bosses.quash.SquashTurret;
+import platform.entities.gameentites.Enemy;
 
 /**
  * A boss object is really just a collection of individual pieces that can be hit or targeted separately.  It doesn't have to be a boss, per se.
  * @author Dave
  */
-class Boss extends FlxSpriteGroup 
+class Boss extends FlxTypedGroup<Piece> implements IFSM
 {
 	public var TotalHP:Float;
 	
+	public var pos:FlxPoint;
+	
 	public function new() 
 	{
-		
+		super();
+		pos = FlxPoint.get();
 	}
 	
 	/**
@@ -27,5 +36,15 @@ class Boss extends FlxSpriteGroup
 		for (m in members) {
 			m.kill();
 		}
+	}
+	
+	public function setPositon(x:Float, y:Float) {
+		pos.x = x;
+		pos.y = y;
+	}
+	
+	public function addPiece(piece:Piece) {
+		add(piece);
+		piece.setParent(this);
 	}
 }

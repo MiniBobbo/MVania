@@ -3,9 +3,6 @@ import flixel.math.FlxPoint;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import platform.entities.Attack.AttackTypes;
-import platform.entities.movestates.PlayerBallAir;
-import platform.entities.movestates.PlayerBallGround;
-import platform.entities.movestates.PlayerPop;
 import platform.entities.movestates.PlayerRobotAir;
 import platform.entities.movestates.PlayerRobotBoost;
 import platform.entities.movestates.PlayerRobotGround;
@@ -16,7 +13,6 @@ import flixel.util.FlxColor;
 import fsm.FSM;
 import inputhelper.InputHelper;
 import platform.H;
-import platform.entities.movestates.PlayerRobotPowerUp;
 import platform.entities.movestates.PlayerRobotStun;
 
 enum PlayerForm
@@ -108,29 +104,27 @@ public var currentBoostCount(default, null) :Int = 0;
 
 				fsm.addtoMap('ground', new PlayerRobotGround(this));
 				fsm.addtoMap('air', new PlayerRobotAir(this));
-				fsm.addtoMap('pop', new PlayerPop(this));
-				fsm.addtoMap('powerup', new PlayerRobotPowerUp(this));
 				fsm.addtoMap('stun', new PlayerRobotStun(this));
 				fsm.addtoMap('boost', new PlayerRobotBoost(this));
 				fsm.changeState('ground');
 				//trace('After changestate ' + toString() );
 
-			case 'BALL':
-				this.acceleration.y = H.GRAVITY;
-				maxVelocity.set(200,200);
-				setSize(8, 10);
-				attackOffset = new FlxPoint(10,20);
-				frames = H.getFrames();
-				animation.addByPrefix('float', 'Ball_float_', 12);
-				animation.addByPrefix('floatup', 'Ball_float_', 36);
-				animation.play('float');
-				centerOffsets();
-				offset.y += 16;
-				drag.set(700, 0);
-				fsm.addtoMap('ground', new PlayerBallGround(this));
-				fsm.addtoMap('air', new PlayerBallAir(this));
-				fsm.addtoMap('stun', new PlayerBallAir(this));
-				fsm.changeState('ground');
+			//case 'BALL':
+				//this.acceleration.y = H.GRAVITY;
+				//maxVelocity.set(200,200);
+				//setSize(8, 10);
+				//attackOffset = new FlxPoint(10,20);
+				//frames = H.getFrames();
+				//animation.addByPrefix('float', 'Ball_float_', 12);
+				//animation.addByPrefix('floatup', 'Ball_float_', 36);
+				//animation.play('float');
+				//centerOffsets();
+				//offset.y += 16;
+				//drag.set(700, 0);
+				//fsm.addtoMap('ground', new PlayerBallGround(this));
+				//fsm.addtoMap('air', new PlayerBallAir(this));
+				//fsm.addtoMap('stun', new PlayerBallAir(this));
+				//fsm.changeState('ground');
 
 			default:
 

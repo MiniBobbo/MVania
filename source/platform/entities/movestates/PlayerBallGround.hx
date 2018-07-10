@@ -33,7 +33,7 @@ class PlayerBallGround extends FSMModule
 	{
 		//trace('Running player ground');
 		
-		parent.acceleration.x = 0;
+		player.acceleration.x = 0;
 		player.changeEnergy(player.energyChargeRate * dt);
 		
 		//if (i.isButtonJustPressed('attack')) {
@@ -44,23 +44,23 @@ class PlayerBallGround extends FSMModule
 			//entity.changeMoveState(MovementStateEnum.CROUCHING);
 		
 		if (i.isButtonPressed('left') && !i.isButtonPressed('right')) {
-			parent.acceleration.x -= RUN_SPEED; 
+			player.acceleration.x -= RUN_SPEED; 
 		}
 		else if (i.isButtonPressed('right') && !i.isButtonPressed('left') ) {
-			parent.acceleration.x += RUN_SPEED; 
+			player.acceleration.x += RUN_SPEED; 
 		}
 		else {
 			
 		}
 		
-				if ((parent.acceleration.x > 0 && parent.velocity.x < 0) || parent.acceleration.x < 0 && parent.velocity.x > 0)
-		parent.acceleration.x *= 2;
+				if ((player.acceleration.x > 0 && player.velocity.x < 0) || player.acceleration.x < 0 && player.velocity.x > 0)
+		player.acceleration.x *= 2;
 		
-		if (i.isButtonJustPressed('jump') || !parent.isTouching(FlxObject.FLOOR)) {
-			parent.y -= .5;
-			parent.velocity.y = 0;
+		if (i.isButtonJustPressed('jump') || !player.isTouching(FlxObject.FLOOR)) {
+			player.y -= .5;
+			player.velocity.y = 0;
 			//jump.play();
-			parent.fsm.changeState('air');
+			player.fsm.changeState('air');
 		}
 		
 		//if (i.isButtonJustPressed('attack')) {
@@ -75,6 +75,6 @@ class PlayerBallGround extends FSMModule
 	
 	override public function changeTo() 
 	{
-		parent.animation.play('float');
+		player.animation.play('float');
 	}
 }

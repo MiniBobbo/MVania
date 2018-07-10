@@ -55,37 +55,37 @@ class PlayerBallAir extends FSMModule
 	{
 		var i = InputHelper;
 
-		parent.acceleration.x = 0;
+		player.acceleration.x = 0;
 		
 		jumpElapsed += dt;
-		if (parent.isTouching(FlxObject.FLOOR)) {
+		if (player.isTouching(FlxObject.FLOOR)) {
 			//parent.scale.x = 1.2;
 			//parent.scale.y = .8;
 			//FlxTween.tween(parent.scale, {x:1, y:1}, .2);
 			//FlxG.sound.play('assets/sounds/land.ogg');
-			parent.fsm.changeState('ground');
+			player.fsm.changeState('ground');
 			return;
 		}
 		
 		if (i.isButtonPressed('left')) 
-			parent.acceleration.x -= JUMP_SPEED; 
+			player.acceleration.x -= JUMP_SPEED; 
 		if (i.isButtonPressed('right')) 
-			parent.acceleration.x += JUMP_SPEED; 
+			player.acceleration.x += JUMP_SPEED; 
 		if (i.isButtonPressed('jump') && player.energy > 0) {
 			player.changeEnergy(-FLOAT_COST * dt);
-			parent.maxVelocity.y = JUMP_STRENGTH;
-			parent.acceleration.y = -JUMP_STRENGTH;
-			parent.animation.play('floatup');
+			player.maxVelocity.y = JUMP_STRENGTH;
+			player.acceleration.y = -JUMP_STRENGTH;
+			player.animation.play('floatup');
 		} else {
-			parent.maxVelocity.y = JUMP_FALL_STRENGTH;
+			player.maxVelocity.y = JUMP_FALL_STRENGTH;
 			player.acceleration.y = H.GRAVITY*FLOAT_GRAVITY_MOD;
-			parent.animation.play('float');
+			player.animation.play('float');
 		}
 		
-		if ((parent.acceleration.x > 0 && parent.velocity.x < 0) || parent.acceleration.x < 0 && parent.velocity.x > 0)
-		parent.acceleration.x *= 2;
+		if ((player.acceleration.x > 0 && player.velocity.x < 0) || player.acceleration.x < 0 && player.velocity.x > 0)
+		player.acceleration.x *= 2;
 			
-		var currentVelocity:Float = parent.velocity.y;
+		var currentVelocity:Float = player.velocity.y;
 
 	}
 	
