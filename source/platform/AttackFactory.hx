@@ -18,6 +18,7 @@ class AttackFactory
 	public static function configAttack(a:UnivAttack, type:AttackTypes) {
 		a.setUpdateFunction(null);
 		a.setInitFunction(null);
+		a.type = type;
 		switch (type) 
 		{
 			case AttackTypes.SHOT:

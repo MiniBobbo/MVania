@@ -6,6 +6,7 @@ import flixel.tile.FlxTilemap;
 import flixel.util.FlxColor;
 import platform.entities.Attack;
 import platform.entities.Entity;
+import platform.entities.attacks.UnivAttack;
 import platform.entities.gameentites.Enemy;
 
 /**
@@ -41,8 +42,8 @@ class PlantBlocker extends Enemy
 		switch (signal) 
 		{
 			case 'hit':
-				var a:Attack = cast data;
-				if (a.animation.name == 'fireshotend') {
+				var a:UnivAttack = cast data;
+				if (a.type == AttackTypes.FIRE) {
 					takeDamage(1);
 				}
 					

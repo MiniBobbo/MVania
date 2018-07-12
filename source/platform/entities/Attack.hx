@@ -29,7 +29,8 @@ class Attack extends FlxSprite
 	
 	private var attackVelocity:FlxPoint;
 	
-	public var type(default, null):AttackTypes;
+	//The type of attack.  Don't change this manually.  
+	public var type(default, default):AttackTypes;
 	
 	public var partColor:FlxColor = FlxColor.BLUE;
 	
