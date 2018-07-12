@@ -13,6 +13,8 @@ class Piece extends Enemy
 	
 	public var bossOffset:FlxPoint;
 	private var parent:Boss;
+	//Should this piece follow another?
+	private var connectedTo:Piece;
 	
 	public function new(collisionMap:FlxTilemap) 
 	{
@@ -25,6 +27,15 @@ class Piece extends Enemy
 		parent = b;
 	}
 	
+	/**
+	 * Connect this piece to another piece.  This piece's location will be calculated from the piece's location instead of the bosses.
+	 * Normally at the top of the tree eventually a piece would attach to the boss.
+	 * @param	p	
+	 */
+	public function connectToPiece(p:Piece) {
+		connectedTo = p;
+	}
+	
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
@@ -32,8 +43,11 @@ class Piece extends Enemy
 			throw 'No parent for this piece.  This is probably an error';
 		}
 		
-		this.setPosition(parent.pos.x + bossOffset.x, parent.pos.y + bossOffset.y);
-		
+		//If there is no connected to piece, follow the boss.
+		if(connectedTo == null)
+			this.setPosition(parent.pos.x + bossOffset.x, parent.pos.y + bossOffset.y);
+		else
+			setPosition(connectedTo.x + bossOffset.x, connectedTo.y + bossOffset.y);
 	}
 	
 }

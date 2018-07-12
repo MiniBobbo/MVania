@@ -35,8 +35,10 @@ class Boss extends FlxTypedGroup<Piece> implements IFSM
 	 * @param	damage		How much damage to apply to the boss HP.
 	 */
 	public function takeDamage(damage:Float) {
-		
+		TotalHP -= Std.int(damage);
 	}
+	
+	
 	
 	public function killAll() {
 		for (m in members) {

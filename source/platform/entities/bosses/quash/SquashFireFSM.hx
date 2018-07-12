@@ -16,7 +16,7 @@ class SquashFireFSM extends FSMModule
 	var left:Bool;
 	var fireDelay:Float;
 	var FIRE_DELAY:Float = .5;
-	var FIRE_DELAY_START:Float = 3;
+	var FIRE_DELAY_START:Float = 1.5;
 	var FIRE_COUNT:Int = 4;
 	var fireCount:Int;
 	
@@ -47,6 +47,12 @@ class SquashFireFSM extends FSMModule
 		}
 	}
 	
+	override public function changeFrom() 
+	{
+		squash.leftArm.signal('up');
+		squash.rightArm.signal('up');
+		super.changeFrom();
+	}
 	
 	private function fire() {
 		if (left)

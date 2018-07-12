@@ -287,10 +287,8 @@ class PlatformState extends FlxState
 				case 'boss':
 					var b = BossFactory.createBoss(r.properties.get('type'), r, collision);
 					for (e in b.members) {
-						trace('adding boss piece');
 						enemies.add(e);
 						entities.add(e);
-						
 					}
 					bosses.push(b);
 				case 'message':
@@ -302,10 +300,6 @@ class PlatformState extends FlxState
 						createPlayer(r);
 					}
 				case 'travel':
-					//var type:String = r.properties.get('type');
-					//var s = type.split('_');
-					//var t = new TravelZone(r.r.x, r.r.y, r.r.width, r.r.height, s[0], s[1]);
-					//zones.add(t);
 				case 'terminal' :
 					H.rectToTile(r);
 					var terminalZone = new TerminalZone(r.r.x, r.r.y, 32, 32);
@@ -325,7 +319,6 @@ class PlatformState extends FlxState
 					else
 						id = 0;
 					var rep = new Replicator(id);
-					//trace('Created replicator with ID of ' + rep.ID);
 					rep.reset(r.r.x, r.r.y);
 					nocollide.add(rep);
 					//Create the usable zone.
@@ -354,20 +347,12 @@ class PlatformState extends FlxState
 					var d = new DeathZone(r.r.x, r.r.y, r.r.width, r.r.height);
 					zones.add(d);
 					case 'start':
-					//if (r.name == H.previousLevel) {
-						//playerPlaced = true;
 						createPlayer(r);
-					//}
 					default:
 					trace( 'Problem with a zone.  ' + r.name);
 			}
 		}
 		
-		//placeTravelZones();
-		//if (player == null) {
-			//trace('Did not find a spot for the player in world ' + H.gd.world + ' checkpoint ' + H.gd.checkpoint);
-			//createPlayer(rects[0]);
-		//}
 	}
 	
 	private function getMap() {
@@ -441,33 +426,13 @@ class PlatformState extends FlxState
 		hud.add(helpMessage);
 	}
 	
+	/**
+	 * Searches through all the usable objects in the level and uses the first one that overlaps the player.
+	 */
 	function use():Void 
 	{
-		//player.signal('stun', FlxPoint.weak(-200,-200));
-		
-		//if (InputHelper.isButtonPressed('up') && player.playerForm != 'BALL') {
-			//if (replicatedObject != null) {
-				//sprites.remove(replicatedObject);
-				//replicatedObject.disentigrate();
-			//}
-				//
-			//replicatedObject = new ReplicatedObject(player.x, player.y, player.playerForm);
-			//sprites.add(replicatedObject);
-			//player.popOut();
-			//return;
-		//}
-		//
-		//if (replicatedObject != null && replicatedObject.overlaps(player)) {
-			////TODO: Use the replicated object.
-			//player.changeForm(replicatedObject.form);
-			//player.fsm.changeState('powerup');
-			//replicatedObject.kill();
-			//replicatedObject = null;
-		//}
-		//
 		for (z in usable) {
 			if (z.overlaps(player)) {
-				trace('Found something to use');
 				z.interact();
 				break;
 			}

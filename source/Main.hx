@@ -44,7 +44,7 @@ class Main extends Sprite
 			playerMaxHealth:10,
 			playerForm:'ROBOT',
 			upgradesCollected:new StringMap<Bool>(),
-			boost:false,
+			boost:true,
 			boostUpgrade:false,
 			checkpoint:'8',
 			attacks:[true, true, true],

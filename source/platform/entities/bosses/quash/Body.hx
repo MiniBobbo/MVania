@@ -14,7 +14,11 @@ class Body extends Piece
 	public function new(collisionMap:FlxTilemap) 
 	{
 		super(collisionMap);
-		makeGraphic(10 * 32, 3 * 32, FlxColor.BLUE);
+		frames = H.getFrames();
+		animation.addByPrefix('normal', 'squasher_normal_0', 30,false);
+		animation.play('normal');
+		setSize(10 * 32, 3 * 32);
+		//centerOffsets();
 		
 	}
 	
