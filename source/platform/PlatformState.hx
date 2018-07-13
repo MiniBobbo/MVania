@@ -30,9 +30,11 @@ import platform.entities.bosses.Boss;
 import platform.entities.gameentites.Enemy;
 import platform.entities.interact.ReplicatorZone;
 import platform.entities.interact.TerminalZone;
+import platform.entities.things.SavePoint;
 import platform.entities.zones.AntigravZone;
 import platform.entities.zones.DeathZone;
 import platform.entities.zones.HelpMessageZone;
+import platform.entities.zones.SaveZone;
 import platform.entities.zones.SignalZone;
 import platform.entities.zones.TravelZone;
 import tmxtools.TmxRect;
@@ -337,7 +339,20 @@ class PlatformState extends FlxState
 					if (r.properties.exists('str'))
 						agz.setStrength(Std.parseFloat(r.properties.get('str')));
 					zones.add(agz);
+				case 'save':
+					H.rectToTile(r);
+					//Create the save message
+					var m:HelpMessageZone = new HelpMessageZone(r.r.x - 32, r.r.y - 64, 96, 64, 'Press UP to save');
+					zones.add(m);
+					//Create the SavePoint graphical object.
+					var sp = new SavePoint(collision);
+					sp.setPosition(r.r.x - 32, r.r.y);
+					nocollide.add(sp);
 					
+					//Create the interactive SaveZone
+					var sz = new SaveZone(r.r.x - 32, r.r.y - 64, 96, 64);
+					sz.setSavePoint(sp);
+					usable.push(sz);
 				case 'sprite':
 					var splitrects = H.rectToRects(r);
 					for (i in splitrects) {
@@ -348,10 +363,12 @@ class PlatformState extends FlxState
 				case 'death':
 					var d = new DeathZone(r.r.x, r.r.y, r.r.width, r.r.height);
 					zones.add(d);
-					case 'start':
-						createPlayer(r);
-					default:
-					trace( 'Problem with a zone.  ' + r.name);
+				case 'start':
+					createPlayer(r);
+				default:
+				trace( 'Problem with a zone.  ' + r.name);
+					
+					
 			}
 		}
 		

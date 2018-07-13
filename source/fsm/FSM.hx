@@ -12,6 +12,8 @@ class FSM
 	var entity:IFSM;
 	public var currentModule(default, null):FSMModule;
 	public var currentModuleName(default, null):String;
+	var skipModule:Bool = false;
+	
 	
 	public function new(entity:IFSM) 
 	{
@@ -19,6 +21,24 @@ class FSM
 		stateMap = new StringMap<FSMModule>();
 	}
 	
+	/**
+	 * Calls the update function on the current module unless hold() was called.
+	 * @param	dt		Elapsed time since the last call
+	 */
+	public function update(dt:Float) {
+		if (skipModule)
+		return;
+		if (currentModule != null)
+			currentModule.update(dt);
+	}
+	
+	public function hold() {
+		skipModule = true;
+	}
+	
+	public function resume() {
+		skipModule = false;
+	}
 	public function addtoMap(key:String, module:FSMModule) {
 		stateMap.set(key, module);
 	}

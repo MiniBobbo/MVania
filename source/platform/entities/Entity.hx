@@ -73,8 +73,7 @@ class Entity extends FlxSprite implements IFSM
 		 iTime -= elapsed;
 		if(collideMap)
 			FlxG.collide(this, collisionMap);
-		if (fsm.currentModule != null)
-			fsm.currentModule.update(elapsed);
+		fsm.update(elapsed);
 
 		super.update(elapsed);
 	}
