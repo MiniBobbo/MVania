@@ -334,6 +334,8 @@ class PlatformState extends FlxState
 					r.r.y -= height * 32;
 					r.r.height = height * 32;
 					var agz = new AntigravZone(r.r.x, r.r.y, r.r.width, r.r.height);
+					if (r.properties.exists('str'))
+						agz.setStrength(Std.parseFloat(r.properties.get('str')));
 					zones.add(agz);
 					
 				case 'sprite':
