@@ -9,6 +9,8 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxSpriteUtil;
 import fsm.FSM;
 import fsm.IFSM;
+import lime.graphics.console.RenderState.DepthStencilState;
+import platform.entities.movestates.DeadState;
 
 /**
  * ...
@@ -50,6 +52,7 @@ class Entity extends FlxSprite implements IFSM
 	{
 		super();
 		fsm = new FSM(this);
+		fsm.addtoMap('dead', new DeadState(this));
 	}
 	
 	public function changeFSM(name:String):Void {
@@ -100,7 +103,8 @@ class Entity extends FlxSprite implements IFSM
 			if (attack != null)
 				attack.kill();
 			alive = false;
-			FlxSpriteUtil.fadeOut(this, .3, function(_) { this.kill(); } );
+			fsm.changeState('dead');
+			//FlxSpriteUtil.fadeOut(this, .3, function(_) { this.kill(); } );
 		}
 	}
 	

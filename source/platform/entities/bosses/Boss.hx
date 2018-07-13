@@ -36,13 +36,18 @@ class Boss extends FlxTypedGroup<Piece> implements IFSM
 	 */
 	public function takeDamage(damage:Float) {
 		TotalHP -= Std.int(damage);
+		if (TotalHP <= 0)
+			killAll();
+		
+
 	}
 	
 	
 	
 	public function killAll() {
+		fsm.hold();
 		for (m in members) {
-			m.kill();
+			m.changeFSM('dead');
 		}
 	}
 	

@@ -1,8 +1,10 @@
 package platform.entities.zones;
 
 import flixel.util.FlxTimer;
+import platform.entities.Player;
 import platform.entities.Zone;
 import platform.entities.things.SavePoint;
+import shaders.PixelShader;
 
 /**
  * ...
@@ -27,10 +29,23 @@ class SaveZone extends InteractZone
 	
 	override public function interact() 
 	{
+		var p:Player = H.ps.player;
 		//Do all the animations and stuff here I guess.  Not sure where else to do it.
 		//Set the player position to the middle of the zone.
 		H.ps.player.setPosition(x + 32, y + 32);
+		H.ps.player.fsm.hold();
+		try{
+			
+			p.shader = new PixelShader();
+			p.shader.data.uPixels.value = 1;
+			
+		} catch (err:Dynamic)
+		{
+			trace(err);
+		}
 		savePoint.animation.play('prep');
+		
+		
 		//var t = new FlxTimer().start();
 		
 	}

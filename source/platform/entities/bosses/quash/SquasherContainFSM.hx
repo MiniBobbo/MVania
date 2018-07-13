@@ -17,7 +17,7 @@ class SquasherContainFSM extends FSMModule
 	var t:FlxTween;
 	
 	var MIN_X:Float = 32;
-	var MAX_X:Float = 400;
+	var MAX_X:Float = 300;
 	
 	public function new(parent:IFSM) 
 	{

@@ -294,8 +294,7 @@ public var currentBoostCount(default, null) :Int = 0;
 	private function dead() {
 		
 		//TODO:  Add Player death animation here.
-		alive = false;
-		visible = false;
+		fsm.changeState('dead');
 		new FlxTimer().start(1, function(_) { H.ps.resetState(); });
 	}
 	

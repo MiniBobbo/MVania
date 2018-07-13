@@ -2,6 +2,7 @@ package platform.entities.enemies;
 
 import flixel.math.FlxPoint;
 import flixel.tile.FlxTilemap;
+import platform.entities.Attack.AttackTypes;
 import platform.entities.gameentites.Enemy;
 
 /**
@@ -46,6 +47,7 @@ class Turret extends Enemy
 		
 		//Get the attack
 		var a = H.ps.getEnemyAttack();
+		AttackFactory.configAttack(a, AttackTypes.SHOT);
 		a.strength = 2;
 		animation.play('fire');
 		a.angle = angle;
