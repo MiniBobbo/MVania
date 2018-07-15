@@ -10,7 +10,7 @@ import platform.entities.Zone;
 class AntigravZone extends Zone 
 {
 	var strength:Float = 30;
-	
+	var antigrav_on:Bool = true;
 	
 	public function new(X:Float, Y:Float, WIDTH:Float, HEIGHT:Float) 
 	{
@@ -26,7 +26,8 @@ class AntigravZone extends Zone
 	
 	override public function overlapEntity(entity:Entity, ?data:Dynamic) 
 	{
-		entity.velocity.y = -strength; 
+		if(antigrav_on)
+			entity.velocity.y = -strength; 
 	}
 	
 }

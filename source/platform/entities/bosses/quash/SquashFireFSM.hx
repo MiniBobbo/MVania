@@ -51,7 +51,6 @@ class SquashFireFSM extends FSMModule
 	{
 		squash.leftArm.signal('up');
 		squash.rightArm.signal('up');
-		super.changeFrom();
 	}
 	
 	private function fire() {

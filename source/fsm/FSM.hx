@@ -12,7 +12,7 @@ class FSM
 	var entity:IFSM;
 	public var currentModule(default, null):FSMModule;
 	public var currentModuleName(default, null):String;
-	var skipModule:Bool = false;
+	public var skipModule(default, null):Bool = false;
 	
 	
 	public function new(entity:IFSM) 
@@ -26,9 +26,7 @@ class FSM
 	 * @param	dt		Elapsed time since the last call
 	 */
 	public function update(dt:Float) {
-		if (skipModule)
-		return;
-		if (currentModule != null)
+		if (currentModule != null && !skipModule)
 			currentModule.update(dt);
 	}
 	
@@ -44,6 +42,8 @@ class FSM
 	}
 	
 	public function changeState(key:String) {
+		if (key == 'none')
+			currentModule = null;
 		if (!stateMap.exists(key))
 			return;
 		if (currentModule != null)

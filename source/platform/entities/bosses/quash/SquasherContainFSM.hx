@@ -17,7 +17,7 @@ class SquasherContainFSM extends FSMModule
 	var t:FlxTween;
 	
 	var MIN_X:Float = 32;
-	var MAX_X:Float = 300;
+	var MAX_X:Float = 380;
 	
 	public function new(parent:IFSM) 
 	{
@@ -28,7 +28,7 @@ class SquasherContainFSM extends FSMModule
 	override public function changeFrom() 
 	{
 		if (t != null)
-		t.destroy();
+		t.cancelChain();
 	}
 	
 	override public function changeTo() 
@@ -40,7 +40,7 @@ class SquasherContainFSM extends FSMModule
 		moveX = MIN_X;
 		if (moveX > MAX_X)
 		moveX = MAX_X;
-		FlxTween.tween(s.pos, {x:H.ps.player.x - 180}, MOVE_TIME, {onComplete:function(_) {
+		t = FlxTween.tween(s.pos, {x:moveX }, MOVE_TIME, {onComplete:function(_) {
 			parent.changeFSM('fire'); 
 			s.leftArm.signal('down'); 
 			s.rightArm.signal('down'); 

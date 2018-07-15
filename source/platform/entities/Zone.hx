@@ -1,5 +1,6 @@
 package platform.entities;
 import flixel.util.FlxColor;
+import fsm.IFSM;
 import platform.entities.Entity;
 import flixel.FlxSprite;
 
@@ -7,7 +8,7 @@ import flixel.FlxSprite;
  * ...
  * @author Dave
  */
-class Zone extends FlxSprite
+class Zone extends FlxSprite implements IFSM
 {
 
 	public function new(X:Float, Y:Float, WIDTH:Float, HEIGHT:Float) 
@@ -17,7 +18,6 @@ class Zone extends FlxSprite
 		y = Y;
 		width = WIDTH;
 		height = HEIGHT;
-		makeGraphic(Std.int(width), Std.int(height), FlxColor.RED);
 		
 		
 	}
@@ -25,6 +25,10 @@ class Zone extends FlxSprite
 	public function overlapEntity(entity:Entity, ?data:Dynamic) 
 	{
 
+	}
+	
+	public function changeFSM(name:String):Void {
+		
 	}
 	
 }

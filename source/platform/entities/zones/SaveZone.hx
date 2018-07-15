@@ -33,19 +33,18 @@ class SaveZone extends InteractZone
 		//Do all the animations and stuff here I guess.  Not sure where else to do it.
 		//Set the player position to the middle of the zone.
 		H.ps.player.setPosition(x + 32, y + 32);
+		p.velocity.set();
 		H.ps.player.fsm.hold();
-		try{
-			
-			p.shader = new PixelShader();
-			p.shader.data.uPixels.value = 1;
-			
-		} catch (err:Dynamic)
-		{
-			trace(err);
-		}
 		savePoint.animation.play('prep');
 		
-		
+		new FlxTimer().start(2, function(_) {
+			p.changeFSM('dead');
+			savePoint.animation.play('working');
+		});		
+		new FlxTimer().start(4, function(_) {
+			H.saveGame();
+			H.ps.resetState();
+		});		
 		//var t = new FlxTimer().start();
 		
 	}

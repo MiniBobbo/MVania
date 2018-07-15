@@ -172,6 +172,7 @@ class PlatformState extends FlxState
 		player.maxHP = H.playerDef.playerMaxHealth;
 		player.hp = H.playerDef.playerHealth;
 		player.attackType = H.playerDef.attackSelected;
+		
 		entities.add(player);
 		player.setBottom(r.r.bottom);
 		player.x = r.r.x;

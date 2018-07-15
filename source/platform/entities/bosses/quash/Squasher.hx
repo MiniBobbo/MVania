@@ -26,7 +26,7 @@ class Squasher extends Boss
 	public function new(map:FlxTilemap) 
 	{
 		super();
-		TotalHP = 2;
+		TotalHP = 20;
 		
 		createBody(map);
 		createTurrets(map);
@@ -38,6 +38,7 @@ class Squasher extends Boss
 		fsm.addtoMap('randomStomp', new SquashRandomStompFSM(this));
 		fsm.changeState('wait');
 		FlxG.watch.add(this.fsm, 'currentModuleName', 'Squash mod');
+		FlxG.watch.add(this.fsm, 'skipModule', 'Squash stop');
 	}
 	
 	

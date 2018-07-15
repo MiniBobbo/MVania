@@ -69,7 +69,7 @@
  <objectgroup name="zones">
   <object id="2" name="d" type="start" x="38" y="422.333" width="14.5" height="16"/>
   <object id="4" name="d" type="test" x="1162.67" y="392" width="10.6667" height="13.3333"/>
-  <object id="5" name="travel" type="3_start" x="1899.33" y="358" width="14.6667" height="88"/>
+  <object id="5" name="travel" type="4_start" x="1899.33" y="358" width="14.6667" height="88"/>
   <object id="7" name="message" type="Testing Parallax BG scrolling" x="190.667" y="325.333" width="476.667" height="140.667"/>
  </objectgroup>
 </map>

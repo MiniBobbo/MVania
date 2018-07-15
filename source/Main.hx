@@ -34,7 +34,7 @@ class Main extends Sprite
 		InputHelper.assignKeyToButton('O', 'boost');
 		InputHelper.assignKeyToButton('E', 'weaponUp');
 		InputHelper.assignKeyToButton('Q', 'weaponDown');
-		H.currentLevel = '13';
+		H.currentLevel = '12';
 		H.previousLevel = 'start';
 		
 		//Clear the save for testing.  This should be changed to LoadSave instead.
@@ -44,10 +44,10 @@ class Main extends Sprite
 			playerMaxHealth:10,
 			playerForm:'ROBOT',
 			upgradesCollected:new StringMap<Bool>(),
-			boost:true,
+			boost:false,
 			boostUpgrade:false,
 			checkpoint:'8',
-			attacks:[true, true, true],
+			attacks:[true, false, false],
 			attackSelected:0,
 			flags:[]
 			

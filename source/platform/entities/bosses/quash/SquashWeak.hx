@@ -23,6 +23,7 @@ class SquashWeak extends Piece
 		animation.play('normal');
 		setSize(40,50);
 		centerOrigin();
+		//hp = 20;
 		hp = 20;
 	}
 	
