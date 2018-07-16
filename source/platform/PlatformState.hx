@@ -27,6 +27,7 @@ import platform.entities.Zone;
 import platform.entities.attacks.PlayerShot;
 import platform.entities.attacks.UnivAttack;
 import platform.entities.bosses.Boss;
+import platform.entities.enemies.flybot.FlyBotGenerator;
 import platform.entities.gameentites.Enemy;
 import platform.entities.interact.ReplicatorZone;
 import platform.entities.interact.TerminalZone;
@@ -381,6 +382,18 @@ class PlatformState extends FlxState
 					zones.add(d);
 				case 'start':
 					createPlayer(r);
+				case 'flybotgen':
+					var g = new FlyBotGenerator(collision);
+					H.rectToTile(r);
+					r.r.x -= 16;
+					r.r.y -= 16;
+					g.reset(r.r.x, r.r.y);
+					g.setEnemies(enemies);
+					
+					enemies.add(g);
+					entities.add(g);
+					
+					
 				default:
 				trace( 'Problem with a zone.  ' + r.name);
 					

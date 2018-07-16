@@ -64,10 +64,9 @@
 </data>
  </layer>
  <objectgroup name="Object Layer 1">
-  <object id="24" name="travel" type="12_start" x="947.333" y="351.333" width="9.33333" height="90"/>
+  <object id="24" name="travel" type="14_start" x="947.333" y="351.333" width="9.33333" height="90"/>
   <object id="32" name="d" type="start" x="41.3333" y="425.333" width="12.6667" height="13.3333"/>
   <object id="33" name="message" type="Testing Squasher boss" x="29" y="240" width="168.333" height="204.333"/>
-  <object id="39" name="enemy" type="door" x="908" y="425" width="12" height="13"/>
   <object id="41" name="boss" type="squasher" x="395" y="206" width="12" height="14"/>
  </objectgroup>
 </map>

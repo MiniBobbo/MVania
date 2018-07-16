@@ -78,6 +78,7 @@ import sys.FileSystem;
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_11_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_12_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_13_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_14_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_2_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_3_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_32blocks_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
