@@ -74,6 +74,7 @@
   </object>
   <object id="45" name="antigrav" type="12" x="296" y="454" width="16" height="17">
    <properties>
+    <property name="on" value="no"/>
     <property name="str" value="150"/>
    </properties>
   </object>

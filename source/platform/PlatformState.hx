@@ -30,6 +30,7 @@ import platform.entities.bosses.Boss;
 import platform.entities.gameentites.Enemy;
 import platform.entities.interact.ReplicatorZone;
 import platform.entities.interact.TerminalZone;
+import platform.entities.things.AntiGravGenerator;
 import platform.entities.things.SavePoint;
 import platform.entities.zones.AntigravZone;
 import platform.entities.zones.DeathZone;
@@ -340,6 +341,20 @@ class PlatformState extends FlxState
 					if (r.properties.exists('str'))
 						agz.setStrength(Std.parseFloat(r.properties.get('str')));
 					zones.add(agz);
+					
+					var e = new AntiGravGenerator(collision);
+					e.setPosition(r.r.x, r.r.y + r.r.height);
+					e.setAntiGrav(agz);
+					if (r.properties.exists('on')) {
+						
+						if (r.properties.get('on') == 'yes') {
+							e.signal('on');
+						}
+						else
+							e.signal('off');
+					}
+					entities.add(e);
+					nocollide.add(e);
 				case 'save':
 					H.rectToTile(r);
 					//Create the save message

@@ -8,7 +8,7 @@ import flixel.FlxSprite;
  * ...
  * @author Dave
  */
-class Zone extends FlxSprite implements IFSM
+class Zone extends FlxSprite implements IFSM 
 {
 
 	public function new(X:Float, Y:Float, WIDTH:Float, HEIGHT:Float) 
