@@ -12,7 +12,7 @@ import shaders.PixelShader;
  */
 class SaveZone extends InteractZone  
 {
-	
+	var saving:Bool = false;
 	var savePoint:SavePoint;
 	public function new(X:Float, Y:Float, WIDTH:Float, HEIGHT:Float) 
 	{
@@ -29,10 +29,15 @@ class SaveZone extends InteractZone
 	
 	override public function interact() 
 	{
+		
+		if (saving)
+			return;
+		saving = true;
 		var p:Player = H.ps.player;
 		//Do all the animations and stuff here I guess.  Not sure where else to do it.
 		//Set the player position to the middle of the zone.
-		H.ps.player.setPosition(x + 32, y + 32);
+		H.ps.player.setPosition(x + 36, y +36);
+		H.ps.player.animation.play('idle');
 		p.velocity.set();
 		H.ps.player.fsm.hold();
 		savePoint.animation.play('prep');
