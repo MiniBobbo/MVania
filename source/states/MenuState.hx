@@ -32,6 +32,9 @@ class MenuState extends FlxState
 		
 		clearData = new FlxButtonPlus(0, 0, clearSave, 'Clear Saved Data');
 		add(clearData);
+		
+		currentPlayerDef = new FlxText(0, 100, 300, H.playerDef + '');
+		add(currentPlayerDef);
 	}
 	
 	function start() {

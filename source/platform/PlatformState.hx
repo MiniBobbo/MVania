@@ -279,6 +279,8 @@ class PlatformState extends FlxState
 	private function placeZones() {
 		var playerPlaced:Bool = false;
 		
+		var destinationRects:Array<TmxRect> = []; 
+		
 		for (r in rects) {
 			//FlxG.log.add(r);
 			switch (r.name) 
@@ -347,6 +349,7 @@ class PlatformState extends FlxState
 					var sp = new SavePoint(collision);
 					sp.setPosition(r.r.x - 32, r.r.y);
 					nocollide.add(sp);
+					entities.add(sp);
 					
 					//Create the interactive SaveZone
 					var sz = new SaveZone(r.r.x - 32, r.r.y - 64, 96, 64);
@@ -380,6 +383,13 @@ class PlatformState extends FlxState
 				trace( 'Problem with a zone.  ' + r.name);
 					
 					
+			}
+			
+			if (!playerPlaced && H.previousLevel == 'save') {
+				for (r in rects) {
+					if (r.name == 'save')
+						spawnPlayer(r);
+				}
 			}
 		}
 		
@@ -485,5 +495,29 @@ class PlatformState extends FlxState
 		helpMessage.text = message;
 		helpMessage.alpha = 1;
 		
+	}
+	
+	/**
+	 * This creates the player from a save location.  This calls createPlayer, so don't call it again.
+	 * @param	r	The TmxRect for the save point.
+	 */
+	private function spawnPlayer(r:TmxRect) {
+		H.rectToTile(r);
+		r.r.x + 32;
+		createPlayer(r);
+		player.animation.play('idle');
+		player.fsm.hold();
+		player.setBottom(r.r.y);
+		player.alpha = 0;
+		H.signalAll('saveup');
+		new FlxTimer().start(1.5, function(_) {
+			H.signalAll('saveworking');
+		FlxTween.tween(player, {alpha:1});
+		});
+		
+		new FlxTimer().start(4, function(_) {
+			H.signalAll('savedown');
+		player.fsm.resume();
+		});
 	}
 }

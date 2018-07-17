@@ -38,7 +38,7 @@ class Main extends Sprite
 		InputHelper.assignKeyToButton('Q', 'weaponDown');
 		InputHelper.assignKeyToButton('TAB', 'map');
 		H.currentLevel = 'save';
-		H.previousLevel = 'start';
+		H.previousLevel = 'save';
 		
 		//Clear the save for testing.  This should be changed to LoadSave instead.
 		
