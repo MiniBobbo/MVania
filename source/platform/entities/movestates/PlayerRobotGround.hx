@@ -37,7 +37,7 @@ class PlayerRobotGround extends FSMModule
 	override public function update(dt:Float) 
 	{
 		//trace('Running player ground');
-		
+
 		player.velocity.x = 0;
 		player.addEnergyStep(dt);
 		//if (i.isButtonJustPressed('attack')) {
@@ -70,10 +70,8 @@ class PlayerRobotGround extends FSMModule
 		if (i.isButtonJustPressed('attack')) {
 			player.shoot(player.currentAttackType);
 		}
-
 		
 		setAnimation();
-		
 		//if(i.isButtonJustPressed('jump'))
 	}
 	

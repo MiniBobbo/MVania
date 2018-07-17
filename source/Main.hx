@@ -7,6 +7,7 @@ import openfl.display.Sprite;
 import platform.H;
 import platform.PlatformState;
 import platform.entities.Player.PlayerForm;
+import states.MenuState;
 
 class Main extends Sprite
 {
@@ -58,6 +59,6 @@ class Main extends Sprite
 		};
 		
 		super();
-		addChild(new FlxGame(480, 270, PlatformState));
+		addChild(new FlxGame(480, 270, MenuState));
 	}
 }

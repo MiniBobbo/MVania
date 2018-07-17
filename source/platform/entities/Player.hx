@@ -71,6 +71,7 @@ public var currentBoostCount(default, null) :Int = 0;
 	}
 	
 	private function applyPlayerDef(pd:PlayerDef) {
+		trace('Applying player def: ' + pd);
 		hp = pd.playerHealth;
 		maxHP = pd.playerMaxHealth;
 		energy = pd.playerEnergy;
@@ -118,22 +119,7 @@ public var currentBoostCount(default, null) :Int = 0;
 				fsm.changeState('ground');
 				//trace('After changestate ' + toString() );
 
-			//case 'BALL':
-				//this.acceleration.y = H.GRAVITY;
-				//maxVelocity.set(200,200);
-				//setSize(8, 10);
-				//attackOffset = new FlxPoint(10,20);
-				//frames = H.getFrames();
-				//animation.addByPrefix('float', 'Ball_float_', 12);
-				//animation.addByPrefix('floatup', 'Ball_float_', 36);
-				//animation.play('float');
-				//centerOffsets();
-				//offset.y += 16;
-				//drag.set(700, 0);
-				//fsm.addtoMap('ground', new PlayerBallGround(this));
-				//fsm.addtoMap('air', new PlayerBallAir(this));
-				//fsm.addtoMap('stun', new PlayerBallAir(this));
-				//fsm.changeState('ground');
+		
 
 			default:
 
@@ -166,7 +152,6 @@ public var currentBoostCount(default, null) :Int = 0;
 			currentAttackType = weaponIntToEnum(attackType);
 			setWeaponAttributes();
 		}
-		
 		
 		super.update(elapsed);
 		if (velocity.x > 0)

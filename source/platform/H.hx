@@ -130,9 +130,8 @@ class H
 		var save = initSave();	
 		//trace('Saved data: ' + save.data.d);
 		H.playerDef = Json.parse(save.data.d);
-		trace('Player form is ' + H.playerDef.playerForm);
 		H.savedPlayerDef = Json.parse(save.data.d);
-		H.savedPlayerDef.playerHealth = H.savedPlayerDef.playerMaxHealth;
+		
 		save.close();
 		
 		if (playerDef == null)

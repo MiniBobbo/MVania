@@ -161,12 +161,14 @@ class PlatformState extends FlxState
 	}
 
 	private function createPlayer(r:TmxRect) {
-		//trace('Loaded player def: ' + H.playerDef);
 		try{ 
+
 		player = new Player(collision);
-		player.maxHP = H.playerDef.playerMaxHealth;
-		player.hp = H.playerDef.playerHealth;
-		player.attackType = H.playerDef.attackSelected;
+		//player.maxHP = H.playerDef.playerMaxHealth;
+		//player.hp = H.playerDef.playerHealth;
+		//player.attackType = H.playerDef.attackSelected;
+		//player.energy = H.playerDef.playerEnergy;
+		//player.maxEnergy = H.playerDef.playerMaxEnergy;
 		
 		entities.add(player);
 		player.setBottom(r.r.bottom);
@@ -191,6 +193,7 @@ class PlatformState extends FlxState
 	
 	override public function update(elapsed:Float):Void
 	{
+
 		timeInLevel += elapsed;
 		if (timeInLevel > .1 && !travelZonesPlaced)
 			placeTravelZones();
@@ -206,8 +209,13 @@ class PlatformState extends FlxState
 		FlxG.overlap(enemyAttacks, player, attackHits);
 		//FlxG.overlap(player.attack, enemyAttacks, playerHitsAttack);
 		InputHelper.updateKeys(elapsed);
-		
-		super.update(elapsed);
+		try {
+			super.update(elapsed);
+			
+		} catch (err:Dynamic)
+		{
+			trace(err);
+		}
 			FlxG.overlap(entities, zones, EntityOverlapZone);
 		FlxG.collide(player, collision);
 		FlxG.collide(enemies, collision);
