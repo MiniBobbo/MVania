@@ -19,7 +19,13 @@ class AntiGravGenerator extends Enemy
 	{
 		super(collisionMap);
 		collideMap = false;
-		makeGraphic(32,32,FlxColor.LIME);
+		//makeGraphic(32, 32, FlxColor.LIME);
+		frames = H.getFrames();
+		animation.addByPrefix('off', 'icons_antigrav_off_', 12, false);
+		animation.addByPrefix('on', 'icons_antigrav_on_', 12, true);
+		animation.play('off');
+		setSize(32, 32);
+		centerOffsets();
 	}
 	
 	public function setAntiGrav(antigrav:AntigravZone) {
@@ -50,6 +56,10 @@ class AntiGravGenerator extends Enemy
 			default:
 				
 		}
+		if (antigrav.antigrav_on)
+			animation.play('on');
+		else
+			animation.play('off');
 	}
 	
 }

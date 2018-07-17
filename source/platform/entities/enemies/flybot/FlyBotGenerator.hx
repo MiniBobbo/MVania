@@ -26,7 +26,11 @@ class FlyBotGenerator extends Enemy
 	public function new(collisionMap:FlxTilemap) 
 	{
 		super(collisionMap);
-		makeGraphic(64, 64, FlxColor.RED);
+		frames = H.getFrames();
+		animation.addByPrefix('flash', 'FlyBotGenerator_flash_', 12);
+		animation.play('flash');
+		setSize(64, 64);
+		centerOffsets();
 		flies = new FlxTypedGroup<FlyBot>();
 		hp = 20;
 		immovable = true;
@@ -58,6 +62,10 @@ class FlyBotGenerator extends Enemy
 				}
 				var mp = getGraphicMidpoint();
 				fly.reset(mp.x, mp.y);
+				fly.hp = 1;
+				fly.changeFSM('wait');
+				fly.shader = null;
+				fly.alpha = 1;	
 			}
 		}
 	}

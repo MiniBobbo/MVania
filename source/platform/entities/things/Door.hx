@@ -20,7 +20,13 @@ class Door extends Enemy
 	{
 		super(collisionMap);
 		immovable = true;
-		makeGraphic(28, 96, FlxColor.BROWN);
+		//makeGraphic(28, 96, FlxColor.BROWN);
+		frames = H.getFrames();
+		animation.addByPrefix('open', 'door_open_', 24, false);
+		animation.addByPrefix('close', 'door_close_', 24, false);
+		animation.addByPrefix('closed', 'door_closed_', 24, false);
+		animation.addByPrefix('opened', 'door_opened_', 24, false);
+		animation.play('closed');
 		setSize(28, 96);
 		this.code = code;
 
@@ -46,14 +52,16 @@ class Door extends Enemy
 	public function lockDoor() {
 		locked = true;
 		alive = true;
-		alpha = 1;
+		//alpha = 1;
 		hp = -1;
+		animation.play('close');
 	}
 	
 	private function unlockDoor() {
 		locked = false;
 		alive = false;
-		alpha = .3;
+		//alpha = .3;
 		hp = 0;
+		animation.play('open');
 	}
 }
