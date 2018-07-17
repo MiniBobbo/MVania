@@ -1,4 +1,5 @@
 package platform.entities;
+import defs.PlayerDef;
 import flixel.math.FlxPoint;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
@@ -65,8 +66,16 @@ public var currentBoostCount(default, null) :Int = 0;
 	{
 		super();
 		changeForm(H.playerDef.playerForm);
-		hp = maxHP;
+		applyPlayerDef(H.playerDef);
 		currentAttackType = AttackTypes.SHOT;
+	}
+	
+	private function applyPlayerDef(pd:PlayerDef) {
+		hp = pd.playerHealth;
+		maxHP = pd.playerMaxHealth;
+		energy = pd.playerEnergy;
+		maxEnergy = pd.playerMaxEnergy;
+		attackType = pd.attackSelected;
 	}
 
 	public function changeForm(newForm:String)
@@ -295,7 +304,11 @@ public var currentBoostCount(default, null) :Int = 0;
 		
 		//TODO:  Add Player death animation here.
 		fsm.changeState('dead');
-		new FlxTimer().start(1, function(_) { H.ps.resetState(); });
+		new FlxTimer().start(1, function(_) { 
+			H.loadGame();
+			H.ps.resetState(); 
+			
+		});
 	}
 	
 	public function changeEnergy(change:Float)

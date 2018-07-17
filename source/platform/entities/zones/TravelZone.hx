@@ -38,6 +38,8 @@ class TravelZone extends Zone
 			playerHit = true;
 			H.previousLevel = checkpoint;
 			H.currentLevel = world;
+			
+			
 			H.ps.resetState();
 			//var ps = new PlatformState();
 			//FlxG.switchState(ps);

@@ -29,7 +29,6 @@ import platform.entities.attacks.UnivAttack;
 import platform.entities.bosses.Boss;
 import platform.entities.enemies.flybot.FlyBotGenerator;
 import platform.entities.gameentites.Enemy;
-import platform.entities.interact.ReplicatorZone;
 import platform.entities.interact.TerminalZone;
 import platform.entities.things.AntiGravGenerator;
 import platform.entities.things.SavePoint;
@@ -58,8 +57,6 @@ class PlatformState extends FlxState
 	
 	public var hud:HUD;
 	var farbg:FlxSpriteGroup;
-	var healthBar:Bar;
-	var energyBar:Bar;
 	
 	public var transitioning:Bool = false;
 	
@@ -70,10 +67,6 @@ class PlatformState extends FlxState
 	public var player(default, null):Player;
 	
 	var emitter:FlxEmitter;
-	var deflectSound:FlxSound;
-	var dead:FlxSound;
-	
-	public var replicatedObject:ReplicatedObject;
 	
 	var enemies:FlxTypedGroup<Enemy>;
 	public var playerAttacks:FlxTypedGroup<UnivAttack>;
@@ -218,8 +211,6 @@ class PlatformState extends FlxState
 			FlxG.overlap(entities, zones, EntityOverlapZone);
 		FlxG.collide(player, collision);
 		FlxG.collide(enemies, collision);
-		if (replicatedObject != null)
-			FlxG.collide(replicatedObject, collision);
 		
 		FlxG.collide(playerAttacks, collision, attackHitsMap);
 		FlxG.collide(univAttacks, collision, attackHitsMap);
@@ -314,24 +305,7 @@ class PlatformState extends FlxState
 					var enemy = EnemyFactory.createEnemy('terminal', r, collision);
 					nocollide.add(enemy);
 
-				case 'replicator':
-					r.r.x -= 32;
-					r.r.y -= 32;
-					H.rectToTile(r);
-					var id:Int;
-					if (r.properties.exists('type'))
-						id = Std.parseInt(r.properties.get('type'));
-					else
-						id = 0;
-					var rep = new Replicator(id);
-					rep.reset(r.r.x, r.r.y);
-					nocollide.add(rep);
-					//Create the usable zone.
-					r.r.x += 64;
-					r.r.y += 64;
-					var rz = new ReplicatorZone(r.r.x, r.r.y, 32, 32);
-					rz.ID = id;
-					usable.push(rz);
+
 					
 				case 'antigrav':
 					var height = Std.parseInt(r.properties.get('type'));
@@ -415,6 +389,9 @@ class PlatformState extends FlxState
 			return;
 		
 			//Save the player's current stats to the PlayerDef so they can be loaded next time.
+			H.playerDef.attackSelected = player.attackType;
+			H.playerDef.playerHealth = player.hp;
+			H.playerDef.playerMaxHealth = player.maxHP;
 			
 			
 		FlxG.camera.fade(FlxColor.BLACK, .2, false, function() {
@@ -428,7 +405,6 @@ class PlatformState extends FlxState
 	
 	public function killPlayer() {
 		player.animation.play('dead');
-		dead.play();
 		FlxTween.tween(player, {alpha:0});
 		FlxTween.color(player, .3, FlxColor.WHITE, FlxColor.RED);
 		FlxTween.tween(cover, {x:0}, .3, {startDelay:1.5, onComplete:  function (_) {
@@ -496,36 +472,6 @@ class PlatformState extends FlxState
 		resetState();
 	}
 	
-	/**
-	 * Spawns a new replicated object.  Removes the previous one.
-	 * @param	form		The form to spawn
-	 * @param	id			The ID location to spawn the body.
-	 */
-	public function spawnPlayerForm(form:String, id:Int) {
-		//Try to find the matching replicator.  
-		var rep:Replicator = null;
-		for (r in nocollide) {
-			if (Std.is(r, Replicator) && id == r.ID)
-			rep = cast r;
-		}
-		
-		if (rep == null) {
-			trace('Error finding replicator match for ID ' + id);
-			return;
-		}
-		
-		if (player.playerForm != 'BALL') {
-			if (replicatedObject != null)
-				replicatedObject.disentigrate();
-			replicatedObject = new ReplicatedObject(player.x, player.y, player.playerForm);
-			player.popOut();
-			replicatedObject.disentigrate();
-		}
-		
-			replicatedObject = new ReplicatedObject(rep.x, rep.y, form);
-			sprites.add(replicatedObject);
-		
-	}
 	
 	public function displayHelpMessage(message:String) {
 		helpMessage.text = message;

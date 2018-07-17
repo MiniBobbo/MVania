@@ -25,6 +25,7 @@ class Main extends Sprite
 		InputHelper.addButton('jump');
 		InputHelper.addButton('attack');
 		InputHelper.addButton('use');
+		InputHelper.addButton('map');
 		InputHelper.addButton('boost');
 		InputHelper.addButton('weaponUp');
 		InputHelper.addButton('weaponDown');
@@ -34,6 +35,7 @@ class Main extends Sprite
 		InputHelper.assignKeyToButton('O', 'boost');
 		InputHelper.assignKeyToButton('E', 'weaponUp');
 		InputHelper.assignKeyToButton('Q', 'weaponDown');
+		InputHelper.assignKeyToButton('TAB', 'map');
 		H.currentLevel = 'save';
 		H.previousLevel = 'start';
 		
@@ -42,6 +44,8 @@ class Main extends Sprite
 		H.defaultPlayerDef = {
 			playerHealth:10,
 			playerMaxHealth:10,
+			playerMaxEnergy:10,
+			playerEnergy:10,
 			playerForm:'ROBOT',
 			upgradesCollected:new StringMap<Bool>(),
 			boost:false,
@@ -52,7 +56,6 @@ class Main extends Sprite
 			flags:[]
 			
 		};
-		H.clearSave();
 		
 		super();
 		addChild(new FlxGame(480, 270, PlatformState));

@@ -9,6 +9,8 @@ typedef PlayerDef =
 {
 	var playerHealth:Float;
 	var playerMaxHealth:Float;
+	var playerMaxEnergy:Float;
+	var playerEnergy:Float;
 	var playerForm:String;
 	var upgradesCollected:StringMap<Bool>;
 	var boost:Bool;

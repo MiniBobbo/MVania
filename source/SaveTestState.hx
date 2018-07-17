@@ -1,11 +1,14 @@
 package;
 
 import defs.PlayerDef;
+import flixel.FlxG;
 import flixel.FlxState;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import haxe.Json;
+import inputhelper.InputHelper;
 import platform.H;
+import states.MinimapSubState;
 
 /**
  * ...
@@ -16,6 +19,8 @@ class SaveTestState extends FlxState
 
 	var text:FlxText;
 	var text2:FlxText;
+	
+	var minimap:MinimapSubState;
 	
 	override public function create():Void 
 	{
@@ -33,6 +38,9 @@ class SaveTestState extends FlxState
 		add(clearSave);
 		add(text);
 		add(text2);
+		
+		minimap = new MinimapSubState();
+		destroySubStates = false;
 		
 		onLoad();
 	}
@@ -59,10 +67,16 @@ class SaveTestState extends FlxState
 	
 	override public function update(elapsed:Float):Void 
 	{
+		var i = InputHelper;
+		i.updateKeys(elapsed);
+		
 		text.text = 'Active: ' + Json.stringify(H.playerDef);
 		text2.text = 'Saved: ' + Json.stringify(H.savedPlayerDef);
 		super.update(elapsed);
 		
+		if (i.isButtonJustPressed('map')) {
+			openSubState(minimap);
+		} 
 	}
 	
 }
