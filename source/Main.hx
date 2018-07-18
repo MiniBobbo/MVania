@@ -52,7 +52,7 @@ class Main extends Sprite
 			boost:false,
 			boostUpgrade:false,
 			checkpoint:'Terraforming',
-			attacks:[true, false, false],
+			attacks:[true, false, true],
 			attackSelected:0,
 			flags:[]
 			
