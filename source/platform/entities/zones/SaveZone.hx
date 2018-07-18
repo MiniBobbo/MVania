@@ -33,6 +33,8 @@ class SaveZone extends InteractZone
 		if (saving)
 			return;
 		saving = true;
+		H.playerDef.checkpoint = H.currentLevel;
+		
 		var p:Player = H.ps.player;
 		//Do all the animations and stuff here I guess.  Not sure where else to do it.
 		//Set the player position to the middle of the zone.
@@ -40,13 +42,14 @@ class SaveZone extends InteractZone
 		H.ps.player.animation.play('idle');
 		p.velocity.set();
 		H.ps.player.fsm.hold();
-		savePoint.animation.play('prep');
+		savePoint.animation.play('up');
 		
 		new FlxTimer().start(2, function(_) {
 			p.changeFSM('dead');
 			savePoint.animation.play('working');
 		});		
 		new FlxTimer().start(4, function(_) {
+			H.previousLevel = 'save';
 			H.saveGame();
 			H.ps.resetState();
 		});		

@@ -37,8 +37,8 @@ class Main extends Sprite
 		InputHelper.assignKeyToButton('E', 'weaponUp');
 		InputHelper.assignKeyToButton('Q', 'weaponDown');
 		InputHelper.assignKeyToButton('TAB', 'map');
-		H.currentLevel = 'save';
-		H.previousLevel = 'save';
+		H.currentLevel = '9';
+		H.previousLevel = 'start';
 		
 		//Clear the save for testing.  This should be changed to LoadSave instead.
 		
@@ -51,7 +51,7 @@ class Main extends Sprite
 			upgradesCollected:new StringMap<Bool>(),
 			boost:false,
 			boostUpgrade:false,
-			checkpoint:'8',
+			checkpoint:'Terraforming',
 			attacks:[true, false, false],
 			attackSelected:0,
 			flags:[]

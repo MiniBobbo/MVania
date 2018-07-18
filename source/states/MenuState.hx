@@ -24,6 +24,7 @@ class MenuState extends FlxState
 	
 	override public function create():Void 
 	{
+		H.loadGame();
 		super.create();
 		startGame = new FlxButtonPlus(0, 0, start, 'Start Game');
 		
@@ -33,7 +34,7 @@ class MenuState extends FlxState
 		clearData = new FlxButtonPlus(0, 0, clearSave, 'Clear Saved Data');
 		add(clearData);
 		
-		currentPlayerDef = new FlxText(0, 100, 300, H.playerDef + '');
+		currentPlayerDef = new FlxText(100, 0, 300, H.playerDef + '');
 		add(currentPlayerDef);
 	}
 	
@@ -44,5 +45,10 @@ class MenuState extends FlxState
 	
 	function clearSave(){
 		H.clearSave();
+		refreshPlayerDefDisplay();
+	}
+	
+	function refreshPlayerDefDisplay() {
+		currentPlayerDef.text = H.playerDef + '';
 	}
 }

@@ -1,5 +1,6 @@
 package states;
 
+import flixel.FlxSprite;
 import flixel.FlxSubState;
 import flixel.tile.FlxTilemap;
 import flixel.util.FlxColor;
@@ -14,20 +15,26 @@ class MinimapSubState extends FlxSubState
 {
 
 	var overlay:FlxTilemap;
-	public function new(BGColor:FlxColor=FlxColor.TRANSPARENT) 
+	var map:FlxTilemap;
+	public function new(BGColor:FlxColor=FlxColor.BLACK) 
 	{
 		super(BGColor);
-		var maps = new TmxTools('assets/data/levels/minimap.tmx',  'assets/data/levels/');
-		overlay = maps.getMap('AreaLayer');
-		
-		
-		
 	}
 	
 	override public function create():Void 
 	{
 		super.create();
+		var maps = new TmxTools('assets/data/levels/minimap.tmx',  'assets/data/levels/');
+		overlay = maps.getMap('AreaLayer');
+		//overlay.scale.set(2, 2);
+		map = maps.getMap('MapLayer');
+		overlay.screenCenter();
+		overlay.alpha = .5;
+		map.screenCenter();
+		//map.scale.set(2, 2);
+		add(map);
 		add(overlay);
+		
 	}
 
 	override public function update(elapsed:Float):Void 

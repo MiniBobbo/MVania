@@ -27,7 +27,7 @@ class H
 	
 	public static var defaultPlayerDef:PlayerDef;
 	public static var playerDef:PlayerDef;
-	public static var savedPlayerDef:PlayerDef;
+	//public static var savedPlayerDef:PlayerDef;
 	
 	public static var currentLevel:String;
 	public static var previousLevel:String;
@@ -119,10 +119,11 @@ class H
 	
 	public static function saveGame() {
 		var save = initSave();	
-		H.savedPlayerDef = Json.parse(Json.stringify(H.playerDef));
-		H.savedPlayerDef.playerHealth = H.savedPlayerDef.playerMaxHealth;
-
-		save.data.d = Json.stringify(H.savedPlayerDef);
+		playerDef.playerHealth = playerDef.playerMaxHealth;
+		playerDef.playerEnergy= playerDef.playerMaxEnergy;
+		
+		
+		save.data.d = Json.stringify(H.playerDef);
 		save.close();
 	}
 	
@@ -130,7 +131,9 @@ class H
 		var save = initSave();	
 		//trace('Saved data: ' + save.data.d);
 		H.playerDef = Json.parse(save.data.d);
-		H.savedPlayerDef = Json.parse(save.data.d);
+		H.playerDef.playerHealth = H.playerDef.playerMaxHealth;
+		H.currentLevel = playerDef.checkpoint;
+		H.previousLevel = 'save';
 		
 		save.close();
 		

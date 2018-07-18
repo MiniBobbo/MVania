@@ -38,6 +38,7 @@ import platform.entities.zones.HelpMessageZone;
 import platform.entities.zones.SaveZone;
 import platform.entities.zones.SignalZone;
 import platform.entities.zones.TravelZone;
+import states.MinimapSubState;
 import tmxtools.TmxRect;
 import tmxtools.TmxTools;
 
@@ -57,6 +58,9 @@ class PlatformState extends FlxState
 	
 	public var hud:HUD;
 	var farbg:FlxSpriteGroup;
+	
+	var minimap:MinimapSubState;
+
 	
 	public var transitioning:Bool = false;
 	
@@ -84,6 +88,7 @@ class PlatformState extends FlxState
 	{
 		super.create();
 		
+		trace('Creating playstate');
 		H.setPlaystate(this);
 		helpMessage = new FlxText(FlxG.width * .1, FlxG.height * .1, FlxG.width * .8, '', 16);
 		helpMessage.alpha = 0;
@@ -107,6 +112,9 @@ class PlatformState extends FlxState
 		
 		emitter = new FlxEmitter();
 		emitter.makeParticles();
+		
+		destroySubStates = false;
+		minimap = new MinimapSubState();
 		
 		collision = maps.getMap('collision');
 		mg = maps.getMap('mg');
@@ -230,6 +238,13 @@ class PlatformState extends FlxState
 			use();
 		}
 		
+		if (InputHelper.isButtonJustPressed('map')) {
+			trace('opened substate');
+			openSubState(minimap);
+		}
+		
+		
+		
 		hud.setBoostCount(player.currentBoostCount);
 	}
 	
@@ -301,10 +316,7 @@ class PlatformState extends FlxState
 					var m:HelpMessageZone = new HelpMessageZone(r.r.x, r.r.y, r.r.width, r.r.height, r.properties.get('type'));
 					zones.add(m);
 				case 'd':
-					if (r.properties.get('type') == H.previousLevel) {
-						playerPlaced = true;
-						createPlayer(r);
-					}
+					destinationRects.push(r);
 				case 'travel':
 				case 'terminal' :
 					H.rectToTile(r);
@@ -385,13 +397,24 @@ class PlatformState extends FlxState
 					
 			}
 			
-			if (!playerPlaced && H.previousLevel == 'save') {
-				for (r in rects) {
-					if (r.name == 'save')
-						spawnPlayer(r);
-				}
-			}
 		}
+			if (H.previousLevel == 'save') {
+				for (r in rects) {
+					if (r.name == 'save') {
+						spawnPlayer(r);
+						break;
+					}
+				}
+			} else {
+				for(r in destinationRects) {
+					if (r.properties.get('type') == H.previousLevel) {
+						playerPlaced = true;
+						createPlayer(r);
+					}
+				}
+
+			}
+
 		
 	}
 	
@@ -423,6 +446,7 @@ class PlatformState extends FlxState
 	
 	public function killPlayer() {
 		player.animation.play('dead');
+		H.previousLevel = 'save';
 		FlxTween.tween(player, {alpha:0});
 		FlxTween.color(player, .3, FlxColor.WHITE, FlxColor.RED);
 		FlxTween.tween(cover, {x:0}, .3, {startDelay:1.5, onComplete:  function (_) {
@@ -502,9 +526,11 @@ class PlatformState extends FlxState
 	 * @param	r	The TmxRect for the save point.
 	 */
 	private function spawnPlayer(r:TmxRect) {
+		trace('Trying to spawn player ' + r);
 		H.rectToTile(r);
-		r.r.x + 32;
+		r.r.x + 40;
 		createPlayer(r);
+		player.hp= H.playerDef.playerMaxHealth;
 		player.animation.play('idle');
 		player.fsm.hold();
 		player.setBottom(r.r.y);

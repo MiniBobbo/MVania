@@ -92,8 +92,11 @@ import sys.FileSystem;
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_minimap_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_minimap_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_save_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_save1_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_save2_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_shiptileset_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_shiptileset_tsx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_terraforming_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_temple2_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_templemgsheet_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_main_json extends null { }
