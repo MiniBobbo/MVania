@@ -10,6 +10,7 @@ import platform.entities.enemies.RoboRat;
 import platform.entities.enemies.Turret;
 import platform.entities.enemies.TurretBase;
 import platform.entities.enemies.flybot.FlyBot;
+import platform.entities.enemies.glitchedrobot.GlitchedRobot;
 import platform.entities.gameentites.Enemy;
 import platform.entities.things.Door;
 import platform.entities.things.Panel;
@@ -34,6 +35,11 @@ class EnemyFactory
 		switch (type) 
 		{
 			//Create the specific enemies here.
+			case 'roborat':
+				e = new RoboRat(map);
+				H.rectToTile(rect);
+				cast(e, RoboRat).setFinishPosition(rect.r.x, Std.parseFloat(rect.properties.get('finish') ));
+				e.reset(rect.r.x, rect.r.y);
 			case 'rat':
 				e = new Rat(map);
 				H.rectToTile(rect);
@@ -53,7 +59,10 @@ class EnemyFactory
 				e.reset(rect.r.x, rect.r.y);
 				if (rect.properties.exists('rate'))
 					cast(e, Turret).FIRE_DELAY = Std.parseFloat(rect.properties.get('rate'));
-				
+			case 'glitchedrobot':
+				e = new GlitchedRobot(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
 			case 'turretbase':
 				e = new TurretBase(map);
 				H.rectToTile(rect);
@@ -70,11 +79,6 @@ class EnemyFactory
 			case 'terminal':
 				e = new Terminal(map);
 				H.rectToTile(rect);
-				e.reset(rect.r.x, rect.r.y);
-			case 'roborat':
-				e = new RoboRat(map);
-				H.rectToTile(rect);
-				cast(e, RoboRat).setFinishPosition(rect.r.x, Std.parseFloat(rect.properties.get('finish') ));
 				e.reset(rect.r.x, rect.r.y);
 			case 'fire':
 				e = new FireAttack(map);

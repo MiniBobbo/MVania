@@ -33,6 +33,8 @@ class MenuState extends FlxState
 		
 		clearData = new FlxButtonPlus(0, 0, clearSave, 'Clear Saved Data');
 		add(clearData);
+		var debugGame = new FlxButtonPlus(0, 40, debug, 'Debug game');
+		add(debugGame);
 		
 		currentPlayerDef = new FlxText(100, 0, 300, H.playerDef + '');
 		add(currentPlayerDef);
@@ -50,5 +52,12 @@ class MenuState extends FlxState
 	
 	function refreshPlayerDefDisplay() {
 		currentPlayerDef.text = H.playerDef + '';
+	}
+	
+	private function debug() {
+		H.previousLevel = 'Terraforming';
+		H.currentLevel = 'Pod Bay';
+		refreshPlayerDefDisplay();
+		
 	}
 }
