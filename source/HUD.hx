@@ -20,6 +20,8 @@ class HUD extends FlxSpriteGroup
 	var healthBar:Bar;
 	var energyBar:Bar;
 	var BOOST_LOCATION:Float;
+	
+	var debugMessages:FlxText;
 
 	var weaponStart:Int;
 	public function new() {
@@ -37,6 +39,10 @@ class HUD extends FlxSpriteGroup
 		add(energyBar);
 		createWeaponBoxes();
 		createBoost();
+		
+		#if debug
+		debugMessages = new FlxText(0,250);
+		#end
 	}
 	
 	public function createWeaponBoxes() {
@@ -105,6 +111,17 @@ class HUD extends FlxSpriteGroup
 	
 	public function setBoostCount(count:Int) {
 		boostCount.text = count + '';
+	}
+	
+	/**
+	 * Writes a debug message only in debug mode.
+	 * @param	message		Message to write	
+	 * @param	reset		Should the previous message be cleared?
+	 */
+	public function setDebugMessage(message:String, reset:Bool = true) {
+		#if debug
+		debugMessages.text = message;
+		#end
 	}
 	
 }

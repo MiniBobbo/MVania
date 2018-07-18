@@ -90,8 +90,8 @@ public var currentBoostCount(default, null) :Int = 0;
 			case 'ROBOT':
 				this.acceleration.y = H.GRAVITY;
 				//Set the animation here.
-				FlxG.watch.add(this,'width');
-				FlxG.watch.add(this,'height');
+				//FlxG.watch.add(this,'width');
+				//FlxG.watch.add(this,'height');
 				drag.set(0,0);
 				maxVelocity.set(1000,1000);
 				attackOffset = new FlxPoint(10,17);

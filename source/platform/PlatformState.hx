@@ -116,14 +116,16 @@ class PlatformState extends FlxState
 		destroySubStates = false;
 		minimap = new MinimapSubState();
 		
+
 		collision = maps.getMap('collision');
 		mg = maps.getMap('mg');
 		fg= maps.getMap('fg');
 		FlxG.worldBounds.set(collision.width, collision.height);
 		FlxG.camera.bgColor = FlxColor.BLACK;
 		rects = maps.getTmxRectanges();
+		trace('Running playstate');
 		
-		FlxG.watch.add(helpText, 'visible');
+		//FlxG.watch.add(helpText, 'visible');
 		
 		//Create player attacks
 		for (i in 0...10) {
@@ -142,6 +144,9 @@ class PlatformState extends FlxState
 		//
 		//playerAttacks.add(player.attack);
 		
+		
+		FlxG.watch.add(H, 'currentLevel');
+		FlxG.watch.add(H, 'previousLevel');
 		//FlxG.watch.add(playerAttacks.members, 'length', 'Player attacks');
 		//FlxG.watch.add(enemies.members, 'length', 'enemies');
 		//FlxG.watch.add('Player attacks: ' + playerAttacks.countLiving());
@@ -242,10 +247,8 @@ class PlatformState extends FlxState
 			trace('opened substate');
 			openSubState(minimap);
 		}
-		
-		
-		
 		hud.setBoostCount(player.currentBoostCount);
+		//hud.setDebugMessage(FlxG.);
 	}
 	
 	public function attackHits(a:Attack, e:Entity) {
@@ -419,7 +422,15 @@ class PlatformState extends FlxState
 	}
 	
 	private function getMap() {
-		return new TmxTools('assets/data/levels/' + H.currentLevel +'.tmx', 'assets/data/levels/');
+		var tools:TmxTools = null;
+		try {
+			tools = new TmxTools('assets/data/levels/' + H.currentLevel +'.tmx', 'assets/data/levels/');
+		} catch (err:Dynamic)
+		{
+			trace('Error creating TMX Tools for ' + H.currentLevel);
+		}
+		
+		return tools;
 	}
 	
 	/**

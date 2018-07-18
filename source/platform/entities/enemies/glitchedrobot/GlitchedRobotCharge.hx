@@ -12,7 +12,7 @@ import platform.entities.gameentites.Enemy;
  */
 class GlitchedRobotCharge extends FSMModule 
 {
-	var CHARGE_SPEED:Float = 200;
+	var CHARGE_SPEED:Float = 100;
 	
 	var p:Enemy;
 	public function new(parent:IFSM) 

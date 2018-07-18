@@ -3,6 +3,7 @@ package;
 import flixel.FlxGame;
 import haxe.ds.StringMap;
 import inputhelper.InputHelper;
+import openfl.display.FPS;
 import openfl.display.Sprite;
 import platform.H;
 import platform.PlatformState;
@@ -60,5 +61,8 @@ class Main extends Sprite
 		
 		super();
 		addChild(new FlxGame(480, 270, MenuState));
+		#if debug
+		addChild(new FPS(10, 255, 0xffffff));
+		#end
 	}
 }

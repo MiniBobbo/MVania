@@ -46,7 +46,12 @@ class FlybotWait extends FSMModule
 		//if (p.getGraphicMidpoint().distanceTo(H.ps.player.getGraphicMidpoint()) < SIGHT_DISTANCE) 
 			//parent.changeFSM('attack');
 		//else
-			FlxTween.tween(p, {x:p.x + FlxG.random.float( -RANDOM_DISTANCE, RANDOM_DISTANCE), y:p.y + FlxG.random.float( -RANDOM_DISTANCE, RANDOM_DISTANCE)}, .5, {ease:FlxEase.circInOut}) ; 
+		var change = FlxG.random.float( -RANDOM_DISTANCE, RANDOM_DISTANCE);
+		if (change < 0)
+			p.flipX = false;
+		else
+			p.flipX = true;
+			FlxTween.tween(p, {x:p.x + change, y:p.y + FlxG.random.float( -RANDOM_DISTANCE, RANDOM_DISTANCE)}, .5, {ease:FlxEase.circInOut}) ; 
 		waitTime = WAIT_TIME;	
 	}
 	

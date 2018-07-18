@@ -41,7 +41,7 @@ class MenuState extends FlxState
 	}
 	
 	function start() {
-		H.loadGame();
+		//H.loadGame();
 		FlxG.switchState(new PlatformState());
 	}
 	
@@ -52,11 +52,13 @@ class MenuState extends FlxState
 	
 	function refreshPlayerDefDisplay() {
 		currentPlayerDef.text = H.playerDef + '';
+		currentPlayerDef.text += '\nCurrent level ' + H.currentLevel;
+		currentPlayerDef.text += '\nPrevious level ' + H.previousLevel;
 	}
 	
 	private function debug() {
-		H.previousLevel = 'Terraforming';
-		H.currentLevel = 'Pod Bay';
+		H.previousLevel = 'Pod Bay';
+		H.currentLevel = 'Life Support Column';
 		refreshPlayerDefDisplay();
 		
 	}

@@ -11,6 +11,7 @@ import platform.entities.enemies.Turret;
 import platform.entities.enemies.TurretBase;
 import platform.entities.enemies.flybot.FlyBot;
 import platform.entities.enemies.glitchedrobot.GlitchedRobot;
+import platform.entities.enemies.porter.Porter;
 import platform.entities.gameentites.Enemy;
 import platform.entities.things.Door;
 import platform.entities.things.Panel;
@@ -46,6 +47,10 @@ class EnemyFactory
 				e.reset(rect.r.x, rect.r.y);
 			case 'flybot':
 				e = new FlyBot(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+			case 'porter':
+				e = new Porter(map);
 				H.rectToTile(rect);
 				e.reset(rect.r.x, rect.r.y);
 			case 'turret':
