@@ -16,7 +16,7 @@ class GlitchedRobotWander extends FSMModule
 	var STAND_TIME:Float = 3;
 	var VAR_TIME:Float = 1;
 	
-	var SPEED:Float = 50;
+	var SPEED:Float = 20;
 	
 	var wandering:Bool = false;
 	var left:Bool = false;

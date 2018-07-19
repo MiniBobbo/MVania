@@ -6,6 +6,7 @@ import flixel.util.FlxTimer;
 import platform.entities.Attack.AttackTypes;
 import platform.entities.movestates.PlayerRobotAir;
 import platform.entities.movestates.PlayerRobotBoost;
+import platform.entities.movestates.PlayerRobotBoostUp;
 import platform.entities.movestates.PlayerRobotGround;
 import flixel.FlxG;
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -105,6 +106,7 @@ public var currentBoostCount(default, null) :Int = 0;
 				animation.addByPrefix('idleshoot', 'robot_idleshoot_');
 				animation.addByPrefix('run', 'robot_running_', 12);
 				animation.addByPrefix('boost', 'robot_boost_', 30, false);
+				animation.addByPrefix('boostup', 'robot_boostup_', 30, false);
 				animation.addByPrefix('runshoot', 'robot_runningshoot_', 12);
 				animation.play('run');
 				centerOffsets();
@@ -116,6 +118,7 @@ public var currentBoostCount(default, null) :Int = 0;
 				fsm.addtoMap('air', new PlayerRobotAir(this));
 				fsm.addtoMap('stun', new PlayerRobotStun(this));
 				fsm.addtoMap('boost', new PlayerRobotBoost(this));
+				fsm.addtoMap('boostup', new PlayerRobotBoostUp(this));
 				fsm.changeState('ground');
 				//trace('After changestate ' + toString() );
 
@@ -229,6 +232,12 @@ public var currentBoostCount(default, null) :Int = 0;
 				if (currentBoostCount > 0) {
 					currentBoostCount--;
 					fsm.changeState('boost');
+				}
+			case 'boostup':
+				if (currentBoostCount > 0) {
+					currentBoostCount--;
+					trace('Boost up signal received.');
+					fsm.changeState('boostup');
 				}
 				
 			default:

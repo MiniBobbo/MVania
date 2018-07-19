@@ -20,8 +20,8 @@ class GlitchedRobot extends Enemy
 		acceleration.y = H.GRAVITY;
 		frames = H.getFrames();
 		animation.addByPrefix('stand', 'GlitchedRobot_stand_0', 12,false);
-		animation.addByPrefix('walk', 'GlitchedRobot_walk_', 12,false);
-		animation.addByPrefix('charge', 'GlitchedRobot_charge_', 12, false);
+		animation.addByPrefix('walk', 'GlitchedRobot_walk_', 6);
+		animation.addByPrefix('charge', 'GlitchedRobot_charge_', 18);
 		animation.play('stand');
 		
 		centerOffsets();

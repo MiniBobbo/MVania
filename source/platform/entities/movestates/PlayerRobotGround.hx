@@ -63,6 +63,10 @@ class PlayerRobotGround extends FSMModule
 			//jump.play();
 			player.fsm.changeState('air');
 		} else if (i.isButtonJustPressed('boost')) {
+			trace('Sending boostup signal');
+			if (i.isButtonPressed('up'))
+				player.signal('boostup');
+			else 
 			player.signal('boost');
 			return;
 		}
