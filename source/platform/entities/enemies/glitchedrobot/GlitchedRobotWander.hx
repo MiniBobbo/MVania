@@ -45,11 +45,17 @@ class GlitchedRobotWander extends FSMModule
 			
 		if (wandering) {
 			p.velocity.x = 0;
+			p.animation.play('stand');
 			wandering = false;
 			wanderTime = STAND_TIME + FlxG.random.float(0, VAR_TIME);
 		} else {
 			wandering = true;
+			p.animation.play('walk');
 			left = FlxG.random.bool();
+			if (left)	
+				p.flipX = false;
+			else
+				p.flipX = true;
 			wanderTime = WANDER_TIME + FlxG.random.float(0, VAR_TIME);
 			p.velocity.x = SPEED;
 			if (left)

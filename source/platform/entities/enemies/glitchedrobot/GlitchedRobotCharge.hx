@@ -31,6 +31,11 @@ class GlitchedRobotCharge extends FSMModule
 		p.velocity.x = CHARGE_SPEED;
 		if (FlxG.random.bool())
 			p.velocity.x *= -1;
+		p.animation.play('charge');
+		if (p.velocity.x < 0)
+			p.flipX = false;
+		else
+			p.flipX = true;
 	}
 	
 	override public function update(dt:Float) 

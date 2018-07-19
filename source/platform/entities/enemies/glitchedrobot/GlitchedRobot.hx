@@ -18,7 +18,17 @@ class GlitchedRobot extends Enemy
 		super(collisionMap);
 		hp = TOTAL_HP;
 		acceleration.y = H.GRAVITY;
-		makeGraphic(32, 32, FlxColor.GREEN);
+		frames = H.getFrames();
+		animation.addByPrefix('stand', 'GlitchedRobot_stand_0', 12,false);
+		animation.addByPrefix('walk', 'GlitchedRobot_walk_', 12,false);
+		animation.addByPrefix('charge', 'GlitchedRobot_charge_', 12, false);
+		animation.play('stand');
+		
+		centerOffsets();
+		offset.y += 20;
+		offset.x += 4;
+		setSize(25, 28);
+
 		fsm.addtoMap('wander', new GlitchedRobotWander(this));
 		fsm.addtoMap('charge', new GlitchedRobotCharge(this));
 		fsm.changeState('wander');
