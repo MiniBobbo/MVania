@@ -81,8 +81,8 @@ class UnivAttack extends Attack
 	public function newInitAttack(p:FlxPoint, v:FlxPoint, lifespan:Float, type:AttackTypes) {
 		ID = FlxG.random.int();
 		visible = true;
-		setHitboxSize(type);
-		centerOffsets();
+		//setHitboxSize(type);
+		//centerOffsets();
 		reset(p.x-width/2, p.y - height/2);
 		//trace('Attack velocity ' + v);
 		maxVelocity.set(1000, 1000);

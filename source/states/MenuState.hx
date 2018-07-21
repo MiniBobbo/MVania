@@ -59,7 +59,7 @@ class MenuState extends FlxState
 	private function debug() {
 		H.previousLevel = 'Life Support - Maintenance Access';
 		H.currentLevel = 'Life Support - Boost Room';
-		H.playerDef.boost = true;
+		//H.playerDef.boost = true;
 		refreshPlayerDefDisplay();
 		
 	}

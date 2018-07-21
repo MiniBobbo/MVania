@@ -11,6 +11,7 @@ import flixel.math.FlxRect;
 import flixel.text.FlxText;
 import flixel.util.FlxSave;
 import haxe.Json;
+import platform.entities.EffectSprite.EffectTypes;
 import platform.entities.Entity;
 import platform.entities.Player.PlayerForm;
 import tmxtools.TmxRect;
@@ -170,5 +171,13 @@ class H
 	
 	public static function setFlag(flagNum:Int, value:Bool) {
 		H.playerDef.flags[flagNum] = value;
+	}
+	
+	public static function playEffect(effect:EffectTypes, loc:FlxPoint) {
+		if (ps == null)
+			return;
+		var s = ps.getEffectsprite();
+		s.init(loc, effect);
+		
 	}
 }

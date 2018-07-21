@@ -18,6 +18,7 @@ import inputhelper.InputHelper;
 import platform.entities.Attack;
 import platform.entities.Bar;
 import platform.entities.BossFactory;
+import platform.entities.EffectSprite;
 import platform.entities.EnemyFactory;
 import platform.entities.Entity;
 import platform.entities.InteractZone;
@@ -76,7 +77,7 @@ class PlatformState extends FlxState
 	public var playerAttacks:FlxTypedGroup<UnivAttack>;
 	var enemyAttacks:FlxTypedGroup<UnivAttack>;
 	var univAttacks:FlxTypedGroup<UnivAttack>;
-	var sprites:FlxSpriteGroup;
+	var sprites:FlxTypedGroup<EffectSprite>;
 	
 	var timeInLevel:Float = 0;
 	
@@ -101,7 +102,7 @@ class PlatformState extends FlxState
 		entities = new FlxTypedGroup<Entity>();
 		nocollide = new FlxTypedGroup<Entity>();
 		enemies = new FlxTypedGroup<Enemy>();
-		sprites = new FlxSpriteGroup();
+		sprites = new FlxTypedGroup<EffectSprite>();
 		zones = new FlxTypedGroup<Zone>();
 		playerAttacks= new FlxTypedGroup<UnivAttack>();
 		enemyAttacks = new FlxTypedGroup<UnivAttack>();
@@ -151,9 +152,9 @@ class PlatformState extends FlxState
 		//FlxG.watch.add(enemies.members, 'length', 'enemies');
 		//FlxG.watch.add('Player attacks: ' + playerAttacks.countLiving());
 		add(nocollide);
-		add(sprites);
 		add(enemies);
 		add(player);
+		add(sprites);
 		add(zones);
 		add(enemyAttacks);
 		add(playerAttacks);
@@ -292,6 +293,10 @@ class PlatformState extends FlxState
 		travelZonesPlaced = true;
 		trace('Placed zones: ' + zones.members.length);
 		
+	}
+	
+	public function addEnemy(e:Enemy) {
+		enemies.add(e);
 	}
 	
 	private function placeZones() {
@@ -536,6 +541,10 @@ class PlatformState extends FlxState
 		
 	}
 	
+	public function addEffect() {
+		
+	}
+	
 	/**
 	 * This creates the player from a save location.  This calls createPlayer, so don't call it again.
 	 * @param	r	The TmxRect for the save point.
@@ -560,5 +569,15 @@ class PlatformState extends FlxState
 			H.signalAll('savedown');
 		player.fsm.resume();
 		});
+	}
+	
+	public function getEffectsprite():EffectSprite {
+		var s = sprites.getFirstAvailable();
+		if (s == null) {
+			s = new EffectSprite();
+			sprites.add(s);
+		}
+		
+		return s;
 	}
 }

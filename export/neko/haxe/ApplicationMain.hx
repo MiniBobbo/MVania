@@ -24,7 +24,7 @@ import haxe.macro.Expr;
 		
 		var config = {
 			
-			build: "29",
+			build: "30",
 			company: "HaxeFlixel",
 			file: "MVania",
 			fps: 60,
@@ -45,7 +45,7 @@ import haxe.macro.Expr;
 					display: 0,
 					fullscreen: false,
 					hardware: true,
-					height: 540,
+					height: 270,
 					hidden: #if munit true #else false #end,
 					maximized: false,
 					minimized: false,
@@ -54,7 +54,7 @@ import haxe.macro.Expr;
 					stencilBuffer: true,
 					title: "MVania",
 					vsync: false,
-					width: 960,
+					width: 480,
 					x: null,
 					y: null
 				},
@@ -78,7 +78,7 @@ import haxe.macro.Expr;
 		
 		#if (js && html5)
 		#if (munit || utest)
-		lime.system.System.embed (projectName, null, 960, 540, config);
+		lime.system.System.embed (projectName, null, 480, 270, config);
 		#end
 		#else
 		create (config);

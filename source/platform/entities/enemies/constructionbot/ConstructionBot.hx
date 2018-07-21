@@ -1,7 +1,9 @@
 package platform.entities.enemies.constructionbot;
 
 import flixel.tile.FlxTilemap;
+import flixel.util.FlxSpriteUtil;
 import fsm.WaitFSM;
+import platform.entities.Entity;
 import platform.entities.gameentites.Enemy;
 
 /**
@@ -11,7 +13,7 @@ import platform.entities.gameentites.Enemy;
 class ConstructionBot extends Enemy 
 {
 
-	var MAX_HP:Float = 60;
+	var MAX_HP:Float = 1;
 	
 	//The bot will jump from the right to the left side of the screen.  This keeps track of what side he is on.
 	public var right:Bool = true;
@@ -28,6 +30,7 @@ class ConstructionBot extends Enemy
 		animation.addByPrefix('getup', 'constructbot_getup_', 8, false);
 		animation.addByPrefix('side', 'constructbot_side_', 8, false);
 		animation.addByPrefix('land', 'constructbot_land_', 8, false);
+		animation.addByPrefix('explode', 'constructbot_exploding_', 8);
 		animation.play('idle');
 		
 		setSize(75, 65);
@@ -46,6 +49,7 @@ class ConstructionBot extends Enemy
 		fsm.addtoMap('wait', wait);
 		fsm.addtoMap('jump', new ConstructBotJumpFSM(this));
 		fsm.addtoMap('shoot', new ConstructionBotShootFSM(this));
+		fsm.addtoMap('explode', new ConstructionBotExplodeFSM(this));
 		
 		fsm.changeState('wait');
 		
@@ -56,6 +60,33 @@ class ConstructionBot extends Enemy
 	{
 		super.kill();
 		H.setFlag(0, false);
+	}
+	
+	override public function overlapEntity(entity:Entity, ?data:Dynamic) 
+	{
+		if (alive)
+			entity.takeDamage(1);
+		
+	}
+	
+	override public function takeDamage(damage:Int = 1) 
+	{
+		if (hp == -1 || iTime > 0)
+		return;
+		
+		//if (FlxSpriteUtil.isFlickering(this))
+		//return;
+		hp -= damage;
+		FlxSpriteUtil.flicker(this, .2);
+		if (hp <= 0) {
+			velocity.x = 0;
+			if (attack != null)
+				attack.kill();
+			alive = false;
+			fsm.changeState('explode');
+			//FlxSpriteUtil.fadeOut(this, .3, function(_) { this.kill(); } );
+		}	
+		
 	}
 	
 }

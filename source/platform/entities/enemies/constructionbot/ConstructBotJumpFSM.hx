@@ -120,7 +120,7 @@ class ConstructBotJumpFSM extends FSMModule
 			if (left)
 				tempOffset.x *= -1;
 			var position = c.getMidpoint().addPoint(tempOffset);
-			a.initAttack(position, v, 5, 'shot');
+			a.newInitAttack(position, v, 5, AttackTypes.SHOT);
 			v.put();
 		}
 		
