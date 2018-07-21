@@ -167,4 +167,8 @@ class H
 		}
 		
 	}
+	
+	public static function setFlag(flagNum:Int, value:Bool) {
+		H.playerDef.flags[flagNum] = value;
+	}
 }

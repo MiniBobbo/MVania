@@ -276,7 +276,7 @@ public var currentBoostCount(default, null) :Int = 0;
 		}
 		else
 			position.x -= attackOffset.x;		
-			a.newInitAttack(position, direction, 4, attackType);
+		a.newInitAttack(position, direction, 4, AttackTypes.LARGESHOT);
 
 	}
 

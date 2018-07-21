@@ -64,6 +64,9 @@ class UnivAttack extends Attack
 	public function setHitboxSize(type:AttackTypes) {
 		switch (type) 
 		{
+			case AttackTypes.LARGESHOT:
+				setSize(20, 32);
+				
 			default:
 				setSize(10, 10);
 		}
@@ -98,6 +101,9 @@ class UnivAttack extends Attack
 	}
 	public function setInitFunction(f:UnivAttack->Void) {
 		onInit = f;
+	}
+	public function setHitMapFunction(f:UnivAttack->Void) {
+		onHitMap = f;
 	}
 
 	public function setCompleteFunction(f:UnivAttack->Void) {

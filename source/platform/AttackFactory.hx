@@ -1,6 +1,7 @@
 package platform;
 import flixel.FlxG;
 import flixel.math.FlxPoint;
+import haxe.Constraints.Function;
 import lime.text.unifill.Exception.InvalidCodeUnitSequence;
 import platform.entities.Attack;
 import platform.entities.attacks.UnivAttack;
@@ -21,6 +22,17 @@ class AttackFactory
 		a.type = type;
 		switch (type) 
 		{
+			case AttackTypes.LARGESHOT:
+				a.acceleration.set();
+				a.setSize(20, 32);
+				a.centerOffsets();
+				a.offset.x = 6;
+				a.fireAnim = 'largeshot';
+				a.endAnim = 'largeshot';
+				a.setUpdateFunction(AngleTowardsVelocity);
+				//a.setCompleteFunction(stopMoving);
+				a.setHitMapFunction(function(a) {return; });
+				
 			case AttackTypes.SHOT:
 				a.acceleration.set();
 				a.setSize(10, 10);

@@ -9,6 +9,7 @@ import platform.entities.enemies.Rat;
 import platform.entities.enemies.RoboRat;
 import platform.entities.enemies.Turret;
 import platform.entities.enemies.TurretBase;
+import platform.entities.enemies.constructionbot.ConstructionBot;
 import platform.entities.enemies.flybot.FlyBot;
 import platform.entities.enemies.glitchedrobot.GlitchedRobot;
 import platform.entities.enemies.porter.Porter;
@@ -36,6 +37,10 @@ class EnemyFactory
 		switch (type) 
 		{
 			//Create the specific enemies here.
+			case 'constructbot':
+				e = new ConstructionBot(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
 			case 'roborat':
 				e = new RoboRat(map);
 				H.rectToTile(rect);
