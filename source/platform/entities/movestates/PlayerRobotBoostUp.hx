@@ -15,7 +15,7 @@ class PlayerRobotBoostUp extends FSMModule
 	//This is the velocity that should be added to the player when boosting.  
 	var BOOST_STR:FlxPoint;
 	var BOOST_GRAVITY_STR:Float = 1000;
-	var BOOST_TIME:Float = .3;
+	var BOOST_TIME:Float = .2;
 	var boostTime:Float;
 	var p:Player;
 	public function new(parent:Entity) 
@@ -27,13 +27,10 @@ class PlayerRobotBoostUp extends FSMModule
 	
 	override public function changeTo() 
 	{
-		p.animation.play('boost');
+		p.animation.play('boostup');
 		boostTime = BOOST_TIME;
 		p.velocity.y = BOOST_STR.y;
-		if (p.flipX)
-		p.velocity.x = -BOOST_STR.x;
-		else
-		p.velocity.x = BOOST_STR.x;
+		p.velocity.x = 0;
 		p.acceleration.y = BOOST_GRAVITY_STR;
 		
 	}
@@ -46,10 +43,7 @@ class PlayerRobotBoostUp extends FSMModule
 	override public function update(dt:Float) 
 	{
 		super.update(dt);
-		if (p.flipX)
-		p.velocity.x = -BOOST_STR.x;
-		else
-		p.velocity.x = BOOST_STR.x;
+		p.velocity.y = BOOST_STR.y;
 		
 		boostTime -= dt;
 		if (boostTime <= 0)

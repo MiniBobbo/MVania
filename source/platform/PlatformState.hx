@@ -305,6 +305,10 @@ class PlatformState extends FlxState
 			{
 				case 'enemy':
 					//trace('creating enemy ' + r.properties.get('type'));
+					//Skip creating this enemy if it has a flag property and that flag is set to false
+					if (r.properties.exists('flag') && H.checkFlag(r.properties.get('flag')) == false)
+						continue;
+					
 					var enemy = EnemyFactory.createEnemy(r.properties.get('type'), r, collision);
 					enemies.add(enemy);
 					entities.add(enemy);

@@ -57,8 +57,9 @@ class MenuState extends FlxState
 	}
 	
 	private function debug() {
-		H.previousLevel = 'Pod Bay';
-		H.currentLevel = 'Life Support Column';
+		H.previousLevel = 'Life Support - Maintenance Access';
+		H.currentLevel = 'Life Support - Maintenance';
+		H.playerDef.boost = true;
 		refreshPlayerDefDisplay();
 		
 	}

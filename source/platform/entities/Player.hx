@@ -209,6 +209,7 @@ public var currentBoostCount(default, null) :Int = 0;
 
 	override public function signal(signal:String, ?data:Dynamic)
 	{
+		trace('Received generic signal ' + signal);
 		switch (signal)
 		{
 			case 'hit':

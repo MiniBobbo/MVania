@@ -16,7 +16,7 @@ class MinimapSubState extends FlxSubState
 
 	var overlay:FlxTilemap;
 	var map:FlxTilemap;
-	public function new(BGColor:FlxColor=FlxColor.BLACK) 
+	public function new(BGColor:FlxColor=FlxColor.TRANSPARENT) 
 	{
 		super(BGColor);
 	}
@@ -28,10 +28,13 @@ class MinimapSubState extends FlxSubState
 		overlay = maps.getMap('AreaLayer');
 		//overlay.scale.set(2, 2);
 		map = maps.getMap('MapLayer');
+		map.scrollFactor.set();
+		overlay.scrollFactor.set();
+		overlay.scale.set(2, 2);
 		overlay.screenCenter();
 		overlay.alpha = .5;
+		map.scale.set(2, 2);
 		map.screenCenter();
-		//map.scale.set(2, 2);
 		add(map);
 		add(overlay);
 		

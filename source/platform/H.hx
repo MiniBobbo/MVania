@@ -154,6 +154,17 @@ class H
 		var save = new FlxSave();
 		save.bind('mvania');
 		return save;
+	}
 	
+	public static function checkFlag(flag:String):Bool {
+		try{
+			var num = Std.parseInt(flag);
+			return H.playerDef.flags[num];
+		} catch (err:Dynamic)
+		{
+			trace('Error checking flag: ' + err);
+			return false;
+		}
+		
 	}
 }

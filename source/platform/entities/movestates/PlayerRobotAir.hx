@@ -71,7 +71,7 @@ class PlayerRobotAir extends FSMModule
 			player.fsm.changeState('ground');
 			return;
 		}  else if (i.isButtonJustPressed('boost')) {
-			if (i.isButtonPressed('up'))
+			if (i.isButtonPressed('use'))
 				player.signal('boostup');
 			else 
 				player.signal('boost');			

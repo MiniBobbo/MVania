@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="20" height="50" tilewidth="32" tileheight="32" nextobjectid="38">
+<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="20" height="50" tilewidth="32" tileheight="32" nextobjectid="41">
  <tileset firstgid="1" name="32blocks" tilewidth="32" tileheight="32" tilecount="10" columns="10">
   <image source="32blocks.png" width="320" height="32"/>
  </tileset>
@@ -169,11 +169,13 @@
 </data>
  </layer>
  <objectgroup name="Object Layer 1">
-  <object id="24" name="travel" type="2_start" x="622.303" y="422" width="9.33333" height="90"/>
   <object id="29" name="travel" type="Pod Bay_Life Support Column" x="6.06061" y="1475.76" width="15.1515" height="78.7879"/>
   <object id="30" name="d" type="Pod Bay" x="48.4848" y="1542.42" width="15.1515" height="15.1515"/>
   <object id="31" name="enemy" type="glitchedrobot" x="542.424" y="1227.27" width="15.1515" height="15.1515"/>
   <object id="32" name="enemy" type="glitchedrobot" x="262.121" y="1543.94" width="15.1515" height="15.1515"/>
   <object id="33" name="enemy" type="glitchedrobot" x="489.394" y="743.939" width="15.1515" height="15.1515"/>
+  <object id="38" name="travel" type="T Junction_Life Support Column" x="9.09091" y="421.212" width="9.09091" height="84.8485"/>
+  <object id="39" name="d" type="start" x="403.03" y="539.394" width="12.1212" height="18.1818"/>
+  <object id="40" name="d" type="T Junction" x="36.3636" y="490.909" width="12.1212" height="9.09091"/>
  </objectgroup>
 </map>
