@@ -90,6 +90,10 @@ import sys.FileSystem;
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_9_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_combinedtiles_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___column_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___freight_elevator_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___long_term_storage_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___machine_shop_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___short_term_storage_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___aft_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___airlock_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___boost_room_tmx extends null { }

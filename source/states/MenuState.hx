@@ -57,8 +57,8 @@ class MenuState extends FlxState
 	}
 	
 	private function debug() {
-		H.previousLevel = 'Life Support - Aft';
-		H.currentLevel = 'Life Support - The Grid';
+		H.previousLevel = 'Engineering - Freight Elevator';
+		H.currentLevel = 'Engineering - Short Term Storage';
 		H.playerDef.boost = true;
 		H.playerDef.attacks[2] = true;
 		refreshPlayerDefDisplay();
