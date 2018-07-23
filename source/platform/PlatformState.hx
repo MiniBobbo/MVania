@@ -34,6 +34,7 @@ import platform.entities.interact.TerminalZone;
 import platform.entities.things.AntiGravGenerator;
 import platform.entities.things.SavePoint;
 import platform.entities.zones.AntigravZone;
+import platform.entities.zones.DamageZone;
 import platform.entities.zones.DeathZone;
 import platform.entities.zones.HelpMessageZone;
 import platform.entities.zones.SaveZone;
@@ -135,13 +136,16 @@ class PlatformState extends FlxState
 		
 		placeZones();
 		
-		add(collision);
 		BGFactory.createSpecialBG(H.currentLevel, this);
 		bg = maps.getMap('bg');
 		if (bg != null)
 			add(bg);
-		add(mg);
-		//collision.visible = true;
+			if(mg != null) 
+			add(mg);
+		#if debug
+			add(collision);
+			collision.alpha = .4;
+		#end
 		//
 		//playerAttacks.add(player.attack);
 		
@@ -219,9 +223,7 @@ class PlatformState extends FlxState
 			b.update(elapsed);
 		
 
-		FlxG.collide(enemyAttacks, collision, attackHitsMap);
 		FlxG.overlap(enemyAttacks, player, attackHits);
-		//FlxG.overlap(player.attack, enemyAttacks, playerHitsAttack);
 		InputHelper.updateKeys(elapsed);
 		try {
 			super.update(elapsed);
@@ -230,12 +232,10 @@ class PlatformState extends FlxState
 		{
 			trace(err);
 		}
-			FlxG.overlap(entities, zones, EntityOverlapZone);
+		FlxG.overlap(entities, zones, EntityOverlapZone);
 		FlxG.collide(player, collision);
 		FlxG.collide(enemies, collision);
-		
-		FlxG.collide(playerAttacks, collision, attackHitsMap);
-		FlxG.collide(univAttacks, collision, attackHitsMap);
+		//checkAttackMapCollision();
 		FlxG.overlap(playerAttacks, enemies, attackHits);
 		FlxG.overlap(player, enemies, playerOverlapEntity);
 		
@@ -249,7 +249,21 @@ class PlatformState extends FlxState
 			openSubState(minimap);
 		}
 		hud.setBoostCount(player.currentBoostCount);
-		//hud.setDebugMessage(FlxG.);
+	}
+	
+	/**
+	 * Checks all the attacks to see if they overlap the map.  FlxG.overlaps always returns true for tiledmaps
+	 */
+	private function checkAttackMapCollision() {
+		for (pa in playerAttacks) {
+			if (collision.overlaps(pa))
+				pa.hitMap();
+		}
+		for (ea in univAttacks) {
+			if (collision.overlaps(ea))
+				ea.hitMap();
+		}
+		
 	}
 	
 	public function attackHits(a:Attack, e:Entity) {
@@ -262,8 +276,10 @@ class PlatformState extends FlxState
 	}
 	
 	
-	public function attackHitsMap(a:Attack, collision:FlxTilemap) {
+	public function attackHitsMap(a:UnivAttack, collision:FlxTilemap) {
 		a.hitMap();
+		//if (a.collideMap)
+			//FlxG.collide(a, collision);
 	}
 	
 	public function playerOverlapEntity(p:Player, e:Entity) {
@@ -308,6 +324,14 @@ class PlatformState extends FlxState
 			//FlxG.log.add(r);
 			switch (r.name) 
 			{
+				case 'damage':
+					var damage:Float = 1;
+					if (r.properties.exists('type')) {
+						damage = Std.parseFloat(r.properties.get('type'));
+					}
+					var d:DamageZone= new DamageZone(r.r.x, r.r.y, r.r.width, r.r.height, damage);
+					zones.add(d);
+				
 				case 'enemy':
 					//trace('creating enemy ' + r.properties.get('type'));
 					//Skip creating this enemy if it has a flag property and that flag is set to false
@@ -394,7 +418,7 @@ class PlatformState extends FlxState
 				case 'flybotgen':
 					var g = new FlyBotGenerator(collision);
 					H.rectToTile(r);
-					r.r.x -= 16;
+					//r.r.x -= 16;
 					r.r.y -= 16;
 					g.reset(r.r.x, r.r.y);
 					g.setEnemies(enemies);

@@ -89,14 +89,21 @@ import sys.FileSystem;
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_8_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_9_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_combinedtiles_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___column_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___aft_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___airlock_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___boost_room_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___generator_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___maintenance_access_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___maintenance_tunnel_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___maintenance_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___storage_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___the_grid_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support_column_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support_computer_room_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_minimap_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_minimap_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_outdoors_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_pod_bay_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_save_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_save1_tmx extends null { }
@@ -104,6 +111,7 @@ import sys.FileSystem;
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_shiptileset_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_shiptileset_tsx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_t_junction_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_terraforming___outdoors_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_terraforming_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_temple2_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_templemgsheet_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }

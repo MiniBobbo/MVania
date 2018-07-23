@@ -22,16 +22,24 @@ class AttackFactory
 		a.type = type;
 		switch (type) 
 		{
+			case AttackTypes.SHOCKWAVE:
+				a.acceleration.set();
+				a.setSize(15, 15);
+				
+			
 			case AttackTypes.LARGESHOT:
 				a.acceleration.set();
-				a.setSize(20, 32);
+				a.setSize(16, 16);
+				a.offset.set(8,8);
 				a.centerOffsets();
+				a.offset.y  = 2;
 				a.offset.x = 6;
 				a.fireAnim = 'largeshot';
 				a.endAnim = 'largeshot';
 				a.setUpdateFunction(AngleTowardsVelocity);
 				//a.setCompleteFunction(stopMoving);
-				a.setHitMapFunction(function(a) {return; });
+				a.setHitMapFunction(function(a) {trace('Using special function');   return; });
+				a.collideMap = false;
 				
 			case AttackTypes.SHOT:
 				a.acceleration.set();
@@ -41,6 +49,7 @@ class AttackFactory
 				a.endAnim = 'end';
 				a.setUpdateFunction(AngleTowardsVelocity);
 				a.setCompleteFunction(stopMoving);
+				a.collideMap = true;
 			case AttackTypes.FIRE:
 				a.acceleration.set(0, H.GRAVITY);
 				a.velocity.y += -FIRE_UPWARDS_VELOCITY;
@@ -54,6 +63,7 @@ class AttackFactory
 					
 				} );
 				a.setCompleteFunction(stopMoving);
+				a.collideMap = true;
 			case AttackTypes.ELECTRIC:
 				a.acceleration.set();
 				a.fireAnim = 'elecshot';
@@ -65,6 +75,7 @@ class AttackFactory
 					
 				});
 				a.setCompleteFunction(stopMoving);
+				a.collideMap = true;
 			default:
 				
 		}

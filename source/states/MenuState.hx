@@ -57,9 +57,10 @@ class MenuState extends FlxState
 	}
 	
 	private function debug() {
-		H.previousLevel = 'Life Support - Maintenance Access';
-		H.currentLevel = 'Life Support - Boost Room';
-		//H.playerDef.boost = true;
+		H.previousLevel = 'Life Support - Aft';
+		H.currentLevel = 'Life Support - The Grid';
+		H.playerDef.boost = true;
+		H.playerDef.attacks[2] = true;
 		refreshPlayerDefDisplay();
 		
 	}

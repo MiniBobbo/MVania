@@ -78,6 +78,8 @@ public var currentBoostCount(default, null) :Int = 0;
 		energy = pd.playerEnergy;
 		maxEnergy = pd.playerMaxEnergy;
 		attackType = pd.attackSelected;
+		if (pd.boost)
+			currentBoostCount = 1;
 	}
 
 	public function changeForm(newForm:String)

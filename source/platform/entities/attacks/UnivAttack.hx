@@ -21,6 +21,8 @@ class UnivAttack extends Attack
 	public var fireAnim:String;
 	public var endAnim:String;
 	
+	public var collideMap:Bool = true;
+	
 	public function new(lifespan:Float=3) 
 	{
 		super(lifespan);
@@ -111,6 +113,11 @@ class UnivAttack extends Attack
 	}
 	override public function hitMap() 
 	{
+		if (onHitMap != null) {
+			onHitMap(this);
+			return;
+		}
+		
 		if (!alive)
 			return;
 		alive = false;

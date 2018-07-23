@@ -12,6 +12,7 @@ enum AttackTypes {
 	FIRE;
 	ELECTRIC;
 	LARGESHOT;
+	SHOCKWAVE;
 	
 }
 
@@ -46,12 +47,13 @@ class Attack extends FlxSprite
 		frames = H.getFrames();
 		animation.addByPrefix('playershot', 'Attacks_shot_', 18, false);
 		animation.addByPrefix('end', 'Attacks_PlayerShotEnd_', 18, false);
-		animation.addByPrefix('largeshot', 'Attacks_largeshot_', 18, false);
+		animation.addByPrefix('largeshot', 'Attacks_largeshot_', 12);
 		animation.addByPrefix('shot', 'Attacks_shot_', 18, false);
 		animation.addByPrefix('fireshot', 'Attacks_fire_', 18, false);
 		animation.addByPrefix('elecshot', 'Attacks_electricshot_', 18);
 		animation.addByPrefix('fireshotend', 'Attacks_fireend_', 18, false);
-		animation.addByPrefix('elecshotend', 'Attacks_electricend_', 18, false);
+		animation.addByPrefix('shockwave', 'Attacks_shockwave_', 18);
+		animation.addByPrefix('shockwaveend', 'Attacks_shockwaveend_', 18, false);
 		
 		exists = false;
 		alive = false;

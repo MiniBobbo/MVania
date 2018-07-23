@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="20" height="50" tilewidth="32" tileheight="32" nextobjectid="41">
+<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="20" height="50" tilewidth="32" tileheight="32" nextobjectid="47">
  <tileset firstgid="1" name="32blocks" tilewidth="32" tileheight="32" tilecount="10" columns="10">
   <image source="32blocks.png" width="320" height="32"/>
  </tileset>
- <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="133" columns="19">
-  <image source="shipTileset.png" width="608" height="224"/>
+ <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="152" columns="19">
+  <image source="shipTileset.png" width="608" height="256"/>
  </tileset>
  <layer name="bg" width="20" height="50">
   <data encoding="csv">
@@ -177,5 +177,11 @@
   <object id="38" name="travel" type="T Junction_Life Support Column" x="9.09091" y="421.212" width="9.09091" height="84.8485"/>
   <object id="39" name="d" type="start" x="403.03" y="539.394" width="12.1212" height="18.1818"/>
   <object id="40" name="d" type="T Junction" x="36.3636" y="490.909" width="12.1212" height="9.09091"/>
+  <object id="41" name="travel" type="Life Support - Aft_Life Support Column" x="622.455" y="421.576" width="9.09091" height="84.8485"/>
+  <object id="42" name="d" type="Life Support - Aft" x="587" y="487" width="11" height="14"/>
+  <object id="43" name="travel" type="Life Support - Storage_Life Support Column" x="617" y="1095" width="13" height="83"/>
+  <object id="44" name="d" type="Life Support - Storage" x="583" y="1191" width="14" height="17"/>
+  <object id="45" name="travel" type="Terraforming - Outdoors_Life Support Column" x="260" y="6" width="82" height="11"/>
+  <object id="46" name="d" type="Terraforming - Outdoors" x="296" y="39" width="15" height="16"/>
  </objectgroup>
 </map>
