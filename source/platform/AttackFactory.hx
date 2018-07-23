@@ -38,7 +38,7 @@ class AttackFactory
 				a.endAnim = 'largeshot';
 				a.setUpdateFunction(AngleTowardsVelocity);
 				//a.setCompleteFunction(stopMoving);
-				a.setHitMapFunction(function(a) {trace('Using special function');   return; });
+				a.setHitMapFunction(function(a) {return; });
 				a.collideMap = false;
 				
 			case AttackTypes.SHOT:
@@ -68,6 +68,9 @@ class AttackFactory
 				a.acceleration.set();
 				a.fireAnim = 'elecshot';
 				a.endAnim = 'elecshotend';
+				a.setSize(10, 10);
+				a.centerOffsets();
+
 				//a.setUpdateFunction(AngleTowardsVelocity);
 				a.setInitFunction(function(a:UnivAttack) {
 					a.animation.play(a.fireAnim);

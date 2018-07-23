@@ -77,7 +77,6 @@ class PlatformState extends FlxState
 	var enemies:FlxTypedGroup<Enemy>;
 	public var playerAttacks:FlxTypedGroup<UnivAttack>;
 	var enemyAttacks:FlxTypedGroup<UnivAttack>;
-	var univAttacks:FlxTypedGroup<UnivAttack>;
 	var sprites:FlxTypedGroup<EffectSprite>;
 	
 	var timeInLevel:Float = 0;
@@ -107,7 +106,6 @@ class PlatformState extends FlxState
 		zones = new FlxTypedGroup<Zone>();
 		playerAttacks= new FlxTypedGroup<UnivAttack>();
 		enemyAttacks = new FlxTypedGroup<UnivAttack>();
-		//univAttacks = new FlxTypedGroup<UnivAttack>();
 		hud = new HUD();
 		farbg = new FlxSpriteGroup();
 		hud.scrollFactor.set();
@@ -162,7 +160,6 @@ class PlatformState extends FlxState
 		add(zones);
 		add(enemyAttacks);
 		add(playerAttacks);
-		//add(univAttacks);
 		add(emitter);
 		if (fg != null)
 			add(fg);
@@ -235,7 +232,7 @@ class PlatformState extends FlxState
 		FlxG.overlap(entities, zones, EntityOverlapZone);
 		FlxG.collide(player, collision);
 		FlxG.collide(enemies, collision);
-		//checkAttackMapCollision();
+		checkAttackMapCollision();
 		FlxG.overlap(playerAttacks, enemies, attackHits);
 		FlxG.overlap(player, enemies, playerOverlapEntity);
 		
@@ -255,13 +252,18 @@ class PlatformState extends FlxState
 	 * Checks all the attacks to see if they overlap the map.  FlxG.overlaps always returns true for tiledmaps
 	 */
 	private function checkAttackMapCollision() {
-		for (pa in playerAttacks) {
-			if (collision.overlaps(pa))
-				pa.hitMap();
-		}
-		for (ea in univAttacks) {
-			if (collision.overlaps(ea))
-				ea.hitMap();
+		try{
+			for (pa in playerAttacks) {
+				if (collision.overlaps(pa))
+					pa.hitMap();
+			}
+			for (ea in enemyAttacks) {
+				if (collision.overlaps(ea))
+					ea.hitMap();
+			}
+		} catch (err:Dynamic)
+		{
+			trace(err);
 		}
 		
 	}
@@ -497,16 +499,6 @@ class PlatformState extends FlxState
 				new FlxTimer().start(.5, function(_) {   H.ps.resetState(); });
 		}});
 	}
-	
-	public function getUnivAttack():UnivAttack {
-		var a = univAttacks.getFirstAvailable();
-		if (a == null) {
-			a = new UnivAttack();
-			univAttacks.add(a);
-		}
-		return a;
-	}
-	
 	
 	public function getPlayerAttack():UnivAttack {
 		var a = playerAttacks.getFirstAvailable();
