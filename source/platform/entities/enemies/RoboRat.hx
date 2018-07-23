@@ -1,6 +1,7 @@
 package platform.entities.enemies;
 
 import flixel.FlxG;
+import flixel.math.FlxPoint;
 import flixel.tile.FlxTilemap;
 import flixel.util.FlxColor;
 import platform.entities.Attack.AttackTypes;
@@ -22,6 +23,8 @@ class RoboRat extends Enemy
 	var MOVE_SPEED:Float = 100;
 	var TURN_TIME:Float = 1;
 	var turnTime:Float = 0;
+	
+	var KNOCKBACK_STR:Float = 300;
 	public function new(collisionMap:FlxTilemap) 
 	{
 		super(collisionMap);
@@ -89,8 +92,10 @@ class RoboRat extends Enemy
 	
 	override public function overlapEntity(entity:Entity, ?data:Dynamic) 
 	{
-		if (alive)
+		if (alive) {
+			entity.signal('stun', FlxPoint.weak(0, -KNOCKBACK_STR).rotate(FlxPoint.weak(), getMidpoint().angleBetween(entity.getMidpoint())));
 			entity.takeDamage(1);
+		}
 	}
 	
 	override public function signal(signal:String, ?data:Dynamic) 

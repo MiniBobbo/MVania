@@ -53,6 +53,7 @@ class Attack extends FlxSprite
 		animation.addByPrefix('elecshot', 'Attacks_electricshot_', 18);
 		animation.addByPrefix('elecshotend', 'Attacks_electricend_', 18, false);
 		animation.addByPrefix('fireshotend', 'Attacks_fireend_', 18, false);
+		animation.addByPrefix('explode', 'effects_explode_', 12, false);
 		animation.addByPrefix('shockwave', 'Attacks_shockwave_', 18);
 		animation.addByPrefix('shockwaveend', 'Attacks_shockwaveend_', 18, false);
 		
