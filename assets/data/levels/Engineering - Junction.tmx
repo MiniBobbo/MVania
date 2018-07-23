@@ -107,7 +107,7 @@
   <object id="36" name="d" type="Engineering - Engine Room" x="968.663" y="44.667" width="16" height="10"/>
   <object id="48" name="travel" type="Engineering - Compactor_Engineering - Junction" x="1256" y="518.667" width="17.3333" height="85.3333"/>
   <object id="49" name="d" type="Engineering - Compactor" x="1220" y="586.667" width="10.6667" height="21.3333"/>
-  <object id="50" name="travel" type="Engineering - Crew Quarters_Engineering - Junction" x="7" y="516" width="16" height="89"/>
+  <object id="50" name="travel" type="Engineering - Crew Quarters" x="7" y="516" width="16" height="89"/>
   <object id="51" name="d" type="Engineering - Crew Quarters" x="41" y="585" width="15" height="15"/>
  </objectgroup>
 </map>

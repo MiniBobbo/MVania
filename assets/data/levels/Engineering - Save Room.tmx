@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="32" tileheight="32" nextobjectid="44">
+<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="32" tileheight="32" nextobjectid="60">
  <tileset firstgid="1" name="32blocks" tilewidth="32" tileheight="32" tilecount="10" columns="10">
   <image source="32blocks.png" width="320" height="32"/>
  </tileset>
@@ -51,51 +51,24 @@
  <layer name="collision" width="20" height="10" opacity="0.29">
   <data encoding="csv">
 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
-2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,2,
+0,0,0,0,0,0,0,2,2,2,2,2,2,2,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2
+2,2,2,2,2,2,2,2,2,0,0,0,2,2,2,2,2,2,2,2
 </data>
  </layer>
  <objectgroup name="Object Layer 1">
-  <object id="32" name="travel" type="Life Support - Storage_Life Support - Airlock" x="4" y="202" width="13" height="80"/>
-  <object id="33" name="d" type="Life Support - Storage" x="46.25" y="262.75" width="9.5" height="12.5"/>
-  <object id="36" name="terminal" type="terminal" x="200" y="267" width="11" height="15">
-   <properties>
-    <property name="code" value="1"/>
-   </properties>
-  </object>
-  <object id="37" name="enemy" type="door" x="170" y="264" width="13" height="15">
-   <properties>
-    <property name="code" value="1"/>
-   </properties>
-  </object>
-  <object id="38" name="terminal" type="terminal" x="135.5" y="263.5" width="11" height="15">
-   <properties>
-    <property name="code" value="1"/>
-   </properties>
-  </object>
-  <object id="39" name="enemy" type="door" x="456.75" y="264.25" width="13" height="15">
-   <properties>
-    <property name="code" value="2"/>
-   </properties>
-  </object>
-  <object id="40" name="terminal" type="terminal" x="488.75" y="267.25" width="11" height="15">
-   <properties>
-    <property name="code" value="2"/>
-   </properties>
-  </object>
-  <object id="41" name="terminal" type="terminal" x="519.75" y="265.75" width="11" height="15">
-   <properties>
-    <property name="code" value="2"/>
-   </properties>
-  </object>
-  <object id="42" name="travel" type="Life Support - Space Dock" x="615" y="195.5" width="17.5" height="89"/>
-  <object id="43" name="d" type="Life Support - Space Dock" x="584" y="268" width="16" height="18"/>
+  <object id="53" name="save" x="328" y="166" width="14" height="14"/>
+  <object id="54" name="travel" type="Engineering - Hallway" x="288" y="296" width="94" height="14"/>
+  <object id="55" name="d" type="Engineering - Hallway" x="388" y="268" width="16" height="14"/>
+  <object id="56" name="travel" type="Engineering - Terraforming Access" x="8" y="196" width="16" height="88"/>
+  <object id="57" name="d" type="Engineering - Terraforming Access" x="38.6667" y="264" width="17.3333" height="19.3333"/>
+  <object id="58" name="travel" type="Engineering - Systems Access" x="617.333" y="194.667" width="17.3333" height="92"/>
+  <object id="59" name="d" type="Engineering - Systems Access" x="581.333" y="262.667" width="14.6667" height="20"/>
  </objectgroup>
 </map>
