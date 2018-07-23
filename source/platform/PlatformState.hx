@@ -303,8 +303,12 @@ class PlatformState extends FlxState
 		for (r in rects) { 
 			if (r.name == 'travel') {
 				var type:String = r.properties.get('type');
+				var nextLevel:String = H.currentLevel;
 				var s = type.split('_');
-				var t = new TravelZone(r.r.x, r.r.y, r.r.width, r.r.height, s[0], s[1]);
+				if (s.length > 1)
+					nextLevel = s[1];
+			
+				var t = new TravelZone(r.r.x, r.r.y, r.r.width, r.r.height, s[0], nextLevel);
 				zones.add(t);
 			}
 		}

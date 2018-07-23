@@ -28,13 +28,11 @@ class TravelZone extends Zone
 	override public function overlapEntity(entity:Entity, ?data:Dynamic) 
 	{
 		if (H.ps.transitioning)	 {
-			trace('Already transitioning');
 			return;
 		}
 		
 		if (!playerHit && Std.is(entity, Player)) {
 			hitcount++;
-			trace('Player overlapped the travel zone to ' + world + ' ' + hitcount + ' times');
 			playerHit = true;
 			H.previousLevel = checkpoint;
 			H.currentLevel = world;

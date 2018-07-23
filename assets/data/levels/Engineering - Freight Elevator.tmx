@@ -143,7 +143,7 @@
 </data>
  </layer>
  <objectgroup name="Object Layer 1">
-  <object id="35" name="travel" type="Engineering - Column_Engineering - Machine Shop" x="12" y="115" width="11.3333" height="72"/>
+  <object id="35" name="travel" type="Engineering - Engine Room_Engineering - Freight Elevator" x="12" y="115" width="11.3333" height="72"/>
   <object id="36" name="d" type="Engineering - Column" x="44.6667" y="173" width="16" height="10"/>
   <object id="57" name="travel" type="Engineering - Machine Shop_Engineering - Freight Elevator" x="292.576" y="933.333" width="55.9091" height="15.1515"/>
   <object id="58" name="d" type="Engineering - Machine Shop" x="361" y="905" width="16" height="14"/>
