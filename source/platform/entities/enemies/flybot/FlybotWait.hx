@@ -38,21 +38,12 @@ class FlybotWait extends FSMModule
 		if (waitTime > 0)
 			return;
 			
-		//var newDir = FlxPoint.get(0, -SPEED);
-		//newDir.rotate(FlxPoint.weak(), FlxG.random.float( -179, 179) );
-		//p.velocity.copyFrom(newDir);
-		//newDir.put();
+		var newDir = FlxPoint.get(0, -SPEED);
+		newDir.rotate(FlxPoint.weak(), FlxG.random.float( -179, 179) );
+		p.velocity.copyFrom(newDir);
+		newDir.put();
+		waitTime = WAIT_TIME;
 		
-		//if (p.getGraphicMidpoint().distanceTo(H.ps.player.getGraphicMidpoint()) < SIGHT_DISTANCE) 
-			//parent.changeFSM('attack');
-		//else
-		var change = FlxG.random.float( -RANDOM_DISTANCE, RANDOM_DISTANCE);
-		if (change < 0)
-			p.flipX = false;
-		else
-			p.flipX = true;
-			FlxTween.tween(p, {x:p.x + change, y:p.y + FlxG.random.float( -RANDOM_DISTANCE, RANDOM_DISTANCE)}, .5, {ease:FlxEase.circInOut}) ; 
-		waitTime = WAIT_TIME;	
 	}
 	
 }

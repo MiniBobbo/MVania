@@ -145,7 +145,7 @@
  <objectgroup name="Object Layer 1">
   <object id="50" name="travel" type="Engineering - Junction" x="1254.79" y="831.091" width="17.3333" height="85.3333"/>
   <object id="51" name="d" type="Engineering - Junction" x="1218.79" y="899.091" width="10.6667" height="21.3333"/>
-  <object id="52" name="travel" type="Engineering - Officers Quarters" x="8" y="388" width="16" height="88"/>
-  <object id="53" name="d" type="Engineering - Officers Quarters" x="40" y="456" width="16" height="16"/>
+  <object id="52" name="travel" type="Engineering - Officer Quarters" x="8" y="388" width="16" height="88"/>
+  <object id="53" name="d" type="Engineering - Officer Quarters" x="40" y="456" width="16" height="16"/>
  </objectgroup>
 </map>

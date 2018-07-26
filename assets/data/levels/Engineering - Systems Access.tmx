@@ -65,7 +65,7 @@
  <objectgroup name="Object Layer 1">
   <object id="35" name="travel" type="Engineering - Save Room" x="2535.06" y="197" width="16.3333" height="84.6667"/>
   <object id="36" name="d" type="Engineering - Save Room" x="2496.39" y="269.667" width="16" height="10"/>
-  <object id="54" name="travel" type="Engineering - Save Room" x="4" y="197" width="22" height="86"/>
+  <object id="54" name="travel" type="Engineering - Save Room" x="4" y="197" width="12" height="86"/>
   <object id="55" name="d" type="Engineering - Save Room" x="42" y="263" width="16" height="20"/>
  </objectgroup>
 </map>

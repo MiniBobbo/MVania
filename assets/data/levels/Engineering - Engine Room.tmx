@@ -105,7 +105,7 @@
  <objectgroup name="Object Layer 1">
   <object id="35" name="travel" type="Engineering - Junction_Engineering - Engine Room" x="677.333" y="622" width="82" height="10.6667"/>
   <object id="36" name="d" type="Engineering - Junction" x="778" y="588" width="16" height="10"/>
-  <object id="53" name="travel" type="Engineering - Freight Elevator_Engineering - Engine Room" x="2541.33" y="517.333" width="12.6667" height="80.6667"/>
+  <object id="53" name="travel" type="Engineering - Freight Elevator" x="2541.33" y="517.333" width="12.6667" height="80.6667"/>
   <object id="54" name="d" type="Engineering - Freight Elevator" x="2505.33" y="584" width="12" height="14"/>
  </objectgroup>
 </map>

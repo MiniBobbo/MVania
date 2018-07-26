@@ -13,7 +13,7 @@ import platform.entities.gameentites.Enemy;
 class ConstructionBot extends Enemy 
 {
 
-	var MAX_HP:Float = 1;
+	var MAX_HP:Float = 35;
 	
 	//The bot will jump from the right to the left side of the screen.  This keeps track of what side he is on.
 	public var right:Bool = true;

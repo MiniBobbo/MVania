@@ -94,10 +94,16 @@ import sys.FileSystem;
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___crew_quarters_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___engine_room_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___freight_elevator_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___hallway_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___junction_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___long_term_storage_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___machine_shop_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___officer_quarters_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___save_room_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___short_term_storage_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___systems_access_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___terraforming_access_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___thruster_control_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___aft_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___airlock_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___boost_room_tmx extends null { }
@@ -105,6 +111,7 @@ import sys.FileSystem;
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___maintenance_access_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___maintenance_tunnel_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___maintenance_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___space_dock_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___storage_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___the_grid_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support_column_tmx extends null { }
@@ -119,7 +126,15 @@ import sys.FileSystem;
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_shiptileset_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_shiptileset_tsx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_t_junction_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_terraforming___caverns_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_terraforming___deepmaw_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_terraforming___depths_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_terraforming___great_tree_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_terraforming___high_falls_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_terraforming___outdoors_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_terraforming___shadowed_glade_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_terraforming___the_maw_entrance_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_terraforming___the_maw_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_terraforming_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_temple2_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_templemgsheet_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }

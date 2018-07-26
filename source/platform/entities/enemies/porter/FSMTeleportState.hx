@@ -28,7 +28,8 @@ class FSMTeleportState extends FSMModule
 		port.rotate(FlxPoint.weak(), FlxG.random.float( -70, 70));
 		
 		FlxG.camera.flash(FlxColor.WHITE, .1);
-		cast(parent, Entity).setPosition(H.ps.player.x + port.x, H.ps.player.y + port.y);
+		var newPosition = FlxPoint.get(H.ps.player.x + port.x, H.ps.player.y + port.y);
+		cast(parent, Entity).setPosition(newPosition.x, newPosition.y);
 		parent.changeFSM('wait');
 	}
 	

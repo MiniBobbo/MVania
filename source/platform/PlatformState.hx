@@ -4,6 +4,7 @@ import flixel.FlxCamera.FlxCameraFollowStyle;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.addons.display.FlxBackdrop;
 import flixel.effects.particles.FlxEmitter;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxSpriteGroup;
@@ -108,6 +109,8 @@ class PlatformState extends FlxState
 		enemyAttacks = new FlxTypedGroup<UnivAttack>();
 		hud = new HUD();
 		farbg = new FlxSpriteGroup();
+		var bgg =  new FlxBackdrop('assets/images/outsidebg.png');
+		farbg.add(bgg);
 		hud.scrollFactor.set();
 		
 		emitter = new FlxEmitter();
@@ -138,12 +141,13 @@ class PlatformState extends FlxState
 		bg = maps.getMap('bg');
 		if (bg != null)
 			add(bg);
-			if(mg != null) 
-			add(mg);
 		#if debug
 			add(collision);
 			collision.alpha = .4;
 		#end
+
+			if(mg != null) 
+			add(mg);
 		//
 		//playerAttacks.add(player.attack);
 		

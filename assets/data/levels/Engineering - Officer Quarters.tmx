@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="20" height="30" tilewidth="32" tileheight="32" nextobjectid="57">
+<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="20" height="30" tilewidth="32" tileheight="32" nextobjectid="59">
  <tileset firstgid="1" name="32blocks" tilewidth="32" tileheight="32" tilecount="10" columns="10">
   <image source="32blocks.png" width="320" height="32"/>
  </tileset>
@@ -146,5 +146,6 @@
   <object id="54" name="travel" type="Engineering - Crew Quarters" x="616" y="392" width="16" height="84"/>
   <object id="55" name="travel" type="Engineering - Hallway" x="294.667" y="5.33333" width="84" height="21.3333"/>
   <object id="56" name="d" type="Engineering - Hallway" x="328" y="33.3333" width="13.3333" height="17.3333"/>
+  <object id="57" name="d" type="Engineering - Crew Quarters" x="580" y="457.333" width="13.3333" height="16"/>
  </objectgroup>
 </map>

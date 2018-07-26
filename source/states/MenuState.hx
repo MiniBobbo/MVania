@@ -57,8 +57,8 @@ class MenuState extends FlxState
 	}
 	
 	private function debug() {
-		H.previousLevel = 'Engineering - Freight Elevator';
-		H.currentLevel = 'Engineering - Short Term Storage';
+		H.previousLevel = 'Engineering - Machine Shop';
+		H.currentLevel = 'Engineering - Freight Elevator';
 		H.playerDef.boost = true;
 		H.playerDef.attacks[2] = true;
 		refreshPlayerDefDisplay();

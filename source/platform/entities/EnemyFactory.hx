@@ -4,14 +4,18 @@ import flixel.tile.FlxTilemap;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import platform.H;
+import platform.entities.enemies.HoverBot;
 import platform.entities.enemies.PlantBlocker;
 import platform.entities.enemies.Rat;
 import platform.entities.enemies.RoboRat;
+import platform.entities.enemies.Stomper;
 import platform.entities.enemies.Turret;
 import platform.entities.enemies.TurretBase;
+import platform.entities.enemies.Wallshot;
 import platform.entities.enemies.constructionbot.ConstructionBot;
 import platform.entities.enemies.flybot.FlyBot;
 import platform.entities.enemies.glitchedrobot.GlitchedRobot;
+import platform.entities.enemies.glitchedrobot.ShootRobot;
 import platform.entities.enemies.porter.Porter;
 import platform.entities.gameentites.Enemy;
 import platform.entities.things.Door;
@@ -50,6 +54,20 @@ class EnemyFactory
 				e = new Rat(map);
 				H.rectToTile(rect);
 				e.reset(rect.r.x, rect.r.y);
+			case 'wallshot':
+				e = new Wallshot(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+				if (rect.properties.exists('flip'))
+					cast(e, Wallshot).flipMe();
+			case 'stomper':
+				e = new Stomper(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x-32, rect.r.y-64);
+			case 'hoverbot':
+				e = new HoverBot(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
 			case 'flybot':
 				e = new FlyBot(map);
 				H.rectToTile(rect);
@@ -71,6 +89,10 @@ class EnemyFactory
 					cast(e, Turret).FIRE_DELAY = Std.parseFloat(rect.properties.get('rate'));
 			case 'glitchedrobot':
 				e = new GlitchedRobot(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+			case 'shootrobot':
+				e = new ShootRobot(map);
 				H.rectToTile(rect);
 				e.reset(rect.r.x, rect.r.y);
 			case 'turretbase':
