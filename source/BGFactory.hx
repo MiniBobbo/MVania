@@ -2,6 +2,7 @@ package;
 import flixel.FlxState;
 import flixel.addons.display.FlxBackdrop;
 import flixel.group.FlxSpriteGroup;
+import haxe.ds.StringMap;
 
 /**
  * ...
@@ -10,9 +11,16 @@ import flixel.group.FlxSpriteGroup;
 class BGFactory 
 {
 
+	
 	public static function createSpecialBG(bg:String, state:FlxState) {
+		var bgMap = new StringMap<String>();
+		createMap(bgMap);
+		bg = bgMap.get(bg);
+		
+		
 		switch (bg) 
 		{
+			
 			case '2':
 				var bgs:Array<FlxBackdrop> = [];
 				
@@ -28,13 +36,26 @@ class BGFactory
 				state.add(bg);
 			
 				
-			case '6':
+			case 'outdoors':
 				var bgs = new FlxBackdrop('assets/images/outsidebg.png', .3, 0);
 				state.add(bgs);
-			case '1':
-				var bgs = new FlxBackdrop('assets/images/outsidebg.png', .3, 0);
+				
+			case 'starfield':
+				var bgs = new FlxBackdrop('assets/images/starfield_0.png', .3, 0);
+				bgs.velocity.x = 100;
+				state.add(bgs);
+				var bgs2 = new FlxBackdrop('assets/images/starfield_1.png', .8, 0);
+				bgs2.velocity.x = 200;
+				state.add(bgs2);
 			default:
 				
 		}
+	}
+	
+	private static function createMap(map:StringMap<String>) {
+		map.set('Engineering - Save Room', 'starfield');
+		map.set('Engineering - Systems Access', 'starfield');
+		map.set('Engineering - Terraforming Access', 'outdoors');
+		map.set('Terraforming - Shadowed Glade', 'outdoors');
 	}
 }

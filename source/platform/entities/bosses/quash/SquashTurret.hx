@@ -13,6 +13,7 @@ class SquashTurret extends Piece
 {
 
 	var SHOT_SPEED:Float = 300;
+	var code:Int = 0;
 	
 	public function new(collisionMap:FlxTilemap) 
 	{
@@ -23,9 +24,13 @@ class SquashTurret extends Piece
 		animation.play('idle');
 	}
 	
+	public function setCode(code:Int) {
+		this.code = code;
+	}
+	
 	override public function signal(signal:String, ?data:Dynamic) 
 	{
-		if (signal == 'fire') 
+		if (signal == 'fire' && (code == 0 || code == Std.parseInt(cast data))) 
 			tryFire();
 	}
 	

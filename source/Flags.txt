@@ -1,0 +1,5 @@
+0 - Construction Bot defeated
+1 - Thruster Boss defeated
+2 - Mushroom boss defeated
+3 - Final Boss defeated
+4 - Squasher boss defeated

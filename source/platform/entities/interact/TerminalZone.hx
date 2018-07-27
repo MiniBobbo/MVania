@@ -10,6 +10,7 @@ class TerminalZone extends InteractZone
 {
 
 	var code:Int = 0;
+	var signal:String = 'activate';
 	public function new(X:Float, Y:Float, WIDTH:Float, HEIGHT:Float) 
 	{
 		super(X, Y, WIDTH, HEIGHT);
@@ -20,9 +21,13 @@ class TerminalZone extends InteractZone
 		this.code = code;
 	}
 	
+	public function setSignal(signal:String) {
+		this.signal = signal;
+	}
+	
 	override public function interact() 
 	{
 		//H.ps.spawnPlayerForm(PlayerForm.ROBOT, 1);
-		H.signalAll('activate', code);
+		H.signalAll(signal, code);
 	}
 }

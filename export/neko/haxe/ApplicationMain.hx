@@ -24,7 +24,7 @@ import haxe.macro.Expr;
 		
 		var config = {
 			
-			build: "40",
+			build: "41",
 			company: "HaxeFlixel",
 			file: "MVania",
 			fps: 60,

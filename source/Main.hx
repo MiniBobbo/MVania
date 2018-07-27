@@ -55,7 +55,7 @@ class Main extends Sprite
 			checkpoint:'Life Support Computer Room',
 			attacks:[true, false, true],
 			attackSelected:0,
-			flags:[true]
+			flags:[true, false, false]
 			
 		};
 		

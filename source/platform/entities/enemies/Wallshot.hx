@@ -17,6 +17,8 @@ class Wallshot extends Enemy
 	var timer:FlxTimer;
 	var FIRE_TIME:Float = 1.5;
 	var Y_OFFSET:Float = 10;
+	var code:Int = 0;
+	
 	public function new(collisionMap:FlxTilemap) 
 	{
 		super(collisionMap);
@@ -30,7 +32,9 @@ class Wallshot extends Enemy
 		timer.start(FIRE_TIME, fire, 0);
 	}
 	
-
+	public function setCode(code:Int) {
+		
+	}
 	
 	public function flipMe() {
 		flipX = !flipX;
@@ -46,6 +50,13 @@ class Wallshot extends Enemy
 		var v = FlxPoint.get( -fireSpeed, FlxG.random.float(-Y_OFFSET, Y_OFFSET) );
 		a.newInitAttack(this.getMidpoint(), v, 5, AttackTypes.ELECTRIC);
 		v.put();
+	}
+	
+	override public function signal(signal:String, ?data:Dynamic) 
+	{
+		if (signal == 'fire' && (code == 0 || cast(data, Int) == code)) {
+			fire(null);
+		}
 	}
 	
 }

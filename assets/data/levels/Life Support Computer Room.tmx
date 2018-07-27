@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="32" tileheight="32" nextobjectid="33">
+<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="32" tileheight="32" nextobjectid="36">
  <tileset firstgid="1" name="32blocks" tilewidth="32" tileheight="32" tilecount="10" columns="10">
   <image source="32blocks.png" width="320" height="32"/>
  </tileset>
- <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="133" columns="19">
-  <image source="shipTileset.png" width="608" height="224"/>
+ <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="323" columns="19">
+  <image source="shipTileset.png" width="608" height="544"/>
  </tileset>
  <layer name="bg" width="20" height="10">
   <data encoding="csv">
@@ -49,9 +49,8 @@
 </data>
  </layer>
  <objectgroup name="Object Layer 1">
-  <object id="22" name="d" type="start" x="38.334" y="260" width="18" height="19"/>
   <object id="24" name="travel" type="Pod Bay_Life Support Computer Room" x="622.833" y="194.833" width="9.33333" height="90"/>
-  <object id="28" name="message" type="WASD or Arrow keys to move.  L to jump." x="33.5" y="163" width="168.667" height="128"/>
+  <object id="28" name="message" type="WASD or Arrow keys to move.  L to jump." x="218.5" y="113" width="168.667" height="128"/>
   <object id="29" name="save" x="298.5" y="232.5" width="12" height="14"/>
   <object id="30" name="d" type="Pod Bay" x="587.5" y="268.5" width="9.5" height="12.5"/>
  </objectgroup>

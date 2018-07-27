@@ -61,7 +61,7 @@ class ConstructionBotExplodeFSM extends FSMModule
 		e.reset(c.getMidpoint().x - e.width / 2, c.getMidpoint().y - e.height / 2);
 		H.ps.addEnemy(e);
 		//Set the flag to defeated so this boss doesn't appear again.
-		H.setFlag(0, false);
+		H.setFlag(0, true);
 		parent.changeFSM('dead');
 	}
 }

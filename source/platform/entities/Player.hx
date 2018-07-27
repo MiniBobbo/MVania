@@ -73,11 +73,21 @@ public var currentBoostCount(default, null) :Int = 0;
 	
 	private function applyPlayerDef(pd:PlayerDef) {
 		trace('Applying player def: ' + pd);
+		
 		hp = pd.playerHealth;
 		maxHP = pd.playerMaxHealth;
 		energy = pd.playerEnergy;
 		maxEnergy = pd.playerMaxEnergy;
 		attackType = pd.attackSelected;
+		var catt:AttackTypes;
+		switch (attackType) 
+		{
+			case :
+				
+			default:
+				
+		}
+		
 		if (pd.boost)
 			currentBoostCount = 1;
 	}
@@ -242,7 +252,10 @@ public var currentBoostCount(default, null) :Int = 0;
 					trace('Boost up signal received.');
 					fsm.changeState('boostup');
 				}
-				
+			case 'energyup':
+				energyBoost();
+			case 'hpup':
+				hpBoost();
 			default:
 
 		}
@@ -353,5 +366,15 @@ public var currentBoostCount(default, null) :Int = 0;
 		}
 		
 		return attackEnum;
+	}
+	
+	private function hpBoost(add:Int = 3) {
+		maxHP += add;
+		hp += add;
+	}	
+	
+	private function energyBoost(add:Int = 3) {
+		maxEnergy += add;
+		energy += add;
 	}
 }

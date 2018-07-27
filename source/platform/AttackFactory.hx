@@ -52,6 +52,7 @@ class AttackFactory
 				a.collideMap = true;
 			case AttackTypes.FIRE:
 				a.acceleration.set(0, H.GRAVITY);
+				a.setSize(10, 10);
 				a.velocity.y += -FIRE_UPWARDS_VELOCITY;
 				a.fireAnim = 'fireshot';
 				a.endAnim = 'fireshotend';

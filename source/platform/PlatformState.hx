@@ -345,13 +345,15 @@ class PlatformState extends FlxState
 				case 'enemy':
 					//trace('creating enemy ' + r.properties.get('type'));
 					//Skip creating this enemy if it has a flag property and that flag is set to false
-					if (r.properties.exists('flag') && H.checkFlag(r.properties.get('flag')) == false)
+					if (r.properties.exists('flag') && H.checkFlag(r.properties.get('flag')) == true)
 						continue;
 					
 					var enemy = EnemyFactory.createEnemy(r.properties.get('type'), r, collision);
 					enemies.add(enemy);
 					entities.add(enemy);
 				case 'boss':
+					if (r.properties.exists('flag') && H.checkFlag(r.properties.get('flag')) == true)
+						continue;
 					var b = BossFactory.createBoss(r.properties.get('type'), r, collision);
 					for (e in b.members) {
 						enemies.add(e);
@@ -369,6 +371,8 @@ class PlatformState extends FlxState
 					var terminalZone = new TerminalZone(r.r.x, r.r.y, 32, 32);
 					if (r.properties.exists('code'))
 						terminalZone.setCode(Std.parseInt(r.properties.get('code')));
+					if (r.properties.exists('signal'))
+					terminalZone.setSignal(r.properties.get('signal'));
 					usable.push(terminalZone);
 					var enemy = EnemyFactory.createEnemy('terminal', r, collision);
 					nocollide.add(enemy);
@@ -401,8 +405,8 @@ class PlatformState extends FlxState
 				case 'save':
 					H.rectToTile(r);
 					//Create the save message
-					var m:HelpMessageZone = new HelpMessageZone(r.r.x - 32, r.r.y - 64, 96, 64, 'Press UP to save');
-					zones.add(m);
+					//var m:HelpMessageZone = new HelpMessageZone(r.r.x - 32, r.r.y - 64, 96, 64, 'Press UP to save');
+					//zones.add(m);
 					//Create the SavePoint graphical object.
 					var sp = new SavePoint(collision);
 					sp.setPosition(r.r.x - 32, r.r.y);
@@ -487,6 +491,8 @@ class PlatformState extends FlxState
 			H.playerDef.attackSelected = player.attackType;
 			H.playerDef.playerHealth = player.hp;
 			H.playerDef.playerMaxHealth = player.maxHP;
+			H.playerDef.playerEnergy = player.energy;
+			H.playerDef.playerMaxEnergy = player.maxEnergy;
 			
 			
 		FlxG.camera.fade(FlxColor.BLACK, .2, false, function() {

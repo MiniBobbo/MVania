@@ -57,8 +57,8 @@ class MenuState extends FlxState
 	}
 	
 	private function debug() {
-		H.previousLevel = 'Engineering - Junction';
-		H.currentLevel = 'Engineering - Compactor';
+		H.previousLevel = 'Engineering - Save Room';
+		H.currentLevel = 'Engineering - Terraforming Access';
 		H.playerDef.boost = true;
 		H.playerDef.attacks[2] = true;
 		refreshPlayerDefDisplay();

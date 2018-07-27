@@ -2,6 +2,7 @@ package platform.entities;
 import flixel.tile.FlxTilemap;
 import platform.entities.bosses.Boss;
 import platform.entities.bosses.quash.Squasher;
+import platform.entities.bosses.thrust.ThrustBoss;
 import tmxtools.TmxRect;
 
 /**
@@ -21,6 +22,10 @@ class BossFactory
 		var b:Boss = null;
 		switch (type) 
 		{
+			case 'thrust':
+				b = new ThrustBoss(map);
+				H.rectToTile(rect);
+				b.setPositon(rect.r.x, rect.r.y);
 			case 'squasher':
 				b = new Squasher(map);
 				H.rectToTile(rect);

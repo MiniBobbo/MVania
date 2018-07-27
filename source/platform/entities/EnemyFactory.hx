@@ -12,6 +12,7 @@ import platform.entities.enemies.Stomper;
 import platform.entities.enemies.Turret;
 import platform.entities.enemies.TurretBase;
 import platform.entities.enemies.Wallshot;
+import platform.entities.enemies.WallshotSignal;
 import platform.entities.enemies.constructionbot.ConstructionBot;
 import platform.entities.enemies.flybot.FlyBot;
 import platform.entities.enemies.glitchedrobot.GlitchedRobot;
@@ -56,6 +57,14 @@ class EnemyFactory
 				e.reset(rect.r.x, rect.r.y);
 			case 'wallshot':
 				e = new Wallshot(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+				if (rect.properties.exists('flip'))
+					cast(e, Wallshot).flipMe();
+			case 'wallshotsignal':
+				var code = Std.parseInt(rect.properties.get('code'));
+				e = new WallshotSignal(map);
+				cast(e, WallshotSignal).setCode(code);
 				H.rectToTile(rect);
 				e.reset(rect.r.x, rect.r.y);
 				if (rect.properties.exists('flip'))
@@ -112,6 +121,28 @@ class EnemyFactory
 				e = new Terminal(map);
 				H.rectToTile(rect);
 				e.reset(rect.r.x, rect.r.y);
+			case 'hpup':
+				var flagNum = Std.parseInt(rect.properties.get('flag'));
+				e = new HPup(map, flagNum);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+				if (H.checkFlag(rect.properties.get('flag'))) {
+					e.exists = false;
+					e.visible = false;
+					e.hp = 0;
+				}
+			case 'energyup':
+				trace('created energy');
+				var flagNum = Std.parseInt(rect.properties.get('flag'));
+				e = new EnergyUp(map, flagNum);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+				if (H.checkFlag(rect.properties.get('flag'))) {
+					e.exists = false;
+					e.visible = false;
+					e.hp = 0;
+					trace('killed energy');
+				}
 			case 'fire':
 				e = new FireAttack(map);
 				H.rectToTile(rect);
