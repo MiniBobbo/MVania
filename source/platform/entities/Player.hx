@@ -79,14 +79,7 @@ public var currentBoostCount(default, null) :Int = 0;
 		energy = pd.playerEnergy;
 		maxEnergy = pd.playerMaxEnergy;
 		attackType = pd.attackSelected;
-		var catt:AttackTypes;
-		switch (attackType) 
-		{
-			case :
-				
-			default:
-				
-		}
+		currentAttackType = weaponIntToEnum(attackType);
 		
 		if (pd.boost)
 			currentBoostCount = 1;
@@ -274,7 +267,7 @@ public var currentBoostCount(default, null) :Int = 0;
 	
 	public function shoot(attackType:AttackTypes)
 	{
-		//var attackType = AttackTypes.FIRE;
+		//var attackType = AttackTypes.ACID;
 		if (attackDelay > 0 || energy < shotEnergyCost)
 			return;
 		attackDelay = getAttackDelay(attackType);
@@ -291,7 +284,7 @@ public var currentBoostCount(default, null) :Int = 0;
 		}
 		else
 			position.x -= attackOffset.x;		
-		a.newInitAttack(position, direction, 4, AttackTypes.LARGESHOT);
+		a.newInitAttack(position, direction, 4, attackType);
 
 	}
 

@@ -3,3 +3,14 @@
 2 - Mushroom boss defeated
 3 - Final Boss defeated
 4 - Squasher boss defeated
+
+
+
+Powerups
+5 - Terraforming Outside - HP up
+6 - Terraforming - Outside Energy up
+7 - Space Dock HP up
+8 - Space Dock Energy up
+9 - Terraforming - Caverns HP up
+10 - Life Support - Maintenance Tunnel HP up
+11 - Terraforming - Deepmaw energy up

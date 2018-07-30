@@ -53,11 +53,15 @@ class Main extends Sprite
 			boost:false,
 			boostUpgrade:false,
 			checkpoint:'Life Support Computer Room',
-			attacks:[true, false, true],
+			attacks:[true, false, false],
 			attackSelected:0,
-			flags:[true, false, false]
+			flags:[]
 			
 		};
+		
+		var flagCount:Int = 9;
+		for (i in 0...flagCount)
+			H.defaultPlayerDef.flags.push(false);
 		
 		super();
 		addChild(new FlxGame(480, 270, MenuState));

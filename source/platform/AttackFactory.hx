@@ -65,6 +65,23 @@ class AttackFactory
 				} );
 				a.setCompleteFunction(stopMoving);
 				a.collideMap = true;
+			case AttackTypes.ACID:
+				a.setSize(20, 20);
+				a.centerOffsets();
+				a.velocity.y += 0;
+				a.fireAnim = 'acid';
+				a.endAnim = 'acidend';
+				a.setUpdateFunction(AngleTowardsVelocity);
+				a.setInitFunction(function(a:UnivAttack) {
+					a.animation.play(a.fireAnim); 
+					//a.velocity.y += -FIRE_UPWARDS_VELOCITY;
+					a.acceleration.set(0,H.GRAVITY/3);
+					
+				} );
+				a.setCompleteFunction(stopMoving);
+				a.collideMap = true;
+				
+				
 			case AttackTypes.ELECTRIC:
 				a.acceleration.set();
 				a.fireAnim = 'elecshot';

@@ -71,7 +71,7 @@ class ShootRobot extends Enemy
 		var v = FlxPoint.get(-SHOT_SPEED, 0);
 		if (flipX)
 			v.x *= -1;
-		a.initAttack(this.getMidpoint(), v, 5, 'shot');
+		a.newInitAttack(this.getMidpoint(), v, 5, AttackTypes.SHOT);
 		v.put();
 		delay = TIME_BETWEEN_SHOTS;
 	}

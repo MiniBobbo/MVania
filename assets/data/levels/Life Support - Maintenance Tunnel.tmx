@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="100" height="10" tilewidth="32" tileheight="32" nextobjectid="48">
+<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="100" height="10" tilewidth="32" tileheight="32" nextobjectid="49">
  <tileset firstgid="1" name="32blocks" tilewidth="32" tileheight="32" tilecount="10" columns="10">
   <image source="32blocks.png" width="320" height="32"/>
  </tileset>
- <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="247" columns="19">
-  <image source="shipTileset.png" width="608" height="416"/>
+ <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="418" columns="19">
+  <image source="shipTileset.png" width="608" height="704"/>
   <terraintypes>
    <terrain name="goop" tile="0"/>
   </terraintypes>
@@ -96,5 +96,10 @@
   <object id="45" name="enemy" type="shootrobot" x="1903" y="77.5" width="12" height="13"/>
   <object id="46" name="enemy" type="glitchedrobot" x="2214" y="245.5" width="12" height="13"/>
   <object id="47" name="enemy" type="glitchedrobot" x="2384" y="250.5" width="12" height="13"/>
+  <object id="48" name="enemy" type="hpup" x="170.667" y="265.333" width="12" height="12.6667">
+   <properties>
+    <property name="flag" value="10"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

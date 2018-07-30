@@ -56,7 +56,7 @@ class Turret extends Enemy
 		loc.rotate(FlxPoint.weak(), angle);
 		v.rotate(FlxPoint.weak(), angle);
 		//a.velocity.x = -SHOT_SPEED;
-		a.initAttack(getMidpoint() , v, 5, 'shot');
+		a.newInitAttack(getMidpoint() , v, 5, AttackTypes.SHOT);
 		v.put();
 	}
 }

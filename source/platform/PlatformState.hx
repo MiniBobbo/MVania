@@ -23,6 +23,7 @@ import platform.entities.EffectSprite;
 import platform.entities.EnemyFactory;
 import platform.entities.Entity;
 import platform.entities.InteractZone;
+import platform.entities.Organ;
 import platform.entities.Player;
 import platform.entities.Replicator;
 import platform.entities.Zone;
@@ -434,6 +435,15 @@ class PlatformState extends FlxState
 					H.rectToTile(r);
 					//r.r.x -= 16;
 					r.r.y -= 16;
+					g.reset(r.r.x, r.r.y);
+					g.setEnemies(enemies);
+					
+					enemies.add(g);
+					entities.add(g);
+				case 'organ':
+					var g = new Organ(collision);
+					H.rectToTile(r);
+					r.r.y -= 25;
 					g.reset(r.r.x, r.r.y);
 					g.setEnemies(enemies);
 					

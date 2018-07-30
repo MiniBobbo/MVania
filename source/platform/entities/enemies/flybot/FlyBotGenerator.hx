@@ -61,7 +61,7 @@ class FlyBotGenerator extends Enemy
 					flies.add(fly);
 				}
 				var mp = getGraphicMidpoint();
-				fly.reset(mp.x, mp.y);
+				fly.reset(mp.x, mp.y-20);
 				fly.hp = 1;
 				fly.changeFSM('wait');
 				fly.shader = null;

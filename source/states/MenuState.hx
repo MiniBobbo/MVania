@@ -57,10 +57,11 @@ class MenuState extends FlxState
 	}
 	
 	private function debug() {
-		H.previousLevel = 'Engineering - Save Room';
-		H.currentLevel = 'Engineering - Terraforming Access';
+		H.previousLevel = 'Terraforming - The Maw';
+		H.currentLevel = 'Terraforming - The Maw Entrance';
 		H.playerDef.boost = true;
 		H.playerDef.attacks[2] = true;
+		H.playerDef.attacks[1] = true;
 		refreshPlayerDefDisplay();
 		
 	}

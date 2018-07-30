@@ -38,10 +38,19 @@ class BGFactory
 				
 			case 'outdoors':
 				var bgs = new FlxBackdrop('assets/images/outsidebg.png', .3, 0);
+				bgs.scale.set(.6,.6);
+				state.add(bgs);
+			case 'caverns':
+				var bgs = new FlxBackdrop('assets/images/cavernbg.png', .3, 0);
+				bgs.scale.set(.5,.5);
+				state.add(bgs);
+			case 'guts':
+				var bgs = new FlxBackdrop('assets/images/guts.png', .3, .3);
+				bgs.scale.set(.3,.3);
 				state.add(bgs);
 				
 			case 'starfield':
-				var bgs = new FlxBackdrop('assets/images/starfield_0.png', .3, 0);
+				var bgs = new FlxBackdrop('assets/images/starfield_0.png', .3, 0 );
 				bgs.velocity.x = 100;
 				state.add(bgs);
 				var bgs2 = new FlxBackdrop('assets/images/starfield_1.png', .8, 0);
@@ -57,5 +66,14 @@ class BGFactory
 		map.set('Engineering - Systems Access', 'starfield');
 		map.set('Engineering - Terraforming Access', 'outdoors');
 		map.set('Terraforming - Shadowed Glade', 'outdoors');
+		map.set('Terraforming - Great Tree', 'outdoors');
+		map.set('Terraforming - High Falls', 'outdoors');
+		map.set('Terraforming - Outdoors', 'outdoors');
+		map.set('Terraforming - Caverns', 'caverns');
+		map.set('Terraforming - The Maw Entrance', 'caverns');
+		map.set('Terraforming - The Maw', 'guts');
+		map.set('Terraforming - Deepmaw', 'guts');
+		map.set('Life Support - Space Dock', 'starfield');
+		map.set('Life Support - Storage', 'starfield');
 	}
 }

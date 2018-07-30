@@ -4,6 +4,8 @@ import flixel.tile.FlxTilemap;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import platform.H;
+import platform.entities.enemies.BatBot;
+import platform.entities.enemies.Cell;
 import platform.entities.enemies.HoverBot;
 import platform.entities.enemies.PlantBlocker;
 import platform.entities.enemies.Rat;
@@ -53,6 +55,14 @@ class EnemyFactory
 				e.reset(rect.r.x, rect.r.y);
 			case 'rat':
 				e = new Rat(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+			case 'cell':
+				e = new Cell(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+			case 'batbot':
+				e = new BatBot(map);
 				H.rectToTile(rect);
 				e.reset(rect.r.x, rect.r.y);
 			case 'wallshot':

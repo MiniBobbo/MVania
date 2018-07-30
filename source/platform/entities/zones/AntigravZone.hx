@@ -9,7 +9,7 @@ import platform.entities.Zone;
  */
 class AntigravZone extends Zone 
 {
-	var strength:Float = 30;
+	var strength:Float = 150;
 	public var antigrav_on(default, set):Bool = true;
 	
 	
