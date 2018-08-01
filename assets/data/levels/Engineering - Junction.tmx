@@ -3,8 +3,8 @@
  <tileset firstgid="1" name="32blocks" tilewidth="32" tileheight="32" tilecount="10" columns="10">
   <image source="32blocks.png" width="320" height="32"/>
  </tileset>
- <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="323" columns="19">
-  <image source="shipTileset.png" width="608" height="544"/>
+ <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="418" columns="19">
+  <image source="shipTileset.png" width="608" height="704"/>
   <terraintypes>
    <terrain name="goop" tile="0"/>
   </terraintypes>
@@ -50,7 +50,7 @@
 32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32
 </data>
  </layer>
- <layer name="mg" width="40" height="20">
+ <layer name="mg" width="40" height="20" visible="0">
   <data encoding="csv">
 94,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,52,0,0,0,50,51,51,51,51,51,51,95,
 33,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,31,

@@ -57,8 +57,8 @@ class MenuState extends FlxState
 	}
 	
 	private function debug() {
-		H.previousLevel = 'Terraforming - The Maw';
-		H.currentLevel = 'Terraforming - The Maw Entrance';
+		H.previousLevel = 'Terraforming - Deepmaw';
+		H.currentLevel = 'Terraforming - Depths';
 		H.playerDef.boost = true;
 		H.playerDef.attacks[2] = true;
 		H.playerDef.attacks[1] = true;

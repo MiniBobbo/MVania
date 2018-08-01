@@ -42,6 +42,17 @@ class Enemy extends Entity
 		}
 	}
 	
+	/**
+	 * Sets the FlipX variable to face the player.
+	 * @param facingLeft	Is the graphic facing left?
+	 */
+	public function facePlayer(facingLeft:Bool = true) {
+		if (H.ps.player.x < getMidpoint().x) {
+			flipX = !facingLeft;
+		}
+		else
+			flipX = facingLeft;
+	}
 	
 	
 }

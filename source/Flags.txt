@@ -14,3 +14,4 @@ Powerups
 9 - Terraforming - Caverns HP up
 10 - Life Support - Maintenance Tunnel HP up
 11 - Terraforming - Deepmaw energy up
+12 - Engineering - Compactor energy up

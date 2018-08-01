@@ -19,6 +19,8 @@ import platform.entities.enemies.constructionbot.ConstructionBot;
 import platform.entities.enemies.flybot.FlyBot;
 import platform.entities.enemies.glitchedrobot.GlitchedRobot;
 import platform.entities.enemies.glitchedrobot.ShootRobot;
+import platform.entities.enemies.mushboom.Mushboom;
+import platform.entities.enemies.mushboom.MushboomSmall;
 import platform.entities.enemies.porter.Porter;
 import platform.entities.gameentites.Enemy;
 import platform.entities.things.Door;
@@ -57,6 +59,16 @@ class EnemyFactory
 				e = new Rat(map);
 				H.rectToTile(rect);
 				e.reset(rect.r.x, rect.r.y);
+			case 'mushboom':
+				e = new Mushboom(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+				e.fsm.changeState('jumping');			
+			case 'mushboomsmall':
+				e = new MushboomSmall(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+				e.fsm.changeState('air');
 			case 'cell':
 				e = new Cell(map);
 				H.rectToTile(rect);

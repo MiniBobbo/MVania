@@ -15,6 +15,8 @@ class WaitFSM extends FSMModule
 	var WAIT_VAR:Float = 1;
 	var waitTime:Float;
 	var NEXT_STATE:Array<String> = [];
+	var lastState:String;
+	var nextState:String;
 	
 	public function new(parent:IFSM) 
 	{
@@ -35,6 +37,11 @@ class WaitFSM extends FSMModule
 		NEXT_STATE.push(nextState);
 	}
 	
+	override public function changeFrom() 
+	{
+		lastState = nextState;
+	}
+	
 	override public function changeTo() 
 	{
 		waitTime = WAIT_TIME + FlxG.random.float(0, WAIT_VAR);
@@ -45,8 +52,10 @@ class WaitFSM extends FSMModule
 		if (waitTime > 0)
 			return;
 		
-		var nextState = NEXT_STATE[FlxG.random.int(0, NEXT_STATE.length - 1)];
+		nextState = NEXT_STATE[FlxG.random.int(0, NEXT_STATE.length - 1)];
+		while (nextState == lastState)
+			nextState = NEXT_STATE[FlxG.random.int(0, NEXT_STATE.length - 1)];
+		
 		parent.changeFSM(nextState);
 	}
-	
 }

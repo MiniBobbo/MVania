@@ -140,8 +140,9 @@ class PlatformState extends FlxState
 		
 		BGFactory.createSpecialBG(H.currentLevel, this);
 		bg = maps.getMap('bg');
-		if (bg != null)
+		if (bg != null) {
 			add(bg);
+		}
 		#if debug
 			add(collision);
 			collision.alpha = .4;
@@ -184,11 +185,6 @@ class PlatformState extends FlxState
 		try{ 
 
 		player = new Player(collision);
-		//player.maxHP = H.playerDef.playerMaxHealth;
-		//player.hp = H.playerDef.playerHealth;
-		//player.attackType = H.playerDef.attackSelected;
-		//player.energy = H.playerDef.playerEnergy;
-		//player.maxEnergy = H.playerDef.playerMaxEnergy;
 		
 		entities.add(player);
 		player.setBottom(r.r.bottom);

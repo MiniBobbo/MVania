@@ -3,6 +3,7 @@ import flixel.FlxState;
 import flixel.addons.display.FlxBackdrop;
 import flixel.group.FlxSpriteGroup;
 import haxe.ds.StringMap;
+import platform.H;
 
 /**
  * ...
@@ -34,8 +35,13 @@ class BGFactory
 				
 				for (bg in bgs)
 				state.add(bg);
-			
-				
+			case 'circut':
+				var bgs = new FlxBackdrop();
+				bgs.frames = H.getFrames();
+				bgs.animation.frameName = 'bgCircuts';
+				bgs.scrollFactor.set(.5, .5);
+				bgs.scale.set(.6,.6);
+				state.add(bgs);
 			case 'outdoors':
 				var bgs = new FlxBackdrop('assets/images/outsidebg.png', .3, 0);
 				bgs.scale.set(.6,.6);
@@ -73,6 +79,7 @@ class BGFactory
 		map.set('Terraforming - The Maw Entrance', 'caverns');
 		map.set('Terraforming - The Maw', 'guts');
 		map.set('Terraforming - Deepmaw', 'guts');
+		map.set('Terraforming - Depths', 'caverns');
 		map.set('Life Support - Space Dock', 'starfield');
 		map.set('Life Support - Storage', 'starfield');
 	}

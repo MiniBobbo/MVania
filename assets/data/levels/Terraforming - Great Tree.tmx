@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="20" height="50" tilewidth="32" tileheight="32" nextobjectid="60">
+<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="20" height="50" tilewidth="32" tileheight="32" nextobjectid="61">
  <tileset firstgid="1" name="32blocks" tilewidth="32" tileheight="32" tilecount="10" columns="10">
   <image source="32blocks.png" width="320" height="32"/>
  </tileset>
- <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="361" columns="19">
-  <image source="shipTileset.png" width="608" height="608"/>
+ <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="418" columns="19">
+  <image source="shipTileset.png" width="608" height="704"/>
   <terraintypes>
    <terrain name="leaves" tile="0"/>
   </terraintypes>
@@ -106,8 +106,8 @@
 39,0,0,0,182,231,231,183,183,184,0,0,0,0,0,0,0,0,0,37,
 39,0,0,0,201,202,202,202,202,211,0,0,0,0,0,0,0,0,0,37,
 39,0,0,0,201,202,202,202,202,211,0,0,0,0,0,0,0,0,0,37,
-39,0,0,0,201,202,202,202,202,203,0,0,0,0,0,0,0,0,0,56,
-39,0,0,0,220,221,221,221,221,222,182,183,231,183,231,184,0,0,0,0,
+39,0,0,0,201,202,202,202,202,203,0,0,0,0,0,0,0,0,0,37,
+39,0,0,0,220,221,221,221,221,222,182,183,231,183,231,184,0,0,0,56,
 39,0,0,0,182,183,183,183,183,184,213,202,202,202,202,203,0,0,0,0,
 39,0,0,0,201,202,202,202,202,211,201,202,202,202,202,230,184,0,0,0,
 39,0,0,0,220,221,221,193,221,222,201,202,202,202,202,202,211,0,0,0,
@@ -245,7 +245,7 @@
  <objectgroup name="Object Layer 1">
   <object id="35" name="travel" type="Terraforming - High Falls_high" x="9" y="142" width="11.3333" height="72"/>
   <object id="36" name="d" type="high" x="44.6667" y="200" width="16" height="10"/>
-  <object id="48" name="travel" type="Terraforming - Outdoors" x="616" y="1192" width="12" height="76"/>
+  <object id="48" name="travel" type="Terraforming - Outdoors" x="631.333" y="1198" width="4.66667" height="76"/>
   <object id="49" name="d" type="Terraforming - Outdoors" x="589.333" y="1254.67" width="12" height="17.3333"/>
   <object id="50" name="travel" type="Terraforming - Shadowed Glade" x="617.333" y="834.667" width="14.6667" height="85.3333"/>
   <object id="51" name="d" type="Terraforming - Shadowed Glade" x="586.667" y="902.667" width="13.3333" height="17.3333"/>

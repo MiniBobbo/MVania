@@ -3,8 +3,8 @@
  <tileset firstgid="1" name="32blocks" tilewidth="32" tileheight="32" tilecount="10" columns="10">
   <image source="32blocks.png" width="320" height="32"/>
  </tileset>
- <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="361" columns="19">
-  <image source="shipTileset.png" width="608" height="608"/>
+ <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="418" columns="19">
+  <image source="shipTileset.png" width="608" height="704"/>
   <terraintypes>
    <terrain name="trees" tile="0"/>
    <terrain name="goop" tile="0"/>
@@ -141,8 +141,8 @@
 </data>
  </layer>
  <objectgroup name="Object Layer 1">
-  <object id="35" name="travel" type="Life Support Column_Life Support - Aft" x="4" y="428.667" width="11.3333" height="72"/>
-  <object id="36" name="d" type="Life Support Column" x="40" y="498.667" width="16" height="10"/>
+  <object id="35" name="travel" type="Terraforming - Great Tree" x="4" y="428.667" width="11.3333" height="72"/>
+  <object id="36" name="d" type="Terraforming - Great Tree" x="40" y="498.667" width="16" height="10"/>
   <object id="45" name="travel" type="Life Support Column_Terraforming - Outdoors" x="2179.45" y="624.667" width="88.6667" height="12.6667"/>
   <object id="47" name="d" type="Life Support Column" x="2151.67" y="583.334" width="14.6667" height="14.6667"/>
   <object id="48" name="antigrav" type="15" x="2408" y="617.333" width="13.3333" height="13.3333">

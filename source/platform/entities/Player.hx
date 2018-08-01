@@ -68,19 +68,16 @@ public var currentBoostCount(default, null) :Int = 0;
 		super();
 		changeForm(H.playerDef.playerForm);
 		applyPlayerDef(H.playerDef);
-		currentAttackType = AttackTypes.SHOT;
 	}
 	
 	private function applyPlayerDef(pd:PlayerDef) {
-		trace('Applying player def: ' + pd);
-		
+		attackType = pd.attackSelected;
 		hp = pd.playerHealth;
 		maxHP = pd.playerMaxHealth;
 		energy = pd.playerEnergy;
 		maxEnergy = pd.playerMaxEnergy;
 		attackType = pd.attackSelected;
 		currentAttackType = weaponIntToEnum(attackType);
-		
 		if (pd.boost)
 			currentBoostCount = 1;
 	}
@@ -229,6 +226,7 @@ public var currentBoostCount(default, null) :Int = 0;
 				H.playerDef.attacks[2] = true;
 				attackType = 2;
 				H.ps.hud.createWeaponBoxes();
+				H.ps.hud.selectWeapon(attackType);
 			case 'stun':
 				if (data == null || !Std.is(data, FlxPoint))
 					return;
@@ -267,7 +265,6 @@ public var currentBoostCount(default, null) :Int = 0;
 	
 	public function shoot(attackType:AttackTypes)
 	{
-		//var attackType = AttackTypes.ACID;
 		if (attackDelay > 0 || energy < shotEnergyCost)
 			return;
 		attackDelay = getAttackDelay(attackType);

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="40" height="20" tilewidth="32" tileheight="32" nextobjectid="54">
+<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="40" height="20" tilewidth="32" tileheight="32" nextobjectid="55">
  <tileset firstgid="1" name="32blocks" tilewidth="32" tileheight="32" tilecount="10" columns="10">
   <image source="32blocks.png" width="320" height="32"/>
  </tileset>
- <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="323" columns="19">
-  <image source="shipTileset.png" width="608" height="544"/>
+ <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="418" columns="19">
+  <image source="shipTileset.png" width="608" height="704"/>
  </tileset>
  <layer name="bg" width="40" height="20" visible="0">
   <data encoding="csv">
@@ -109,5 +109,10 @@
   <object id="51" name="enemy" type="stomper" x="463.5" y="485" width="11" height="12"/>
   <object id="52" name="enemy" type="stomper" x="717.5" y="487" width="11" height="12"/>
   <object id="53" name="enemy" type="stomper" x="1161.5" y="297" width="11" height="12"/>
+  <object id="54" name="enemy" type="energyup" x="75" y="231" width="15" height="15">
+   <properties>
+    <property name="flag" value="12"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
