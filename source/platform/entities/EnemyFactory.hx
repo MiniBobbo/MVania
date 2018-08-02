@@ -5,6 +5,7 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import platform.H;
 import platform.entities.enemies.BatBot;
+import platform.entities.enemies.Bouncer;
 import platform.entities.enemies.Cell;
 import platform.entities.enemies.HoverBot;
 import platform.entities.enemies.PlantBlocker;
@@ -19,6 +20,7 @@ import platform.entities.enemies.constructionbot.ConstructionBot;
 import platform.entities.enemies.flybot.FlyBot;
 import platform.entities.enemies.glitchedrobot.GlitchedRobot;
 import platform.entities.enemies.glitchedrobot.ShootRobot;
+import platform.entities.enemies.gorillabot.Gorillabot;
 import platform.entities.enemies.mushboom.Mushboom;
 import platform.entities.enemies.mushboom.MushboomSmall;
 import platform.entities.enemies.porter.Porter;
@@ -57,6 +59,15 @@ class EnemyFactory
 				e.reset(rect.r.x, rect.r.y);
 			case 'rat':
 				e = new Rat(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+			case 'bouncer':
+				e = new Bouncer(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+			case 'gorillabot':
+				e = new Gorillabot(map);
+				rect.r.y -= 32;
 				H.rectToTile(rect);
 				e.reset(rect.r.x, rect.r.y);
 			case 'mushboom':

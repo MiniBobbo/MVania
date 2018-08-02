@@ -57,8 +57,8 @@ class MenuState extends FlxState
 	}
 	
 	private function debug() {
-		H.previousLevel = 'Terraforming - Deepmaw';
-		H.currentLevel = 'Terraforming - Depths';
+		H.previousLevel = 'Life Support Computer Room';
+		H.currentLevel = 'Pod Bay';
 		H.playerDef.boost = true;
 		H.playerDef.attacks[2] = true;
 		H.playerDef.attacks[1] = true;
