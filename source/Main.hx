@@ -32,6 +32,11 @@ class Main extends Sprite
 		InputHelper.addButton('boost');
 		InputHelper.addButton('weaponUp');
 		InputHelper.addButton('weaponDown');
+		#if debug
+		InputHelper.addButton('debug');
+		InputHelper.assignKeyToButton('SPACE', 'debug');
+		
+		#end
 		InputHelper.assignKeyToButton('L', 'jump');
 		InputHelper.assignKeyToButton('K', 'attack');
 		InputHelper.assignKeyToButton('W', 'use');
@@ -60,14 +65,14 @@ class Main extends Sprite
 			
 		};
 		
-		var flagCount:Int = 9;
+		var flagCount:Int = 21;
 		for (i in 0...flagCount)
 			H.defaultPlayerDef.flags.push(false);
 		
 		super();
 		addChild(new FlxGame(480, 270, MenuState));
 		#if debug
-		addChild(new FPS(10, 255, 0xffffff));
+		addChild(new FPS(10, stage.height - 20, 0xffffff));
 		#end
 	}
 }

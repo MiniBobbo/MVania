@@ -1,0 +1,4 @@
+When you save the game, default back to the regular shot so we don't get a weird case where the player gets a gun, dies and loses it, but can still shoot it until they swap weapons.
+Do something with the power generator room.  It at least needs background graphics.  Maybe a friendly NPC?  Lore room?
+
+

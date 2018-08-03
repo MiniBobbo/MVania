@@ -169,7 +169,8 @@ class H
 		
 	}
 	
-	public static function setFlag(flagNum:Int, value:Bool) {
+	public static function setFlag(flagNum:Int, value:Bool = true) {
+		trace('Setting flag ' + flagNum + ' to ' + value);
 		H.playerDef.flags[flagNum] = value;
 	}
 	

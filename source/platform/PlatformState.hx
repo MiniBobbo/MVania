@@ -42,6 +42,7 @@ import platform.entities.zones.HelpMessageZone;
 import platform.entities.zones.SaveZone;
 import platform.entities.zones.SignalZone;
 import platform.entities.zones.TravelZone;
+import states.DebugState;
 import states.MinimapSubState;
 import tmxtools.TmxRect;
 import tmxtools.TmxTools;
@@ -246,6 +247,11 @@ class PlatformState extends FlxState
 			trace('opened substate');
 			openSubState(minimap);
 		}
+		
+		#if debug
+			if (InputHelper.isButtonJustPressed('debug'))
+				trace(H.playerDef + '');
+		#end
 		hud.setBoostCount(player.currentBoostCount);
 	}
 	

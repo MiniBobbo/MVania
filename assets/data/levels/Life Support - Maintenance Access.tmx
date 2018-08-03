@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="60" height="20" tilewidth="32" tileheight="32" nextobjectid="50">
+<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="60" height="20" tilewidth="32" tileheight="32" nextobjectid="51">
  <tileset firstgid="1" name="32blocks" tilewidth="32" tileheight="32" tilecount="10" columns="10">
   <image source="32blocks.png" width="320" height="32"/>
  </tileset>
- <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="247" columns="19">
-  <image source="shipTileset.png" width="608" height="416"/>
+ <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="475" columns="19">
+  <image source="shipTileset.png" width="608" height="800"/>
   <terraintypes>
    <terrain name="grid" tile="-1"/>
    <terrain name="goop" tile="0"/>
@@ -143,7 +143,7 @@
  <objectgroup name="Object Layer 1">
   <object id="24" name="travel" type="Life Support - Maintenance Tunnel_Life Support - Maintenance Access" x="999.833" y="14.833" width="78.3333" height="9"/>
   <object id="30" name="d" type="Life Support - Maintenance Tunnel" x="1032.5" y="43.5" width="9.5" height="12.5"/>
-  <object id="34" name="d" type="Life Support - Maintenance" x="1842" y="554" width="12" height="14"/>
+  <object id="34" name="d" type="Life Support - Maintenance" x="1862" y="582" width="12" height="14"/>
   <object id="35" name="travel" type="Life Support - Maintenance_Life Support - Maintenance Access" x="1895" y="549" width="17" height="19"/>
   <object id="36" name="enemy" type="door" x="1612" y="585" width="12" height="16">
    <properties>
@@ -167,5 +167,6 @@
   <object id="44" name="enemy" type="glitchedrobot" x="970" y="584" width="11" height="13"/>
   <object id="46" name="enemy" type="glitchedrobot" x="679.5" y="459.5" width="11" height="13"/>
   <object id="49" name="enemy" type="shootrobot" x="778" y="460" width="12" height="11"/>
+  <object id="50" name="message" type="Press UP to interact with objects" x="1736" y="516" width="109" height="88"/>
  </objectgroup>
 </map>

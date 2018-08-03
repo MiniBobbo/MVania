@@ -59,7 +59,6 @@ class ConstructionBot extends Enemy
 	override public function kill():Void 
 	{
 		super.kill();
-		H.setFlag(0, false);
 	}
 	
 	override public function overlapEntity(entity:Entity, ?data:Dynamic) 
