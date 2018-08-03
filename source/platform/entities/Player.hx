@@ -256,6 +256,8 @@ public var currentBoostCount(default, null) :Int = 0;
 	private function getAttackDelay(type:AttackTypes):Float {
 		switch (type) 
 		{
+			case AttackTypes.AIRBLADE:
+				return 1;
 			default:
 				return .15;
 				
@@ -265,12 +267,12 @@ public var currentBoostCount(default, null) :Int = 0;
 	
 	public function shoot(attackType:AttackTypes)
 	{
-		if (attackDelay > 0 || energy < shotEnergyCost)
-			return;
-		attackDelay = getAttackDelay(attackType);
-		changeEnergy(-shotEnergyCost);
 		var a = H.ps.getPlayerAttack();
 		AttackFactory.configAttack(a, attackType );
+		if (attackDelay > 0 || a.energyCost < shotEnergyCost)
+			return;
+		attackDelay = getAttackDelay(attackType);
+		changeEnergy(-a.energyCost);
 		var direction = FlxPoint.get( -500, 0);
 		var position = FlxPoint.get().copyFrom(getMidpoint());
 		position.y = y + height - attackOffset.y;
@@ -282,6 +284,19 @@ public var currentBoostCount(default, null) :Int = 0;
 		else
 			position.x -= attackOffset.x;		
 		a.newInitAttack(position, direction, 4, attackType);
+		
+		if (attackType == AttackTypes.AIRBLADE) {
+			//Create 4 other airblades and fire them all also.
+			for (i in 0...4) {
+				var d = FlxPoint.get().copyFrom(direction);
+				d.x *= FlxG.random.float(.7, 1);
+				a = H.ps.getPlayerAttack();
+				AttackFactory.configAttack(a, attackType );
+				d.rotate(FlxPoint.weak(), FlxG.random.float( -15, 15));
+				a.newInitAttack(position, d, 4, attackType);
+			}
+			
+		}
 
 	}
 
@@ -350,6 +365,9 @@ public var currentBoostCount(default, null) :Int = 0;
 				attackEnum = AttackTypes.FIRE;
 			case 2:
 				attackEnum = AttackTypes.ELECTRIC;
+				
+			case 3:
+				attackEnum = AttackTypes.AIRBLADE;
 				
 			default:
 				attackEnum = AttackTypes.SHOT;

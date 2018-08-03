@@ -8,6 +8,7 @@ import openfl.display.Sprite;
 import platform.H;
 import platform.PlatformState;
 import platform.entities.Player.PlayerForm;
+import states.IntroState;
 import states.MenuState;
 
 class Main extends Sprite
@@ -53,7 +54,7 @@ class Main extends Sprite
 			boost:false,
 			boostUpgrade:false,
 			checkpoint:'Life Support Computer Room',
-			attacks:[true, false, false],
+			attacks:[true, false, false, false],
 			attackSelected:0,
 			flags:[]
 			

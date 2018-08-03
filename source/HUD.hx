@@ -67,6 +67,13 @@ class HUD extends FlxSpriteGroup
 			s3.x = weaponStart + 68;
 			add(s3);
 			s3.visible = H.playerDef.attacks[2];
+			var s4 = createSprite();
+			s4.animation.frameName = 'icons_airblade_0';
+			s4.x = weaponStart + 102;
+			add(s4);
+			s4.visible = H.playerDef.attacks[3];
+			
+			
 			
 			
 			
@@ -92,7 +99,7 @@ class HUD extends FlxSpriteGroup
 	
 	
 	private function createBoost() {
-		var booststart = healthBar.barWidth + 120;
+		var booststart = healthBar.barWidth + 160;
 		boost = createSprite();
 		boost.animation.addByPrefix('boost', 'icons_boost_',6);
 		boost.animation.play('boost');

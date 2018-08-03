@@ -36,10 +36,16 @@ class Bouncer extends Enemy
 	
 	override public function update(elapsed:Float):Void 
 	{
+		//if (justTouched(FlxObject.ANY)) {
+			//newDirection();
+		//} 
+		if (justTouched(FlxObject.CEILING) || justTouched(FlxObject.FLOOR)) {
+			v.y *= -1;
+		} else if (justTouched(FlxObject.WALL))
+			v.x *= -1;
+		
 		velocity.copyFrom(v);
-		if (justTouched(FlxObject.ANY)) {
-			newDirection();
-		} 
+		
 		//else if (!inWorldBounds()) {
 			//newDirection();
 		//}

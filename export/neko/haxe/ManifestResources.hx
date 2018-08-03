@@ -48,6 +48,7 @@ import sys.FileSystem;
 		Assets.defaultRootPath = rootPath;
 		
 		#if (openfl && !flash && !display)
+		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_data_font_tektrreg_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -73,6 +74,7 @@ import sys.FileSystem;
 #if flash
 
 @:keep @:bind #if display private #end class __ASSET__assets_data_data_goes_here_txt extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_font_tektrreg_ttf extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_1_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_10_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_11_tmx extends null { }
@@ -89,6 +91,7 @@ import sys.FileSystem;
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_8_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_9_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_combinedtiles_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_control___computer_room_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___column_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___compactor_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___crew_quarters_tmx extends null { }
@@ -169,10 +172,12 @@ import sys.FileSystem;
 @:keep @:image("C:/HaxeToolkit/haxe/lib/flixel/4,4,1/assets/images/ui/button.png") #if display private #end class __ASSET__flixel_images_ui_button_png extends lime.graphics.Image {}
 @:keep @:image("C:/HaxeToolkit/haxe/lib/flixel/4,4,1/assets/images/logo/default.png") #if display private #end class __ASSET__flixel_images_logo_default_png extends lime.graphics.Image {}
 
+@:keep #if display private #end class __ASSET__assets_data_font_tektrreg_ttf extends lime.text.Font { public function new () { __fontPath = #if (ios || tvos) "assets/" + #end "assets/data/font/TektrReg.ttf"; name = "Tektrron-Regular"; super (); }}
 
 
 #else
 
+@:keep @:expose('__ASSET__assets_data_font_tektrreg_ttf') #if display private #end class __ASSET__assets_data_font_tektrreg_ttf extends lime.text.Font { public function new () { #if !html5 __fontPath = "assets/data/font/TektrReg.ttf"; #else ascender = null; descender = null; height = null; numGlyphs = null; underlinePosition = null; underlineThickness = null; unitsPerEM = null; #end name = "Tektrron-Regular"; super (); }}
 @:keep @:expose('__ASSET__flixel_fonts_nokiafc22_ttf') #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends lime.text.Font { public function new () { #if !html5 __fontPath = "flixel/fonts/nokiafc22.ttf"; #else ascender = null; descender = null; height = null; numGlyphs = null; underlinePosition = null; underlineThickness = null; unitsPerEM = null; #end name = "Nokia Cellphone FC Small"; super (); }}
 @:keep @:expose('__ASSET__flixel_fonts_monsterrat_ttf') #if display private #end class __ASSET__flixel_fonts_monsterrat_ttf extends lime.text.Font { public function new () { #if !html5 __fontPath = "flixel/fonts/monsterrat.ttf"; #else ascender = null; descender = null; height = null; numGlyphs = null; underlinePosition = null; underlineThickness = null; unitsPerEM = null; #end name = "Monsterrat"; super (); }}
 
@@ -181,6 +186,7 @@ import sys.FileSystem;
 
 #if (openfl && !flash)
 
+@:keep @:expose('__ASSET__OPENFL__assets_data_font_tektrreg_ttf') #if display private #end class __ASSET__OPENFL__assets_data_font_tektrreg_ttf extends openfl.text.Font { public function new () { #if !html5 __fontPath = #if (ios || tvos) "assets/" + #end "assets/data/font/TektrReg.ttf"; #end name = "Tektrron-Regular"; super (); }}
 @:keep @:expose('__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf') #if display private #end class __ASSET__OPENFL__flixel_fonts_nokiafc22_ttf extends openfl.text.Font { public function new () { __fromLimeFont (new __ASSET__flixel_fonts_nokiafc22_ttf ()); super (); }}
 @:keep @:expose('__ASSET__OPENFL__flixel_fonts_monsterrat_ttf') #if display private #end class __ASSET__OPENFL__flixel_fonts_monsterrat_ttf extends openfl.text.Font { public function new () { __fromLimeFont (new __ASSET__flixel_fonts_monsterrat_ttf ()); super (); }}
 

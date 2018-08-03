@@ -21,6 +21,8 @@ class UnivAttack extends Attack
 	public var fireAnim:String;
 	public var endAnim:String;
 	
+	public var energyCost:Float = 2;
+	
 	public var collideMap:Bool = true;
 	
 	public function new(lifespan:Float=3) 
@@ -94,6 +96,7 @@ class UnivAttack extends Attack
 			onInit(this);
 		else {
 			animation.play(fireAnim);
+			centerOffsets();
 		}
 
 	}	
@@ -106,6 +109,9 @@ class UnivAttack extends Attack
 	}
 	public function setHitMapFunction(f:UnivAttack->Void) {
 		onHitMap = f;
+	}
+	public function setHitFunction(f:UnivAttack->Void) {
+		onHit = f;
 	}
 
 	public function setCompleteFunction(f:UnivAttack->Void) {
@@ -132,7 +138,6 @@ class UnivAttack extends Attack
 	
 	override public function hitEntity(e:Entity) 
 	{
-		
 		onHit(this);
 	}
 }

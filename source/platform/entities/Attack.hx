@@ -15,7 +15,7 @@ enum AttackTypes {
 	SHOCKWAVE;
 	ACID;
 	SPORE;
-	
+	AIRBLADE;
 }
 
 /**
@@ -57,6 +57,7 @@ class Attack extends FlxSprite
 		animation.addByPrefix('fireshotend', 'Attacks_fireend_', 18, false);
 		animation.addByPrefix('explode', 'effects_explode_', 12, false);
 		animation.addByPrefix('acid', 'Attacks_acid_', 12, false);
+		animation.addByPrefix('airblade', 'airblade_attack_', 30, false);
 		animation.addByPrefix('acidend', 'Attacks_acidend_', 12, false);
 		animation.addByPrefix('shockwave', 'Attacks_shockwave_', 18);
 		animation.addByPrefix('shockwaveend', 'Attacks_shockwaveend_', 18, false);

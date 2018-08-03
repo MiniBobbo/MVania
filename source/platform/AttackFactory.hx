@@ -1,6 +1,7 @@
 package platform;
 import flixel.FlxG;
 import flixel.math.FlxPoint;
+import flixel.util.FlxTimer;
 import haxe.Constraints.Function;
 import lime.text.unifill.Exception.InvalidCodeUnitSequence;
 import platform.entities.Attack;
@@ -35,9 +36,11 @@ class AttackFactory
 				a.animation.addByPrefix('spore', 'Attacks_spore_' + c, 1, false);
 				a.setCompleteFunction(stopMoving);
 				a.setUpdateFunction(floatDown);
+				a.setHitFunction(defaultHit);
 			
 			case AttackTypes.SHOCKWAVE:
 				a.acceleration.set();
+				a.energyCost = 2;
 				a.setSize(15, 26);
 				a.centerOffsets();
 				a.offset.y  = 7;
@@ -45,6 +48,7 @@ class AttackFactory
 				a.fireAnim = 'shockwave';
 				a.endAnim = 'shockwaveend';
 				a.setCompleteFunction(stopMoving);
+				a.setHitFunction(defaultHit);
 
 			
 			case AttackTypes.LARGESHOT:
@@ -57,12 +61,27 @@ class AttackFactory
 				a.fireAnim = 'largeshot';
 				a.endAnim = 'largeshot';
 				a.setUpdateFunction(AngleTowardsVelocity);
-				//a.setCompleteFunction(stopMoving);
 				a.setHitMapFunction(function(a) {return; });
 				a.collideMap = false;
-				
+			case AttackTypes.AIRBLADE:
+				a.acceleration.set();
+				a.setSize(32, 32);
+				a.energyCost = 10;
+				a.centerOffsets();
+				a.strength = 10;
+				a.fireAnim = 'airblade';
+				a.endAnim = 'airblade';
+				a.setUpdateFunction(AngleTowardsVelocity);
+				a.setHitMapFunction(function(a) {return; });
+				a.collideMap = false;
+				a.setInitFunction(function(a) {
+					a.animation.play(a.fireAnim);
+					new FlxTimer().start(3, function(_) {a.kill(); });
+				});
+				a.setHitFunction(function(a) {});
 			case AttackTypes.SHOT:
 				a.acceleration.set();
+				a.energyCost = 2;
 				a.setSize(10, 10);
 				a.centerOffsets();
 				a.fireAnim = 'shot';
@@ -70,8 +89,10 @@ class AttackFactory
 				a.setUpdateFunction(AngleTowardsVelocity);
 				a.setCompleteFunction(stopMoving);
 				a.collideMap = true;
+				a.setHitFunction(defaultHit);
 			case AttackTypes.FIRE:
 				a.acceleration.set(0, H.GRAVITY);
+				a.energyCost = 3;
 				a.setSize(10, 10);
 				a.centerOffsets();
 				a.velocity.y += -FIRE_UPWARDS_VELOCITY;
@@ -86,6 +107,7 @@ class AttackFactory
 				} );
 				a.setCompleteFunction(stopMoving);
 				a.collideMap = true;
+				a.setHitFunction(defaultHit);
 			case AttackTypes.ACID:
 				a.setSize(20, 20);
 				a.centerOffsets();
@@ -102,6 +124,7 @@ class AttackFactory
 				a.setCompleteFunction(stopMoving);
 				a.collideMap = true;
 				
+				a.setHitFunction(defaultHit);
 				
 			case AttackTypes.ELECTRIC:
 				a.acceleration.set();
@@ -109,7 +132,7 @@ class AttackFactory
 				a.endAnim = 'elecshotend';
 				a.setSize(10, 10);
 				a.centerOffsets();
-
+				a.energyCost = 2;
 				//a.setUpdateFunction(AngleTowardsVelocity);
 				a.setInitFunction(function(a:UnivAttack) {
 					a.animation.play(a.fireAnim);
@@ -118,6 +141,7 @@ class AttackFactory
 				});
 				a.setCompleteFunction(stopMoving);
 				a.collideMap = true;
+				a.setHitFunction(defaultHit);
 			default:
 				
 		}
@@ -143,7 +167,18 @@ class AttackFactory
 		a.acceleration.set();
 	}
 	
-	
+	public static function defaultHit(a:UnivAttack) {
+			if (!a.alive)
+				return;
+			a.alive = false;
+			if (a.onComplete == null) {
+				a.animation.play(a.endAnim);
+				new FlxTimer().start(1, function(_) {a.exists = false; });
+
+			} else {
+				a.onComplete(a);
+			}
+	}
 	
 	
 	public static function printTest(a:UnivAttack):Void {
