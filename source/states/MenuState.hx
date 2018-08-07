@@ -55,8 +55,8 @@ class MenuState extends FlxState
 		add(bg1);
 		add(bg2);
 		
-		meteor = new FlxSprite( FlxG.width, 0);
-		meteor.makeGraphic(300, 300, FlxColor.RED);
+		meteor = new FlxSprite( FlxG.width, 0, 'assets/images/meteor.png');
+		//meteor.makeGraphic(300, 300, FlxColor.RED);
 		meteor.centerOffsets();
 		meteor.centerOrigin();
 		
@@ -153,13 +153,14 @@ class MenuState extends FlxState
 	
 	private function debug() {
 		H.playerDef.flags[20] = true;
-		H.previousLevel = 'Engineering - Machine Shop';
-		H.currentLevel = 'Engineering - Long Term Storage';
+		H.previousLevel = 'Terraforming - The Maw';
+		H.currentLevel = 'Control - Computer Room';
 		H.playerDef.boost = true;
 		H.playerDef.boostUpgrade = true;
 		H.playerDef.attacks[3] = true;
 		H.playerDef.attacks[2] = true;
 		H.playerDef.attacks[1] = true;
 		refreshPlayerDefDisplay();
+		FlxG.switchState(new PlatformState());
 	}
 }

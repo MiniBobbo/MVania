@@ -121,7 +121,8 @@ class H
 	public static function saveGame() {
 		var save = initSave();	
 		playerDef.playerHealth = playerDef.playerMaxHealth;
-		playerDef.playerEnergy= playerDef.playerMaxEnergy;
+		playerDef.playerEnergy = playerDef.playerMaxEnergy;
+		playerDef.attackSelected = 0;
 		
 		
 		save.data.d = Json.stringify(H.playerDef);
@@ -145,9 +146,14 @@ class H
 	
 	public static function clearSave() {
 		var save = initSave();
+		try{
 		save.data.d = Json.stringify(H.defaultPlayerDef);
 		save.close();
 		loadGame();
+		} catch (err:Dynamic)
+		{
+			trace(err);
+		}
 	}
 	
 	static private function initSave():FlxSave 
@@ -180,5 +186,14 @@ class H
 		var s = ps.getEffectsprite();
 		s.init(loc, effect);
 		
+	}
+	
+	/**
+	 * Marks this room as explored so it shows on the minimap
+	 * @param	room
+	 */
+	public static function exploreRoom(room:String) {
+		if (playerDef.explored.indexOf(room) == -1)
+			playerDef.explored.push(room);
 	}
 }

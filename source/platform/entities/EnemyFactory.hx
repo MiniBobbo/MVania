@@ -26,6 +26,7 @@ import platform.entities.enemies.mushboom.MushboomSmall;
 import platform.entities.enemies.porter.Porter;
 import platform.entities.gameentites.Enemy;
 import platform.entities.things.Door;
+import platform.entities.things.HorizDoor;
 import platform.entities.things.Panel;
 import platform.entities.things.Terminal;
 import tmxtools.TmxRect;
@@ -201,6 +202,13 @@ class EnemyFactory
 				e = new Door(map, code);
 				H.rectToTile(rect);
 				e.reset(rect.r.x+2, rect.r.y-64);
+			case 'horizdoor':
+				var code = 0;
+				if (rect.properties.exists('code'))
+					code = Std.parseInt(rect.properties.get('code'));
+				e = new HorizDoor(map, code);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
 			case 'panel':
 				var code = 0;
 				if (rect.properties.exists('code'))

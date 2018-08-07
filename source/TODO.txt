@@ -1,4 +1,33 @@
-When you save the game, default back to the regular shot so we don't get a weird case where the player gets a gun, dies and loses it, but can still shoot it until they swap weapons.
-Do something with the power generator room.  It at least needs background graphics.  Maybe a friendly NPC?  Lore room?
+****  When you save the game, default back to the regular shot so we don't get a weird case where the player gets a gun, dies and loses it, but can still shoot it until they swap weapons.
+***Fly Generator much too strong
+***On fire weapon pick up the weapon is selected but doesn't fire.
 
 
+Power up messages
+
+Do something with the Life Support - Generator.  It at least needs background graphics.  Maybe a friendly NPC?  Lore room?
+
+Finish minimap
+
+Life Support Maintenance background 	
+
+
+Problem with Life Support - Generator.  
+
+Life Support Maintenance Tunnel needs bg work
+Life Support Maintenance needs bg work
+Engineering - Machine shop needs bg work
+
+Enginering - Long Term Storage needs to be finished.
+Enginering - Short Term Storage needs to be finished.
+Enginering - Engine Room needs to be finished.
+Enginering - Junction needs bg.
+Enginering - Hallway needs bg.
+Enginering - Officer Quarters needs bg.
+Control - Computer Room needs bg.
+
+Fix new maximums when you pick up a HP or Energy up.
+Shoot robot is a little off the floor
+First time in the outside areas needs cutscene.
+Disappearing/fading blocks in the outside areas.
+Terraforming - Shadowed Glade needs to be finished.

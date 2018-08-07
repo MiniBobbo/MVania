@@ -54,6 +54,15 @@ class BGFactory
 				var bgs = new FlxBackdrop('assets/images/guts.png', .3, .3);
 				bgs.scale.set(.3,.3);
 				state.add(bgs);
+			case 'forest':
+				var bgs = new FlxBackdrop('assets/images/forestbg_Layer 0.png', .5, 0);
+				var bgs2 = new FlxBackdrop('assets/images/forestbg_Layer 1.png', .3, 0);
+				var bgs3 = new FlxBackdrop('assets/images/forestbg_Layer 2.png', .6, 0);
+				var bgs4 = new FlxBackdrop('assets/images/forestbg_Layer 3.png', .7, 0);
+				state.add(bgs2);
+				state.add(bgs);
+				state.add(bgs3);
+				state.add(bgs4);
 				
 			case 'starfield':
 				var bgs = new FlxBackdrop('assets/images/starfield_0.png', .3, 0 );
@@ -64,6 +73,7 @@ class BGFactory
 				state.add(bgs2);
 			default:
 				
+				
 		}
 	}
 	
@@ -71,7 +81,7 @@ class BGFactory
 		map.set('Engineering - Save Room', 'starfield');
 		map.set('Engineering - Systems Access', 'starfield');
 		map.set('Engineering - Terraforming Access', 'outdoors');
-		map.set('Terraforming - Shadowed Glade', 'outdoors');
+		map.set('Terraforming - Shadowed Glade', 'forest');
 		map.set('Terraforming - Great Tree', 'outdoors');
 		map.set('Terraforming - High Falls', 'outdoors');
 		map.set('Terraforming - Outdoors', 'outdoors');
@@ -82,5 +92,7 @@ class BGFactory
 		map.set('Terraforming - Depths', 'caverns');
 		map.set('Life Support - Space Dock', 'starfield');
 		map.set('Life Support - Storage', 'starfield');
+		map.set('Life Support - Command Access', 'starfield');
+		map.set('Command - Space Bridge', 'starfield');
 	}
 }

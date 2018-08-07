@@ -10,6 +10,7 @@ import platform.PlatformState;
 import platform.entities.Player.PlayerForm;
 import states.IntroState;
 import states.MenuState;
+import states.MinimapSubState;
 
 class Main extends Sprite
 {
@@ -61,13 +62,16 @@ class Main extends Sprite
 			checkpoint:'Life Support Computer Room',
 			attacks:[true, false, false, false],
 			attackSelected:0,
-			flags:[]
+			flags:[],
+			explored:[]
 			
 		};
 		
 		var flagCount:Int = 21;
 		for (i in 0...flagCount)
 			H.defaultPlayerDef.flags.push(false);
+		
+			
 		
 		super();
 		addChild(new FlxGame(480, 270, MenuState));

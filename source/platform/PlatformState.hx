@@ -43,6 +43,7 @@ import platform.entities.zones.SaveZone;
 import platform.entities.zones.SignalZone;
 import platform.entities.zones.TravelZone;
 import states.DebugState;
+import states.MenuState;
 import states.MinimapSubState;
 import tmxtools.TmxRect;
 import tmxtools.TmxTools;
@@ -99,7 +100,7 @@ class PlatformState extends FlxState
 		helpMessage.setFormat(null, 8, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
 		helpMessage.scrollFactor.set();
 		maps = getMap();
-		
+		H.exploreRoom(H.currentLevel);
 		usable = [];
 		bosses = [];
 		entities = new FlxTypedGroup<Entity>();
@@ -111,8 +112,6 @@ class PlatformState extends FlxState
 		enemyAttacks = new FlxTypedGroup<UnivAttack>();
 		hud = new HUD();
 		farbg = new FlxSpriteGroup();
-		var bgg =  new FlxBackdrop('assets/images/outsidebg.png');
-		farbg.add(bgg);
 		hud.scrollFactor.set();
 		
 		emitter = new FlxEmitter();
@@ -250,7 +249,7 @@ class PlatformState extends FlxState
 		
 		#if debug
 			if (InputHelper.isButtonJustPressed('debug'))
-				trace(H.playerDef + '');
+				FlxG.switchState(new MenuState());
 		#end
 		hud.setBoostCount(player.currentBoostCount);
 	}

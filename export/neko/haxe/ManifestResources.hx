@@ -91,6 +91,10 @@ import sys.FileSystem;
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_8_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_9_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_combinedtiles_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___backup_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___junction_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___lower_deck_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___space_bridge_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_control___computer_room_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___column_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___compactor_tmx extends null { }
@@ -110,6 +114,7 @@ import sys.FileSystem;
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___aft_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___airlock_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___boost_room_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___command_access_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___generator_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___maintenance_access_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_life_support___maintenance_tunnel_tmx extends null { }
@@ -144,10 +149,18 @@ import sys.FileSystem;
 @:keep @:bind #if display private #end class __ASSET__assets_images_cavernbg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_console_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_controlbg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_forestbg1_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_forestbg_layer_0_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_forestbg_layer_1_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_forestbg_layer_2_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_forestbg_layer_3_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_guts_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_logo_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_main_json extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_main_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_mapareas_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_maprooms_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_meteor_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_outsidebg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_pods_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_sanitybar_0_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }

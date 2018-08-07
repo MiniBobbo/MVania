@@ -32,7 +32,7 @@ class FlyBotGenerator extends Enemy
 		setSize(64, 64);
 		centerOffsets();
 		flies = new FlxTypedGroup<FlyBot>();
-		hp = 20;
+		hp = 8;
 		immovable = true;
 	}
 	

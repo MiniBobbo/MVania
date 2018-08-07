@@ -19,6 +19,7 @@ typedef PlayerDef =
 	var attacks:Array<Bool>;
 	var attackSelected:Int;
 	var flags:Array<Bool>;
+	var explored:Array<String>;
 	
 	
 }

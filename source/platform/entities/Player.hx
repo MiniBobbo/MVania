@@ -219,14 +219,10 @@ public var currentBoostCount(default, null) :Int = 0;
 				takeDamage(a.strength);
 			case 'addFire':
 				H.playerDef.attacks[1] = true;
-				attackType = 1;
 				H.ps.hud.createWeaponBoxes();
-				H.ps.hud.selectWeapon(attackType);
 			case 'addLightning':
 				H.playerDef.attacks[2] = true;
-				attackType = 2;
 				H.ps.hud.createWeaponBoxes();
-				H.ps.hud.selectWeapon(attackType);
 			case 'stun':
 				if (data == null || !Std.is(data, FlxPoint))
 					return;

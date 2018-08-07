@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="40" height="20" tilewidth="32" tileheight="32" nextobjectid="82">
+<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="40" height="20" tilewidth="32" tileheight="32" nextobjectid="83">
  <tileset firstgid="1" name="32blocks" tilewidth="32" tileheight="32" tilecount="10" columns="10">
   <image source="32blocks.png" width="320" height="32"/>
  </tileset>
- <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="475" columns="19">
-  <image source="shipTileset.png" width="608" height="800"/>
+ <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="513" columns="19">
+  <image source="shipTileset.png" width="608" height="864"/>
   <terraintypes>
    <terrain name="goop" tile="0"/>
    <terrain name="purplegoop" tile="0"/>
@@ -61,7 +61,7 @@
 382,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 382,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 382,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,0
+382,382,382,382,0,0,0,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,382,0
 </data>
  </layer>
  <layer name="mg" width="40" height="20">
@@ -83,9 +83,9 @@
 383,410,410,411,0,0,0,0,0,0,0,0,0,0,0,0,410,410,411,0,0,0,0,0,0,0,0,0,0,0,0,381,0,0,0,0,0,0,0,353,
 383,431,431,432,0,0,0,0,0,0,0,0,0,0,0,0,431,431,432,0,0,0,0,0,0,0,0,0,0,0,0,400,401,401,401,401,401,401,401,391,
 383,412,412,413,0,0,0,0,0,0,0,0,0,0,0,0,412,412,413,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-383,431,431,432,0,0,410,410,410,411,0,410,410,410,411,0,431,431,432,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-383,429,429,430,0,0,429,429,429,430,0,429,429,429,430,0,429,429,430,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-403,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,353
+383,431,431,432,0,0,0,0,410,411,0,410,410,410,411,0,431,431,432,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+383,429,429,430,0,0,0,0,429,430,0,429,429,429,430,0,429,429,430,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+403,363,363,364,0,0,0,362,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,363,353
 </data>
  </layer>
  <layer name="fg" width="40" height="20">
@@ -141,9 +141,6 @@
   <object id="55" name="d" type="Terraforming - The Maw" x="610" y="48" width="14" height="24"/>
   <object id="69" name="travel" type="Terraforming - The Maw" x="1268.67" y="514" width="6" height="93.3333"/>
   <object id="70" name="d" type="Terraforming - The Maw" x="1225.33" y="584.667" width="10.6667" height="14.6667"/>
-  <object id="71" name="terminal" type="terminal" x="1064" y="583" width="13" height="14"/>
-  <object id="72" name="enemy" type="door" x="1002" y="586" width="13" height="13"/>
-  <object id="73" name="terminal" type="terminal" x="713" y="582" width="14" height="16"/>
   <object id="74" name="enemy" type="bouncer" x="296" y="422" width="17" height="14"/>
   <object id="75" name="enemy" type="bouncer" x="683.5" y="462" width="17" height="14"/>
   <object id="76" name="enemy" type="bouncer" x="546.5" y="381" width="17" height="14"/>
@@ -152,5 +149,6 @@
   <object id="79" name="enemy" type="bouncer" x="880.5" y="432" width="17" height="14"/>
   <object id="80" name="enemy" type="bouncer" x="624.5" y="430" width="17" height="14"/>
   <object id="81" name="enemy" type="bouncer" x="401.5" y="382" width="17" height="14"/>
+  <object id="82" name="enemy" type="horizdoor" x="136" y="616" width="16" height="12"/>
  </objectgroup>
 </map>
