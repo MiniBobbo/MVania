@@ -3,6 +3,7 @@ package states;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
+import flixel.math.FlxPoint;
 import flixel.text.FlxText;
 import flixel.tile.FlxTilemap;
 import flixel.tweens.FlxTween;
@@ -10,6 +11,7 @@ import flixel.util.FlxColor;
 import haxe.ds.StringMap;
 import inputhelper.InputHelper;
 import platform.H;
+import platform.PlatformState;
 import tmxtools.TmxTools;
 
 typedef MapArea = 
@@ -288,6 +290,150 @@ class MinimapSubState extends FlxSubState
 			w:2,
 			h:1
 		});
+		a.set('Terraforming - Shadowed Glade', {
+			x:14,
+			y:0,
+			w:4,
+			h:3
+		});
+		a.set('Terraforming - Great Tree', {
+			x:13,
+			y:0,
+			w:1,
+			h:5
+		});
+		a.set('Terraforming - Outdoors', {
+			x:14,
+			y:3,
+			w:4,
+			h:2
+		});
+		a.set('Terraforming - High Falls', {
+			x:10,
+			y:0,
+			w:3,
+			h:4
+		});
+		a.set('Terraforming - Caverns', {
+			x:10,
+			y:4,
+			w:3,
+			h:1
+		});
+		a.set('Terraforming - The Maw Entrance', {
+			x:8,
+			y:0,
+			w:2,
+			h:2
+		});
+		a.set('Terraforming - The Maw', {
+			x:8,
+			y:2,
+			w:2,
+			h:3
+		});
+		a.set('Terraforming - Deepmaw', {
+			x:8,
+			y:5,
+			w:3,
+			h:2
+		});
+		a.set('Terraforming - Depths', {
+			x:8,
+			y:7,
+			w:3,
+			h:1
+		});
+		a.set('Command - Computer Room', {
+			x:6,
+			y:2,
+			w:2,
+			h:2
+		});
+		a.set('Command - Network Access', {
+			x:2,
+			y:1,
+			w:5,
+			h:1
+		});
+		a.set('Command - Sub Command', {
+			x:2,
+			y:2,
+			w:2,
+			h:2
+		});
+		a.set('Command - Bridge', {
+			x:1,
+			y:2,
+			w:1,
+			h:2
+		});
+		a.set('Command - Central Computer', {
+			x:4,
+			y:2,
+			w:2,
+			h:2
+		});
+		a.set('Life Support - Command Access', {
+			x:11,
+			y:8,
+			w:1,
+			h:1
+		});
+		a.set('Command - Space Bridge', {
+			x:7,
+			y:8,
+			w:4,
+			h:1
+		});
+		a.set('Command - Backup', {
+			x:7,
+			y:7,
+			w:1,
+			h:1
+		});
+		a.set('Command - Junction', {
+			x:7,
+			y:6,
+			w:1,
+			h:1
+		});
+		a.set('Command - Lower Deck', {
+			x:4,
+			y:6,
+			w:3,
+			h:1
+		});
+		a.set('Command - Destroyed Area', {
+			x:1,
+			y:5,
+			w:3,
+			h:2
+		});
+		a.set('Command - Corridor', {
+			x:1,
+			y:4,
+			w:3,
+			h:1
+		});
+		a.set('Command - Trash Compactor', {
+			x:4,
+			y:4,
+			w:1,
+			h:2
+		});
+		a.set('Command - Equipment Storage', {
+			x:5,
+			y:4,
+			w:2,
+			h:2
+		});
+		a.set('Command - Backup Equipment', {
+			x:7,
+			y:4,
+			w:1,
+			h:2
+		});
 		
 		
 		
@@ -304,6 +450,21 @@ class MinimapSubState extends FlxSubState
 		if (i.isButtonJustPressed('map')) {
 			_parentState.closeSubState();
 		}
+		
+		#if debug
+		if (FlxG.mouse.justPressed) {
+			var p = FlxG.mouse.getScreenPosition();
+			for (r in rooms.keys()) {
+				if (rooms.get(r).overlapsPoint(p)) {
+					trace('Switching to ' + r);
+					H.currentLevel = r;
+					H.previousLevel = 'teleport';
+					FlxG.switchState(new PlatformState());
+				}
+			}
+			p.put();
+		}
+		#end
 	}
 	
 	function createRoom(m:MapArea):FlxSprite {

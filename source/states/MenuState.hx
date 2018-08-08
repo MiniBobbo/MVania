@@ -152,9 +152,10 @@ class MenuState extends FlxState
 	}
 	
 	private function debug() {
+		H.playerDef.flags[10] = true;
 		H.playerDef.flags[20] = true;
-		H.previousLevel = 'Terraforming - The Maw';
-		H.currentLevel = 'Control - Computer Room';
+		H.previousLevel = 'Command - Corridor';
+		H.currentLevel = 'Command - Trash Compactor';
 		H.playerDef.boost = true;
 		H.playerDef.boostUpgrade = true;
 		H.playerDef.attacks[3] = true;

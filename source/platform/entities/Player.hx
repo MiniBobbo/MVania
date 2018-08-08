@@ -78,8 +78,11 @@ public var currentBoostCount(default, null) :Int = 0;
 		maxEnergy = pd.playerMaxEnergy;
 		attackType = pd.attackSelected;
 		currentAttackType = weaponIntToEnum(attackType);
-		if (pd.boost)
-			currentBoostCount = 1;
+		if (pd.boostUpgrade)
+			setBoostCount(2);
+		else if (pd.boost)
+			setBoostCount(1);
+			
 	}
 
 	public function changeForm(newForm:String)
@@ -211,7 +214,6 @@ public var currentBoostCount(default, null) :Int = 0;
 
 	override public function signal(signal:String, ?data:Dynamic)
 	{
-		trace('Received generic signal ' + signal);
 		switch (signal)
 		{
 			case 'hit':

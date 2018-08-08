@@ -201,7 +201,14 @@ class EnemyFactory
 					code = Std.parseInt(rect.properties.get('code'));
 				e = new Door(map, code);
 				H.rectToTile(rect);
-				e.reset(rect.r.x+2, rect.r.y-64);
+				e.reset(rect.r.x + 2, rect.r.y - 64);
+				//If we have the flag, open the door
+				if (rect.properties.exists('flag') && H.checkFlag(rect.properties.get('flag'))) {
+					e.signal('activate', code);
+				}
+					
+				
+				
 			case 'horizdoor':
 				var code = 0;
 				if (rect.properties.exists('code'))

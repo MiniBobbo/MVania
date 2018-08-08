@@ -137,8 +137,8 @@
 </data>
  </layer>
  <objectgroup name="Object Layer 1">
-  <object id="54" name="travel" type="Terraforming - The Maw" x="505.636" y="8.12121" width="184.667" height="14"/>
-  <object id="55" name="d" type="Terraforming - The Maw" x="610" y="48" width="14" height="24"/>
+  <object id="54" name="travel" type="Command - Network Access" x="551.636" y="8.12121" width="138.667" height="6"/>
+  <object id="55" name="d" type="Command - Network Access" x="610" y="48" width="14" height="24"/>
   <object id="69" name="travel" type="Terraforming - The Maw" x="1268.67" y="514" width="6" height="93.3333"/>
   <object id="70" name="d" type="Terraforming - The Maw" x="1225.33" y="584.667" width="10.6667" height="14.6667"/>
   <object id="74" name="enemy" type="bouncer" x="296" y="422" width="17" height="14"/>

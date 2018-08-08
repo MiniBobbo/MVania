@@ -1,23 +1,29 @@
 ****  When you save the game, default back to the regular shot so we don't get a weird case where the player gets a gun, dies and loses it, but can still shoot it until they swap weapons.
 ***Fly Generator much too strong
 ***On fire weapon pick up the weapon is selected but doesn't fire.
+***Shoot robot is a little off the floor
 
-
-Power up messages
-
-Do something with the Life Support - Generator.  It at least needs background graphics.  Maybe a friendly NPC?  Lore room?
-
+-----MVP
+Finish Control
+Finish final boss
+Add Stomper to game
+Add Boost Upgrade
+Add AirBlade
 Finish minimap
+Control - Computer Room shows on the minimap as the 
+Life Support - Airlock screwed up
 
+-----Follow up 1
+Cutscene Substate
+Power up messages
+Terraforming - Shadowed Glade needs to be finished.
+Create an interactive terminal that displays lore.
+Do something with the Life Support - Generator.  It at least needs background graphics.  Maybe a friendly NPC?  Lore room?
 Life Support Maintenance background 	
-
-
-Problem with Life Support - Generator.  
-
+Problem with Life Support - Generator minimap.  
 Life Support Maintenance Tunnel needs bg work
 Life Support Maintenance needs bg work
 Engineering - Machine shop needs bg work
-
 Enginering - Long Term Storage needs to be finished.
 Enginering - Short Term Storage needs to be finished.
 Enginering - Engine Room needs to be finished.
@@ -25,9 +31,9 @@ Enginering - Junction needs bg.
 Enginering - Hallway needs bg.
 Enginering - Officer Quarters needs bg.
 Control - Computer Room needs bg.
-
 Fix new maximums when you pick up a HP or Energy up.
-Shoot robot is a little off the floor
 First time in the outside areas needs cutscene.
 Disappearing/fading blocks in the outside areas.
-Terraforming - Shadowed Glade needs to be finished.
+
+BUGS
+Universal attacks sometimes travel through walls after getting the air blade.

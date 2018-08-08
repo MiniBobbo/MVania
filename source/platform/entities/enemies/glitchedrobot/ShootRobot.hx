@@ -29,7 +29,7 @@ class ShootRobot extends Enemy
 		animation.play('stand');
 		setSize(25, 28);
 		centerOffsets();
-		offset.y += 20;
+		offset.y += 18;
 		acceleration.y = H.GRAVITY;
 		offset.x += 4;
 		delay = SHOOT_DELAY;

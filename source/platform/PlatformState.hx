@@ -466,6 +466,9 @@ class PlatformState extends FlxState
 						break;
 					}
 				}
+			} else if (H.previousLevel == 'teleport') {
+				playerPlaced = true;
+				createPlayer(destinationRects[0]);
 			} else {
 				for(r in destinationRects) {
 					if (r.properties.get('type') == H.previousLevel) {

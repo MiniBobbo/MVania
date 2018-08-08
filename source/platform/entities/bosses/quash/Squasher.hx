@@ -4,6 +4,7 @@ import flixel.tile.FlxTile;
 import flixel.tile.FlxTilemap;
 import flixel.util.FlxSpriteUtil;
 import platform.entities.gameentites.Enemy;
+import platform.entities.movestates.DeadState;
 
 /**
  * ...
@@ -11,7 +12,7 @@ import platform.entities.gameentites.Enemy;
  */
 class Squasher extends Boss 
 {
-	private var body:Body;
+	public var body:Body;
 	public var t1(default,null):SquashTurret;
 	public var t2(default,null):SquashTurret;
 	public var rightArm:SquashArm;
@@ -98,6 +99,11 @@ class Squasher extends Boss
 	{
 		super.takeDamage(damage);
 		FlxSpriteUtil.flicker(body, .3);
+		if (TotalHP <= 0) {
+			fsm.changeState('dead');
+			H.signalAll('activate', 1);
+		
+		}
 		
 	}
 	

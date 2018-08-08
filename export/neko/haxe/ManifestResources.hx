@@ -92,10 +92,17 @@ import sys.FileSystem;
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_9_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_combinedtiles_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___backup_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___bridge_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___central_computer_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___computer_room_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___corridor_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___destroyed_area_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___junction_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___lower_deck_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___network_access_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___space_bridge_tmx extends null { }
-@:keep @:bind #if display private #end class __ASSET__assets_data_levels_control___computer_room_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___sub_command_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___trash_compactor_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___column_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___compactor_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_engineering___crew_quarters_tmx extends null { }
@@ -148,6 +155,7 @@ import sys.FileSystem;
 @:keep @:bind #if display private #end class __ASSET__assets_data_templemgsheet_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_cavernbg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_console_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_consolesmall_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_controlbg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_forestbg1_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_forestbg_layer_0_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
