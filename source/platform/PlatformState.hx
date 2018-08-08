@@ -36,12 +36,14 @@ import platform.entities.interact.TerminalZone;
 import platform.entities.things.AntiGravGenerator;
 import platform.entities.things.SavePoint;
 import platform.entities.zones.AntigravZone;
+import platform.entities.zones.CutsceneZone;
 import platform.entities.zones.DamageZone;
 import platform.entities.zones.DeathZone;
 import platform.entities.zones.HelpMessageZone;
 import platform.entities.zones.SaveZone;
 import platform.entities.zones.SignalZone;
 import platform.entities.zones.TravelZone;
+import states.CutsceneSubstate;
 import states.DebugState;
 import states.MenuState;
 import states.MinimapSubState;
@@ -190,9 +192,11 @@ class PlatformState extends FlxState
 		player.setBottom(r.r.bottom);
 		player.x = r.r.x;
 		
-		if (H.playerDef.boost) {
-		player.setBoostCount(1);
-			
+		if (H.playerDef.boostUpgrade) {
+			player.setBoostCount(2);
+		}
+		else if (H.playerDef.boost) {
+			player.setBoostCount(1);
 		}
 			
 		} catch (err:Dynamic)
@@ -248,8 +252,15 @@ class PlatformState extends FlxState
 		}
 		
 		#if debug
-			if (InputHelper.isButtonJustPressed('debug'))
-				FlxG.switchState(new MenuState());
+			if (InputHelper.isButtonJustPressed('debug')) {
+				//for (f in 0...H.playerDef.flags.length) {
+					//trace('Flag ' + f + ': ' + H.checkFlag(f+''));
+				//}
+				//FlxG.switchState(new MenuState());
+				openSubState(new CutsceneSubstate('1') );
+			}
+				
+				
 		#end
 		hud.setBoostCount(player.currentBoostCount);
 	}
@@ -373,6 +384,8 @@ class PlatformState extends FlxState
 					var terminalZone = new TerminalZone(r.r.x, r.r.y, 32, 32);
 					if (r.properties.exists('code'))
 						terminalZone.setCode(Std.parseInt(r.properties.get('code')));
+					if (r.properties.exists('setflag'))
+						terminalZone.setFlag(r.properties.get('setflag'));
 					if (r.properties.exists('signal'))
 					terminalZone.setSignal(r.properties.get('signal'));
 					usable.push(terminalZone);
@@ -429,6 +442,12 @@ class PlatformState extends FlxState
 				case 'death':
 					var d = new DeathZone(r.r.x, r.r.y, r.r.width, r.r.height);
 					zones.add(d);
+				case 'cutscene':
+					var tempFlag:String = '0';
+					if (r.properties.exists('type'))
+						tempFlag = r.properties.get('type');
+					var cz = new CutsceneZone(r.r.x, r.r.y, r.r.width, r.r.height, tempFlag);
+					zones.add(cz);
 				case 'start':
 					createPlayer(r);
 				case 'flybotgen':

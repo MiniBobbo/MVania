@@ -91,12 +91,14 @@ import sys.FileSystem;
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_8_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_9_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_combinedtiles_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___backup_equipment_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___backup_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___bridge_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___central_computer_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___computer_room_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___corridor_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___destroyed_area_tmx extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___equipment_storage_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___junction_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___lower_deck_tmx extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levels_command___network_access_tmx extends null { }

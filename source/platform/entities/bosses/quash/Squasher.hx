@@ -102,7 +102,7 @@ class Squasher extends Boss
 		if (TotalHP <= 0) {
 			fsm.changeState('dead');
 			H.signalAll('activate', 1);
-		
+			H.setFlag(4, true);
 		}
 		
 	}

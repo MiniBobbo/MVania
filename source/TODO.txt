@@ -1,21 +1,39 @@
-****  When you save the game, default back to the regular shot so we don't get a weird case where the player gets a gun, dies and loses it, but can still shoot it until they swap weapons.
+***  When you save the game, default back to the regular shot so we don't get a weird case where the player gets a gun, dies and loses it, but can still shoot it until they swap weapons.
 ***Fly Generator much too strong
 ***On fire weapon pick up the weapon is selected but doesn't fire.
 ***Shoot robot is a little off the floor
+***Add Stomper to game
+***Add AirBlade
+***Finish minimap
+***Control - Computer Room shows on the minimap wrong
+***Life Support - Airlock screwed up
+***Add Boost Upgrade
+***Conditional Doors
+***Finish Control
+***Terminals can set flags
+***Cutscene Substate
+***Command - Trash Compactor
+
 
 -----MVP
-Finish Control
 Finish final boss
-Add Stomper to game
-Add Boost Upgrade
-Add AirBlade
-Finish minimap
-Control - Computer Room shows on the minimap as the 
-Life Support - Airlock screwed up
+Add End Game State
+Engineering - Short Term Storage finish
+Engineering - Engine Room finish
+Cutscenes only play once.
+Command - Backup needs starfield bg.
+Command - Junction needs starfield bg.
+Command - Lower Deck.  Raise the first ground up 2 so it is visible right from the start.
+Command - Lower Deck.  Cutscene wrong.
+Command - Destroyed Area.  Finish.
 
 -----Follow up 1
-Cutscene Substate
 Power up messages
+Engineering - Officers Quarters lore add.
+Engineering - thruster Control.  Make the first platform longer so people don't fall into the spikes with no warning.
+Terraforming - High Falls - Lower the antigrav so the platform is still visible.
+Command - Network access needs to be restricted by the lightning attack.
+Pod Bay background fixed
 Terraforming - Shadowed Glade needs to be finished.
 Create an interactive terminal that displays lore.
 Do something with the Life Support - Generator.  It at least needs background graphics.  Maybe a friendly NPC?  Lore room?
@@ -34,6 +52,8 @@ Control - Computer Room needs bg.
 Fix new maximums when you pick up a HP or Energy up.
 First time in the outside areas needs cutscene.
 Disappearing/fading blocks in the outside areas.
+Add trash to the compactor
+Move the space and esacpe message to the right in the intro scene
 
 BUGS
 Universal attacks sometimes travel through walls after getting the air blade.

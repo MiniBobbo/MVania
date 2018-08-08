@@ -15,9 +15,13 @@ Powerups
 10 - Life Support - Maintenance Tunnel HP up
 11 - Terraforming - Deepmaw energy up
 12 - Engineering - Compactor energy up
-
+13 - Command - Computer Room Door open
+14 - Command - Equipment Storage HP up
 
 
 Cutscenes
 20 - Intro
+21 - Life Support Computer Room
+22 - Command - Lower Deck - mushboom joke
+
 

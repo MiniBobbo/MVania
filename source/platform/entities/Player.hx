@@ -225,6 +225,9 @@ public var currentBoostCount(default, null) :Int = 0;
 			case 'addLightning':
 				H.playerDef.attacks[2] = true;
 				H.ps.hud.createWeaponBoxes();
+			case 'addAirblade':
+				H.playerDef.attacks[3] = true;
+				H.ps.hud.createWeaponBoxes();
 			case 'stun':
 				if (data == null || !Std.is(data, FlxPoint))
 					return;

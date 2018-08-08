@@ -134,13 +134,13 @@ class AttackFactory
 				a.centerOffsets();
 				a.energyCost = 2;
 				//a.setUpdateFunction(AngleTowardsVelocity);
+				a.collideMap = true;
 				a.setInitFunction(function(a:UnivAttack) {
 					a.animation.play(a.fireAnim);
 					a.velocity.y += FlxG.random.float(-ELECTRIC_SPREAD, ELECTRIC_SPREAD);
 					
 				});
 				a.setCompleteFunction(stopMoving);
-				a.collideMap = true;
 				a.setHitFunction(defaultHit);
 			default:
 				

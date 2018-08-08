@@ -130,7 +130,11 @@ class H
 	}
 	
 	public static function loadGame():Bool {
-		var save = initSave();	
+		var save = initSave();
+		if (save.data.d == null) {
+			clearSave();
+			return false;
+		}
 		//trace('Saved data: ' + save.data.d);
 		H.playerDef = Json.parse(save.data.d);
 		H.playerDef.playerHealth = H.playerDef.playerMaxHealth;

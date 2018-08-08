@@ -151,6 +151,10 @@ class EnemyFactory
 				e = new BoostUpgrade(map);
 				H.rectToTile(rect);
 				e.reset(rect.r.x, rect.r.y);
+			case 'boostplus':
+				e = new BoostUpgradePlus(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
 			case 'terminal':
 				e = new Terminal(map);
 				H.rectToTile(rect);
@@ -216,6 +220,11 @@ class EnemyFactory
 				e = new HorizDoor(map, code);
 				H.rectToTile(rect);
 				e.reset(rect.r.x, rect.r.y);
+				//If we have the flag, open the door
+				if (rect.properties.exists('flag') && H.checkFlag(rect.properties.get('flag'))) {
+					e.signal('activate', code);
+				}
+
 			case 'panel':
 				var code = 0;
 				if (rect.properties.exists('code'))

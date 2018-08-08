@@ -55,7 +55,7 @@ class MenuState extends FlxState
 		add(bg1);
 		add(bg2);
 		
-		meteor = new FlxSprite( FlxG.width, 0, 'assets/images/meteor.png');
+		meteor = new FlxSprite( FlxG.width, 20, 'assets/images/meteor.png');
 		//meteor.makeGraphic(300, 300, FlxColor.RED);
 		meteor.centerOffsets();
 		meteor.centerOrigin();
@@ -152,12 +152,12 @@ class MenuState extends FlxState
 	}
 	
 	private function debug() {
-		H.playerDef.flags[10] = true;
+		//H.playerDef.flags[13] = true;
 		H.playerDef.flags[20] = true;
 		H.previousLevel = 'Command - Corridor';
 		H.currentLevel = 'Command - Trash Compactor';
 		H.playerDef.boost = true;
-		H.playerDef.boostUpgrade = true;
+		//H.playerDef.boostUpgrade = true;
 		H.playerDef.attacks[3] = true;
 		H.playerDef.attacks[2] = true;
 		H.playerDef.attacks[1] = true;
