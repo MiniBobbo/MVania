@@ -90,6 +90,7 @@ class BGFactory
 		map.set('Terraforming - The Maw', 'guts');
 		map.set('Terraforming - Deepmaw', 'guts');
 		map.set('Terraforming - Depths', 'caverns');
+		map.set('Life Support - Airlock', 'starfield');
 		map.set('Life Support - Space Dock', 'starfield');
 		map.set('Life Support - Storage', 'starfield');
 		map.set('Life Support - Command Access', 'starfield');
@@ -101,5 +102,7 @@ class BGFactory
 		map.set('Command - Equipment Storage', 'starfield');
 		map.set('Command - Backup Equipment', 'starfield');
 		map.set('Command - Corridor', 'starfield');
+		map.set('Command - Bridge', 'starfield');
+		map.set('Command - Sub Command', 'starfield');
 	}
 }

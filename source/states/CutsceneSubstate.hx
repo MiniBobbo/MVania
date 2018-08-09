@@ -71,6 +71,10 @@ class CutsceneSubstate extends FlxSubState
 				return ['WARNING!!!  WARNING!!!\nLARGE MACHINE DETECTED AHEAD!!!', 'PROCEED WITH CAUTION!!!'];
 			case '24': 
 				return ['Incoming message from Central Life Support Computer:', 'The virus has affected the holographic projectors and is recreating a scene from some planet.', 'The specific planet is unknown.  Perhaps it is the source planet of this virus?'];
+			case '25': 
+				return ['Incoming message from Central Life Support Computer:', 'The Sub Command area was designed for the junior officers and support crew', 'Using holographic technology, all the space around the ship is broadcast onto all the walls and floors.', 'The intent was to offer 360 degree views to help with decision making, but in reality most humans find it extremely distracting.'];
+			case '26': 
+				return ['Incoming message from Central Life Support Computer:', 'The source of the virus is detected through this door. \n\nProceed with caution.'];
 				
 			default:
 				return ['This isn\'t right.  You shouldn\'t be seeing this.  How did you get here?', 'This is cutscene ' + code];

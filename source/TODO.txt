@@ -23,23 +23,30 @@
 ***Command - Equipment Storage.  Finish.
 ***Outdoors Cutscene
 ***Command - Destroyed Area.  Finish.
+***Command - Corridor.  Finish.
+***Command - Network Access.  Finish.
+***Command - Sub Command.  Finish.
+***Command - Bridge.  Finish.
+***Life Support - Airlock bg fix.
 
 -----MVP
 Finish final boss
 Add End Game State
 Engineering - Engine Room finish
-Command - Corridor.  Finish.
-Command - Network Access.  Finish.
-Command - Sub Command.  Finish.
-Command - Bridge.  Finish.
-
-
+Life Support - Generator do something with.
+Engineering - Long Term Storage.  Add the airblade.
+Pod Bay bg fix.
+Opening cutscene.
+Add additional cutscenes.
+Add sounds
 
 -----Follow up 1
+Shadowed Glade finished.
+Hitting fuel with fire destroys the ship.
 Power up messages
 Engineering - Officers Quarters lore add.
 Engineering - Short Term Storage bg add.
-Engineering - thruster Control.  Make the first platform longer so people don't fall into the spikes with no warning.
+Engineering - Thruster Control.  Make the first platform longer so people don't fall into the spikes with no warning.
 Terraforming - High Falls - Lower the antigrav so the platform is still visible.
 Command - Network access needs to be restricted by the lightning attack.
 Pod Bay background fixed

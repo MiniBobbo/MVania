@@ -26,5 +26,6 @@ Cutscenes
 22 - Command - Lower Deck - mushboom joke
 23 - Command - Corridor - Before trash compactor
 24 - Outdoors message
+25 - Command - Sub Command Message
 
 
