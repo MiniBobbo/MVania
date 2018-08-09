@@ -66,7 +66,11 @@ class CutsceneSubstate extends FlxSubState
 				return ['This is the first cutscene', 'Isn\t it great?'];
 				
 			case '22': 
-				return ['Incoming message from Central Life Support Computer:', 'How in the world did that mushroom get there?'];
+				return ['Incoming message from Central Life Support Computer:', 'How in the world did those mushrooms get there?'];
+			case '23': 
+				return ['WARNING!!!  WARNING!!!\nLARGE MACHINE DETECTED AHEAD!!!', 'PROCEED WITH CAUTION!!!'];
+			case '24': 
+				return ['Incoming message from Central Life Support Computer:', 'The virus has affected the holographic projectors and is recreating a scene from some planet.', 'The specific planet is unknown.  Perhaps it is the source planet of this virus?'];
 				
 			default:
 				return ['This isn\'t right.  You shouldn\'t be seeing this.  How did you get here?', 'This is cutscene ' + code];

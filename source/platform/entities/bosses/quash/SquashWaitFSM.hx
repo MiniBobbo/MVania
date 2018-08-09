@@ -43,8 +43,8 @@ class SquashWaitFSM extends FSMModule
 		
 			if (squash.pos.x < 32)
 			squash.pos.x = 32;
-			if (squash.pos.x > 500)
-			squash.pos.x = 500;
+			if (squash.pos.x > 270)
+			squash.pos.x = 270;
 			
 			
 		

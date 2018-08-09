@@ -138,8 +138,8 @@
  </layer>
  <objectgroup name="Object Layer 1">
   <object id="90" name="travel" type="Command - Corridor" x="92" y="0" width="112" height="8"/>
-  <object id="92" name="d" type="Command - Corridor" x="104" y="324" width="10" height="16"/>
-  <object id="93" name="boss" type="squasher" x="308" y="360" width="12" height="12">
+  <object id="92" name="d" type="Command - Corridor" x="165" y="553" width="10" height="16"/>
+  <object id="93" name="boss" type="squasher" x="358" y="362" width="12" height="12">
    <properties>
     <property name="flag" value="4"/>
    </properties>

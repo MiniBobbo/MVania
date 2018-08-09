@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="32" tileheight="32" nextobjectid="63">
+<map version="2017.05.26" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="32" tileheight="32" nextobjectid="64">
  <tileset firstgid="1" name="32blocks" tilewidth="32" tileheight="32" tilecount="10" columns="10">
   <image source="32blocks.png" width="320" height="32"/>
  </tileset>
- <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="418" columns="19">
-  <image source="shipTileset.png" width="608" height="704"/>
+ <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="513" columns="19">
+  <image source="shipTileset.png" width="608" height="864"/>
   <terraintypes>
    <terrain name="trees" tile="0"/>
    <terrain name="goop" tile="0"/>
@@ -172,5 +172,6 @@
     <property name="flag" value="6"/>
    </properties>
   </object>
+  <object id="63" name="cutscene" type="24" x="2055" y="477" width="122" height="136"/>
  </objectgroup>
 </map>

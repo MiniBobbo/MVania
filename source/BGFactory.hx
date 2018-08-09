@@ -94,5 +94,12 @@ class BGFactory
 		map.set('Life Support - Storage', 'starfield');
 		map.set('Life Support - Command Access', 'starfield');
 		map.set('Command - Space Bridge', 'starfield');
+		map.set('Command - Backup', 'starfield');
+		map.set('Command - Junction', 'starfield');
+		map.set('Command - Lower Deck', 'starfield');
+		map.set('Command - Destroyed Area', 'starfield');
+		map.set('Command - Equipment Storage', 'starfield');
+		map.set('Command - Backup Equipment', 'starfield');
+		map.set('Command - Corridor', 'starfield');
 	}
 }

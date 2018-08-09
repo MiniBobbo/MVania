@@ -21,7 +21,7 @@ class SquashRandomStompFSM extends FSMModule
 	var stompCount:Int;
 	
 	var MIN_X:Float = 32;
-	var MAX_X:Float = 300;
+	var MAX_X:Float = 270;
 	var MOVE_TIME:Float = .8;
 	
 	var stomping:Bool = false;

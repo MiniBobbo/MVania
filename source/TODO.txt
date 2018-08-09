@@ -13,23 +13,32 @@
 ***Terminals can set flags
 ***Cutscene Substate
 ***Command - Trash Compactor
-
+***Engineering - Short Term Storage finish
+***Command - Backup needs starfield bg.
+***Command - Junction needs starfield bg.
+***Command - Lower Deck.  Raise the first ground up 2 so it is visible right from the start.
+***Command - Lower Deck.  Cutscene wrong.
+***Cutscenes only play once.
+***Command - Destroyed Area.  Finish.
+***Command - Equipment Storage.  Finish.
+***Outdoors Cutscene
+***Command - Destroyed Area.  Finish.
 
 -----MVP
 Finish final boss
 Add End Game State
-Engineering - Short Term Storage finish
 Engineering - Engine Room finish
-Cutscenes only play once.
-Command - Backup needs starfield bg.
-Command - Junction needs starfield bg.
-Command - Lower Deck.  Raise the first ground up 2 so it is visible right from the start.
-Command - Lower Deck.  Cutscene wrong.
-Command - Destroyed Area.  Finish.
+Command - Corridor.  Finish.
+Command - Network Access.  Finish.
+Command - Sub Command.  Finish.
+Command - Bridge.  Finish.
+
+
 
 -----Follow up 1
 Power up messages
 Engineering - Officers Quarters lore add.
+Engineering - Short Term Storage bg add.
 Engineering - thruster Control.  Make the first platform longer so people don't fall into the spikes with no warning.
 Terraforming - High Falls - Lower the antigrav so the platform is still visible.
 Command - Network access needs to be restricted by the lightning attack.
@@ -57,3 +66,4 @@ Move the space and esacpe message to the right in the intro scene
 
 BUGS
 Universal attacks sometimes travel through walls after getting the air blade.
+If you die and hit a travel point, you are both alive and dead, and all the collisions get screwed up.

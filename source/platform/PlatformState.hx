@@ -446,8 +446,10 @@ class PlatformState extends FlxState
 					var tempFlag:String = '0';
 					if (r.properties.exists('type'))
 						tempFlag = r.properties.get('type');
-					var cz = new CutsceneZone(r.r.x, r.r.y, r.r.width, r.r.height, tempFlag);
-					zones.add(cz);
+						if (!H.checkFlag(tempFlag)) {
+							var cz = new CutsceneZone(r.r.x, r.r.y, r.r.width, r.r.height, tempFlag);
+							zones.add(cz);
+						}
 				case 'start':
 					createPlayer(r);
 				case 'flybotgen':
