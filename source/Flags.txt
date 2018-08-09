@@ -26,6 +26,10 @@ Cutscenes
 22 - Command - Lower Deck - mushboom joke
 23 - Command - Corridor - Before trash compactor
 24 - Outdoors message
-25 - Command - Sub Command Message
-
+25 - Command - Sub Command Message 
+25 - Command - Sub Command Message "Final boss"
+27 - Life Support Computer Room intro message
+28 - Pod Bay message
+29 - First infected message
+30 - Save Station
 

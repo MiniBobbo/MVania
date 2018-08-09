@@ -14,6 +14,7 @@ import haxe.Json;
 import platform.entities.EffectSprite.EffectTypes;
 import platform.entities.Entity;
 import platform.entities.Player.PlayerForm;
+import states.PowerupSubstate;
 import tmxtools.TmxRect;
 
 /**
@@ -199,5 +200,9 @@ class H
 	public static function exploreRoom(room:String) {
 		if (playerDef.explored.indexOf(room) == -1)
 			playerDef.explored.push(room);
+	}
+	
+	public static function displayMessage(message:String) {
+		ps.openSubState(new PowerupSubstate(message));
 	}
 }

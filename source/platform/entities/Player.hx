@@ -222,12 +222,15 @@ public var currentBoostCount(default, null) :Int = 0;
 			case 'addFire':
 				H.playerDef.attacks[1] = true;
 				H.ps.hud.createWeaponBoxes();
+				H.displayMessage('Added Fire Attack.\n\nSome enemies are weak to fire attacks.');
 			case 'addLightning':
 				H.playerDef.attacks[2] = true;
 				H.ps.hud.createWeaponBoxes();
+				H.displayMessage('Added Lightning Attack.\n\nCan activate some objects.');
 			case 'addAirblade':
 				H.playerDef.attacks[3] = true;
 				H.ps.hud.createWeaponBoxes();
+				H.displayMessage('Added Air Blade Attack.\n\nKills everything.\nI mean everything.');
 			case 'stun':
 				if (data == null || !Std.is(data, FlxPoint))
 					return;
@@ -241,13 +244,14 @@ public var currentBoostCount(default, null) :Int = 0;
 			case 'boostup':
 				if (currentBoostCount > 0) {
 					currentBoostCount--;
-					trace('Boost up signal received.');
 					fsm.changeState('boostup');
 				}
 			case 'energyup':
 				energyBoost();
+					H.displayMessage('Energy up\n\nReceived additional weapon energy.');
 			case 'hpup':
 				hpBoost();
+					H.displayMessage('Health increased\n\nReceived additional health.');
 			default:
 
 		}

@@ -74,7 +74,7 @@ class Main extends Sprite
 			
 		
 		super();
-		addChild(new FlxGame(480, 270, MenuState));
+		addChild(new FlxGame(480, 270, TestState));
 		#if debug
 		addChild(new FPS(10, stage.height - 20, 0xffffff));
 		#end

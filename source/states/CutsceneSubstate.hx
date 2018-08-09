@@ -75,7 +75,17 @@ class CutsceneSubstate extends FlxSubState
 				return ['Incoming message from Central Life Support Computer:', 'The Sub Command area was designed for the junior officers and support crew', 'Using holographic technology, all the space around the ship is broadcast onto all the walls and floors.', 'The intent was to offer 360 degree views to help with decision making, but in reality most humans find it extremely distracting.'];
 			case '26': 
 				return ['Incoming message from Central Life Support Computer:', 'The source of the virus is detected through this door. \n\nProceed with caution.'];
-				
+			case '27':
+				return ['Incoming message from Central Life Support Computer:', 'An unknown entity (DESIGNATION : OPHIOCOR) has infected the HCS Phoenix.  OPHIOCOR shares characteristics with both a computer virus and a fungus and spreads through computer systems and through contact.', 
+				'The HCS Phoenix network has been segmented to slow the spread of the virus.  The extent of the infection is currently unknown.',
+				'You have been created to find the source of the virus and eliminate it.'];
+			case '28':
+				return ['Incoming message from Central Life Support Computer:', 'These are the cryo pods for the 1946 humans currently aboard the HCS Phoenix.', 
+				'OPHICOR has yet to infect this area.  Please proceed to the rest of the ship.'];
+			case '29':
+				return ['Incoming message from Central Life Support Computer:', 'OPHICOR infection detected in these replicated robots.  Likely the engineering module has been infected by OPHICOR.'];
+			case '30':
+				return ['Incoming message from Central Life Support Computer:', 'Backup Station detected.  This station is likely infected by OPHIOCOR, but can be restored to its default state.', 'Please proceed to the save station and upload the restoration program.', 'In unlikely event that your body is destroyed it can be recreated at this station in the future.', 'Unfortunately, all the information gathered since your last backup will be lost.'];
 			default:
 				return ['This isn\'t right.  You shouldn\'t be seeing this.  How did you get here?', 'This is cutscene ' + code];
 				

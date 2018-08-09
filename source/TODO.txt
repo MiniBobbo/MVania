@@ -28,6 +28,8 @@
 ***Command - Sub Command.  Finish.
 ***Command - Bridge.  Finish.
 ***Life Support - Airlock bg fix.
+*Move the space and esacpe message to the right in the intro scene
+*Power up messages
 
 -----MVP
 Finish final boss
@@ -43,7 +45,6 @@ Add sounds
 -----Follow up 1
 Shadowed Glade finished.
 Hitting fuel with fire destroys the ship.
-Power up messages
 Engineering - Officers Quarters lore add.
 Engineering - Short Term Storage bg add.
 Engineering - Thruster Control.  Make the first platform longer so people don't fall into the spikes with no warning.
@@ -69,7 +70,6 @@ Fix new maximums when you pick up a HP or Energy up.
 First time in the outside areas needs cutscene.
 Disappearing/fading blocks in the outside areas.
 Add trash to the compactor
-Move the space and esacpe message to the right in the intro scene
 
 BUGS
 Universal attacks sometimes travel through walls after getting the air blade.

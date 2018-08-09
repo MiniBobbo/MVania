@@ -72,7 +72,7 @@ class IntroState extends FlxState
 		console.skipKeys = [FlxKey.SPACE];
 		hud.add(console);
 		
-		var info = new FlxText(0, 250, FlxG.width, 'Press Space to continue.  Escape to Skip.', 8);
+		var info = new FlxText(400, 250, 70, 'Press Space to continue', 8);
 		info.setFormat('assets/data/font/TektrReg.ttf', 8, FlxColor.WHITE, FlxTextAlign.CENTER);
 		
 		hud.add(info);
