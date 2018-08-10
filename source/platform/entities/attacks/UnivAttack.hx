@@ -5,6 +5,8 @@ import flixel.math.FlxPoint;
 import flixel.util.FlxTimer;
 import platform.entities.Attack;
 import platform.entities.Entity;
+import sound.AllSounds;
+import sound.Sounds;
 
 /**
  * ...
@@ -85,6 +87,7 @@ class UnivAttack extends Attack
 	public function newInitAttack(p:FlxPoint, v:FlxPoint, lifespan:Float, type:AttackTypes) {
 		ID = FlxG.random.int();
 		visible = true;
+		startSound(type);
 		//setHitboxSize(type);
 		//centerOffsets();
 		reset(p.x-width/2, p.y - height/2);
@@ -99,7 +102,28 @@ class UnivAttack extends Attack
 			centerOffsets();
 		}
 
-	}	
+	}
+	
+	private function startSound(type:AttackTypes) {
+		switch (type) 
+		{
+			case AttackTypes.SHOT:
+				Sounds.play(AllSounds.SHOT);
+			case AttackTypes.ELECTRIC:
+				Sounds.play(AllSounds.ELECTRIC);
+			case AttackTypes.SHOCKWAVE:
+				Sounds.play(AllSounds.SHOCKWAVE);
+			case AttackTypes.AIRBLADE:
+				Sounds.play(AllSounds.AIRBLADE);
+			case AttackTypes.FIRE:
+				Sounds.play(AllSounds.FIRE);
+				
+				
+			default:
+				
+		}
+	}
+	
 	public function setUpdateFunction(f:UnivAttack->Float->Void) {
 		onUpdate = f;
 		

@@ -53,6 +53,8 @@ class H
 	
 	public static var r:FlxRandom;
 	
+	public static var SOUND_MULT:Float = .4;
+	
 	public static function getScrollValue():FlxPoint {
 		if (bgScrollValue == null)
 		bgScrollValue = new FlxPoint(.8, .8);

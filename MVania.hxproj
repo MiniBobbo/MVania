@@ -6,12 +6,12 @@
     <movie input="" />
     <movie path="Project.xml" />
     <movie fps="60" />
-    <movie width="640" />
-    <movie height="480" />
+    <movie width="960" />
+    <movie height="540" />
     <movie version="1" />
     <movie minorVersion="0" />
     <movie platform="Lime" />
-    <movie background="#FFFFFF" />
+    <movie background="000000" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
@@ -26,12 +26,12 @@
   </classpaths>
   <!-- Build options -->
   <build>
-    <option directives="flixel=4.4.1&#xA;openfl=8.1.0&#xA;lime=6.3.1&#xA;flixel-addons=2.6.0&#xA;tools=6.3.1&#xA;NAPE_NO_INLINE&#xA;no-compilation&#xA;native&#xA;FLX_NO_TOUCH&#xA;lime-native&#xA;lime-vorbis&#xA;openfl-native&#xA;lime-cffi&#xA;windows&#xA;desktop&#xA;display" />
+    <option directives="flixel=4.4.1&#xA;openfl=8.1.0&#xA;lime=6.3.1&#xA;flixel-addons=2.6.0&#xA;tools=6.3.1&#xA;NAPE_NO_INLINE&#xA;FLX_NO_DEBUG&#xA;no-compilation&#xA;NAPE_RELEASE_BUILD&#xA;native&#xA;FLX_NO_TOUCH&#xA;lime-native&#xA;lime-vorbis&#xA;openfl-native&#xA;lime-cffi&#xA;windows&#xA;desktop&#xA;display" />
     <option flashStrict="False" />
     <option noInlineOnDebug="False" />
     <option mainClass="ApplicationMain" />
     <option enabledebug="False" />
-    <option additional="--macro openfl._internal.utils.ExtraParams.include()&#xA;--macro lime.Lib.extraParams()&#xA;--remap flash:openfl&#xA;--macro flixel.system.macros.FlxDefines.run()&#xA;-debug " />
+    <option additional="--macro openfl._internal.utils.ExtraParams.include()&#xA;--macro lime.Lib.extraParams()&#xA;--remap flash:openfl&#xA;--macro flixel.system.macros.FlxDefines.run()" />
   </build>
   <!-- haxelib libraries -->
   <haxelib>

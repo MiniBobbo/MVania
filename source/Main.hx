@@ -8,6 +8,7 @@ import openfl.display.Sprite;
 import platform.H;
 import platform.PlatformState;
 import platform.entities.Player.PlayerForm;
+import states.EndGameState;
 import states.IntroState;
 import states.MenuState;
 import states.MinimapSubState;
@@ -74,7 +75,7 @@ class Main extends Sprite
 			
 		
 		super();
-		addChild(new FlxGame(480, 270, TestState));
+		addChild(new FlxGame(480, 270, MenuState));
 		#if debug
 		addChild(new FPS(10, stage.height - 20, 0xffffff));
 		#end

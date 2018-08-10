@@ -55,7 +55,7 @@ class Bouncer extends Enemy
 	/**
 	 * Changes the direction the bouncer is traveling.
 	 */
-	private function newDirection() {
+	public function newDirection() {
 		var newAngle = 180 + FlxG.random.float( -ANGLE_VAR, ANGLE_VAR);
 		v.rotate(FlxPoint.weak(), newAngle);
 	}

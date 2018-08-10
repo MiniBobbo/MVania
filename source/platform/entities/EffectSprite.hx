@@ -3,6 +3,8 @@ package platform.entities;
 import flixel.FlxSprite;
 import flixel.math.FlxPoint;
 import flixel.system.FlxAssets.FlxGraphicAsset;
+import sound.AllSounds;
+import sound.Sounds;
 
 
 enum EffectTypes {
@@ -32,6 +34,7 @@ class EffectSprite extends FlxSprite
 		{
 			case EffectTypes.EXPLODE:
 				animation.play('explode');
+				Sounds.play(AllSounds.EXPLODE);
 			default:
 				
 		}

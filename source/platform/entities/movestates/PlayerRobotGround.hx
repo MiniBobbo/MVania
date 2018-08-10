@@ -7,6 +7,8 @@ import flixel.FlxObject;
 import flixel.system.FlxSound;
 import inputhelper.InputHelper;
 import platform.entities.Player;
+import sound.AllSounds;
+import sound.Sounds;
 
 /**
  * ...
@@ -60,7 +62,7 @@ class PlayerRobotGround extends FSMModule
 		if (i.isButtonJustPressed('jump') || !player.isTouching(FlxObject.FLOOR)) {
 			player.y -= .5;
 			player.velocity.y = 0;
-			//jump.play();
+		if (i.isButtonJustPressed('jump')) 	Sounds.play(AllSounds.JUMP);
 			player.fsm.changeState('air');
 		} else if (i.isButtonJustPressed('boost')) {
 			if (i.isButtonPressed('use')) {

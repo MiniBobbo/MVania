@@ -11,6 +11,8 @@ import fsm.FSM;
 import fsm.IFSM;
 import lime.graphics.console.RenderState.DepthStencilState;
 import platform.entities.movestates.DeadState;
+import sound.AllSounds;
+import sound.Sounds;
 
 /**
  * ...
@@ -99,6 +101,8 @@ class Entity extends FlxSprite implements IFSM
 		//return;
 		hp -= damage;
 		FlxSpriteUtil.flicker(this, .2);
+		Sounds.play(AllSounds.HIT);
+
 		if (hp <= 0) {
 			velocity.x = 0;
 			if (attack != null)

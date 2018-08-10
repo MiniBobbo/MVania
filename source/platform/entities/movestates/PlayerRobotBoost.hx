@@ -4,6 +4,8 @@ import flixel.math.FlxPoint;
 import fsm.FSMModule;
 import platform.entities.Entity;
 import platform.entities.Player;
+import sound.AllSounds;
+import sound.Sounds;
 
 /**
  * ...
@@ -27,6 +29,7 @@ class PlayerRobotBoost extends FSMModule
 	
 	override public function changeTo() 
 	{
+		Sounds.play(AllSounds.BOOST);
 		p.animation.play('boost');
 		boostTime = BOOST_TIME;
 		p.velocity.y = BOOST_STR.y;

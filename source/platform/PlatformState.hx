@@ -94,7 +94,8 @@ class PlatformState extends FlxState
 	override public function create():Void
 	{
 		super.create();
-		
+		if (!FlxG.sound.music.playing)
+			FlxG.sound.playMusic('assets/music/DarkCity.ogg');
 		trace('Creating playstate');
 		H.setPlaystate(this);
 		helpMessage = new FlxText(FlxG.width * .1, FlxG.height * .1, FlxG.width * .8, '', 16);

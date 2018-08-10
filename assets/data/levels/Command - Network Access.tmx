@@ -107,11 +107,6 @@
   <object id="88" name="enemy" type="turret" x="1961" y="172" width="11" height="11"/>
   <object id="89" name="enemy" type="turret" x="1959" y="76" width="13" height="12"/>
   <object id="90" name="terminal" x="1836" y="175" width="7" height="9"/>
-  <object id="91" name="enemy" type="bouncer" x="1420" y="138" width="11" height="10"/>
-  <object id="92" name="enemy" type="bouncer" x="1555.5" y="209" width="11" height="10"/>
-  <object id="93" name="enemy" type="bouncer" x="1357.5" y="202" width="11" height="10"/>
-  <object id="94" name="enemy" type="bouncer" x="1238.5" y="78" width="11" height="10"/>
-  <object id="95" name="enemy" type="bouncer" x="1573.5" y="69" width="11" height="10"/>
   <object id="96" name="enemy" type="batbot" x="549.5" y="45" width="11" height="10"/>
   <object id="97" name="enemy" type="batbot" x="681.5" y="46" width="11" height="10"/>
   <object id="98" name="enemy" type="batbot" x="860.5" y="70" width="11" height="10"/>

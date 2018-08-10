@@ -11,6 +11,8 @@ import flixel.system.FlxSound;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import inputhelper.InputHelper;
+import sound.AllSounds;
+import sound.Sounds;
 
 /**
  * ...
@@ -64,10 +66,7 @@ class PlayerRobotAir extends FSMModule
 		player.addEnergyStep(dt);
 		jumpElapsed += dt;
 		if (player.isTouching(FlxObject.FLOOR)) {
-			//player.scale.x = 1.2;
-			//player.scale.y = .8;
-			//FlxTween.tween(player.scale, {x:1, y:1}, .2);
-			//FlxG.sound.play('assets/sounds/land.ogg');
+			Sounds.play(AllSounds.LAND);
 			player.fsm.changeState('ground');
 			return;
 		}  else if (i.isButtonJustPressed('boost')) {

@@ -6,6 +6,8 @@ import flixel.util.FlxTimer;
 import fsm.FSMModule;
 import fsm.IFSM;
 import shaders.PixelShader;
+import sound.AllSounds;
+import sound.Sounds;
 
 /**
  * ...
@@ -38,6 +40,7 @@ class DeadState extends FSMModule
 
 	override public function changeTo() 
 	{
+		Sounds.play(AllSounds.DEAD);
 		p.velocity.set();
 		FlxTween.tween(this, {pixelValue:20.0}, DEATH_TIME);
 		FlxTween.tween(p, {alpha:0}, DEATH_TIME);

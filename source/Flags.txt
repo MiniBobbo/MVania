@@ -18,6 +18,7 @@ Powerups
 13 - Command - Computer Room Door open
 14 - Command - Equipment Storage HP up
 15 - Engineering - Short Term Storage Energy up
+16 - Airblade
 
 
 Cutscenes

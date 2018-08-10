@@ -8,6 +8,8 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import platform.entities.Entity;
 import platform.entities.gameentites.Enemy;
+import sound.AllSounds;
+import sound.Sounds;
 
 /**
  * ...
@@ -54,7 +56,7 @@ class Stomper extends Enemy
 	
 	private function down() {
 		back.set(x, y);
-		FlxTween.tween(this, {y:y + 96}, DOWN_SPEED, {ease:FlxEase.quadIn, onComplete: function(_) { FlxG.camera.shake(.02,.1); }});
+		FlxTween.tween(this, {y:y + 96}, DOWN_SPEED, {ease:FlxEase.quadIn, onComplete: function(_) { FlxG.camera.shake(.02, .1); Sounds.play(AllSounds.POUND); }});
 		timer.start(WAIT_TIME, function(_) {
 			FlxTween.tween(this, {y:back.y}, DOWN_SPEED, {ease:FlxEase.quadIn, onComplete:function(_) {waitTimer = WAIT_TIME; }});
 		});

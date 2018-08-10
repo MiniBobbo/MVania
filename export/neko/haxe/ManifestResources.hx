@@ -178,8 +178,24 @@ import sys.FileSystem;
 @:keep @:bind #if display private #end class __ASSET__assets_images_ship_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_starfield_0_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_starfield_1_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_music_darkcity_ogg extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_music_emptycity_ogg extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_music_engineering_wav extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_music_music_goes_here_txt extends null { }
-@:keep @:bind #if display private #end class __ASSET__assets_sounds_player_land extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_activate_wav extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_airblade_wav extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_boost_wav extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_dead_wav extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_electric_wav extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_explode_wav extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_explodelong_wav extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_hit_wav extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_immune_wav extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_jump_wav extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_player_land_wav extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_pound_wav extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_shockwave_wav extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_shot_wav extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_sounds_go_here_txt extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_beep_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends null { }

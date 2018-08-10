@@ -199,6 +199,15 @@ class EnemyFactory
 					e.visible = false;
 					e.hp = 0;
 				}
+			case 'airblade':
+				e = new AirBlade(map);
+				H.rectToTile(rect);
+				e.reset(rect.r.x, rect.r.y);
+				if (H.playerDef.attacks[3]){
+					e.exists = false;
+					e.visible = false;
+					e.hp = 0;
+				}
 			case 'door':
 				var code = 0;
 				if (rect.properties.exists('code'))

@@ -3,6 +3,7 @@ import flixel.tile.FlxTilemap;
 import platform.entities.bosses.Boss;
 import platform.entities.bosses.quash.Squasher;
 import platform.entities.bosses.thrust.ThrustBoss;
+import platform.entities.bosses.final.FinalBoss;
 import tmxtools.TmxRect;
 
 /**
@@ -28,6 +29,10 @@ class BossFactory
 				b.setPositon(rect.r.x, rect.r.y);
 			case 'squasher':
 				b = new Squasher(map);
+				H.rectToTile(rect);
+				b.setPositon(rect.r.x, rect.r.y);
+			case 'finalboss':
+				b = new FinalBoss(map);
 				H.rectToTile(rect);
 				b.setPositon(rect.r.x, rect.r.y);
 			default:

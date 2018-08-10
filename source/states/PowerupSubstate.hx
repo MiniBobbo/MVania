@@ -33,7 +33,7 @@ class PowerupSubstate extends FlxSubState
 		box.screenCenter();
 		
 		e = new FlxSpriteGroup();
-		
+		e.scrollFactor.set();
 		e.y -= 400;
 		e.add(box);
 		e.add(text);

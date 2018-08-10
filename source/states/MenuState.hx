@@ -16,6 +16,8 @@ import flixel.util.FlxSpriteUtil;
 import flixel.util.FlxTimer;
 import platform.H;
 import platform.PlatformState;
+import sound.AllSounds;
+import sound.Sounds;
 
 /**
  * ...
@@ -45,6 +47,8 @@ class MenuState extends FlxState
 		H.loadGame();
 		super.create();
 		
+		FlxG.sound.playMusic('assets/music/EmptyCity.ogg');
+		
 		var bg1 = new FlxBackdrop('assets/images/starfield_0.png');
 		bg1.scrollFactor.set(.2, .2);
 		bg1.velocity.x = 50;
@@ -60,8 +64,8 @@ class MenuState extends FlxState
 		meteor.centerOffsets();
 		meteor.centerOrigin();
 		
-		ship = new FlxSprite(0, 0, 'assets/images/ship.png');
-		FlxTween.tween(ship, {y:20}, 2, {ease:FlxEase.quadInOut, type:FlxTween.PINGPONG});
+		ship = new FlxSprite(0, -20, 'assets/images/ship.png');
+		FlxTween.tween(ship, {y:0}, 2, {ease:FlxEase.quadInOut, type:FlxTween.PINGPONG});
 		add(ship);
 		
 		add(meteor);
@@ -83,10 +87,10 @@ class MenuState extends FlxState
 		startGame.y += 100;
 		hud.add(startGame);
 		
-		clearData = new FlxButtonPlus(400, 200, clearSave, 'Clear Saved Data');
-		hud.add(clearData);
-		var debugGame = new FlxButtonPlus(400, 240, debug, 'Debug game');
-		hud.add(debugGame);
+		//clearData = new FlxButtonPlus(350, 200, clearSave, 'Clear Saved Data');
+		//hud.add(clearData);
+		//var debugGame = new FlxButtonPlus(400, 240, debug, 'Debug game');
+		//hud.add(debugGame);
 		
 		add(hud);
 		
@@ -127,6 +131,8 @@ class MenuState extends FlxState
 	}
 	
 	function fadeScreen(_) {
+		Sounds.play(AllSounds.EXPLODE_LONG);
+		FlxG.sound.music.stop();
 		FlxG.camera.flash(FlxColor.RED, 500);
 		new FlxTimer().start(2, function(_) {
 		FlxG.camera.fade(FlxColor.BLACK, 1, false, function() {
@@ -154,11 +160,11 @@ class MenuState extends FlxState
 	private function debug() {
 		//H.playerDef.flags[13] = true;
 		H.playerDef.flags[20] = true;
-		H.previousLevel = 'Command - Corridor';
-		H.currentLevel = 'Command - Trash Compactor';
+		H.previousLevel = 'temp';
+		H.currentLevel = 'Command - Central Computer';
 		H.playerDef.boost = true;
-		//H.playerDef.boostUpgrade = true;
-		H.playerDef.attacks[3] = true;
+		H.playerDef.boostUpgrade = true;
+		//H.playerDef.attacks[3] = true;
 		H.playerDef.attacks[2] = true;
 		H.playerDef.attacks[1] = true;
 		refreshPlayerDefDisplay();
