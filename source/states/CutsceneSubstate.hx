@@ -84,6 +84,8 @@ class CutsceneSubstate extends FlxSubState
 				'OPHICOR has yet to infect this area.  Please proceed to the rest of the ship.'];
 			case '29':
 				return ['Incoming message from Central Life Support Computer:', 'OPHICOR infection detected in these replicated robots.  Likely the engineering module has been infected by OPHICOR.'];
+			case '31':
+				return ['Incoming message from Central Life Support Computer:', 'Why is this room completely empty and boring?\n\nSensors indicate that the designer ran out of time...'];
 			case '30':
 				return ['Incoming message from Central Life Support Computer:', 'Backup Station detected.  This station is likely infected by OPHIOCOR, but can be restored to its default state.', 'Please proceed to the save station and upload the restoration program.', 'In unlikely event that your body is destroyed it can be recreated at this station in the future.', 'Unfortunately, all the information gathered since your last backup will be lost.'];
 			default:

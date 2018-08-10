@@ -86,12 +86,13 @@ class MenuState extends FlxState
 		startGame.screenCenter();
 		startGame.y += 100;
 		hud.add(startGame);
+		clearData = new FlxButtonPlus(10, 240, clearSave, 'Clear Saved Data');
+		hud.add(clearData);
 		
-		//clearData = new FlxButtonPlus(350, 200, clearSave, 'Clear Saved Data');
-		//hud.add(clearData);
-		//var debugGame = new FlxButtonPlus(400, 240, debug, 'Debug game');
-		//hud.add(debugGame);
-		
+		#if debug
+		var debugGame = new FlxButtonPlus(400, 240, debug, 'Debug game');
+		hud.add(debugGame);
+		#end
 		add(hud);
 		
 		currentPlayerDef = new FlxText(0, 200, 300, H.playerDef + '');

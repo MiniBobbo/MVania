@@ -3,8 +3,8 @@
  <tileset firstgid="1" name="32blocks" tilewidth="32" tileheight="32" tilecount="10" columns="10">
   <image source="32blocks.png" width="320" height="32"/>
  </tileset>
- <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="418" columns="19">
-  <image source="shipTileset.png" width="608" height="704"/>
+ <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="513" columns="19">
+  <image source="shipTileset.png" width="608" height="864"/>
   <terraintypes>
    <terrain name="goop" tile="0"/>
   </terraintypes>
@@ -50,7 +50,7 @@
 32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32
 </data>
  </layer>
- <layer name="mg" width="40" height="20" visible="0">
+ <layer name="mg" width="40" height="20">
   <data encoding="csv">
 94,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,52,0,0,0,50,51,51,51,51,51,51,95,
 33,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,31,
@@ -123,7 +123,7 @@
 </data>
  </layer>
  <objectgroup name="Object Layer 1">
-  <object id="35" name="travel" type="Engineering - Engine Room_Engineering - Junction" x="931.333" y="8" width="89.3333" height="8.66667"/>
+  <object id="35" name="travel" type="Engineering - Engine Room" x="931.333" y="8" width="89.3333" height="8.66667"/>
   <object id="36" name="d" type="Engineering - Engine Room" x="968.663" y="44.667" width="16" height="10"/>
   <object id="48" name="travel" type="Engineering - Compactor_Engineering - Junction" x="1256" y="518.667" width="17.3333" height="85.3333"/>
   <object id="49" name="d" type="Engineering - Compactor" x="1220" y="586.667" width="10.6667" height="21.3333"/>

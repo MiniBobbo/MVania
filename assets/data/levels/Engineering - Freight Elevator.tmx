@@ -3,8 +3,8 @@
  <tileset firstgid="1" name="32blocks" tilewidth="32" tileheight="32" tilecount="10" columns="10">
   <image source="32blocks.png" width="320" height="32"/>
  </tileset>
- <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="418" columns="19">
-  <image source="shipTileset.png" width="608" height="704"/>
+ <tileset firstgid="11" name="shipTileset" tilewidth="32" tileheight="32" tilecount="513" columns="19">
+  <image source="shipTileset.png" width="608" height="864"/>
  </tileset>
  <layer name="bg" width="20" height="30">
   <data encoding="csv">
